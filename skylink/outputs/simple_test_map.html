@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7375502838ff415a8021d2c0dbd96e04 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+        <div style="position: fixed; 
+                    bottom: 50px; left: 50px; width: 150px; height: 120px; 
+                    background-color: white; border:2px solid grey; z-index:9999; 
+                    font-size:14px; padding: 10px">
+        <p><b>Legend</b></p>
+        <p><i class="fa fa-circle" style="color:lightblue"></i> Planes (2)</p>
+        <p><i class="fa fa-circle" style="color:lightgreen"></i> Drones (2)</p>
+        <p><i class="fa fa-circle" style="color:red"></i> Alerts (0)</p>
+        </div>
+        
+    
+            <div class="folium-map" id="map_7375502838ff415a8021d2c0dbd96e04" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7375502838ff415a8021d2c0dbd96e04 = L.map(
+                "map_7375502838ff415a8021d2c0dbd96e04",
+                {
+                    center: [40.71645, -74.00175],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4554015b8cc4d326a5d609d89ac4323c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4554015b8cc4d326a5d609d89ac4323c.addTo(map_7375502838ff415a8021d2c0dbd96e04);
+        
+    
+            var tile_layer_70636f499f81ceb687b7ba29cf4e693f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_70636f499f81ceb687b7ba29cf4e693f.addTo(map_7375502838ff415a8021d2c0dbd96e04);
+        
+    
+            var layer_control_22dd1cd75b3936c26b752491afa04e6b_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_4554015b8cc4d326a5d609d89ac4323c,
+                    "cartodbpositron" : tile_layer_70636f499f81ceb687b7ba29cf4e693f,
+                },
+                overlays :  {
+                },
+            };
+            let layer_control_22dd1cd75b3936c26b752491afa04e6b = L.control.layers(
+                layer_control_22dd1cd75b3936c26b752491afa04e6b_layers.base_layers,
+                layer_control_22dd1cd75b3936c26b752491afa04e6b_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_7375502838ff415a8021d2c0dbd96e04);
+
+        
+    
+            var marker_a1243dc641f16e4666a907965410a8a5 = L.marker(
+                [40.7128, -74.006],
+                {
+}
+            ).addTo(map_7375502838ff415a8021d2c0dbd96e04);
+        
+    
+            var icon_f91b4f6eef62debea818fd2fbdbd0166 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d768af7bf0150fcad6718cdd9e0d17e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d12011b01b6fa5ea36b4c19a1da668db = $(`<div id="html_d12011b01b6fa5ea36b4c19a1da668db" style="width: 100.0%; height: 100.0%;">             <b>✈️ Aircraft</b><br>             ICAO24: PLANE1<br>             Callsign: TEST1<br>             Altitude: 300 m<br>             Velocity: 200 m/s<br>             Country: United States<br>             Lat: 40.7128<br>             Lon: -74.0060             </div>`)[0];
+                popup_d768af7bf0150fcad6718cdd9e0d17e5.setContent(html_d12011b01b6fa5ea36b4c19a1da668db);
+            
+        
+
+        marker_a1243dc641f16e4666a907965410a8a5.bindPopup(popup_d768af7bf0150fcad6718cdd9e0d17e5)
+        ;
+
+        
+    
+    
+            marker_a1243dc641f16e4666a907965410a8a5.bindTooltip(
+                `<div>
+                     ✈️ TEST1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a1243dc641f16e4666a907965410a8a5.setIcon(icon_f91b4f6eef62debea818fd2fbdbd0166);
+            
+    
+            var marker_f36f8249159bb466f4cbb0869740daf9 = L.marker(
+                [40.72, -74.0],
+                {
+}
+            ).addTo(map_7375502838ff415a8021d2c0dbd96e04);
+        
+    
+            var icon_3e2cf41641f1c9ddc453d5d0966a2344 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_719b4fa8b2a29bc881a40ed4516b1cf3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf84ccc8e7c34b8cf3a97c33d070ed3e = $(`<div id="html_bf84ccc8e7c34b8cf3a97c33d070ed3e" style="width: 100.0%; height: 100.0%;">             <b>✈️ Aircraft</b><br>             ICAO24: PLANE2<br>             Callsign: TEST2<br>             Altitude: 400 m<br>             Velocity: 180 m/s<br>             Country: United States<br>             Lat: 40.7200<br>             Lon: -74.0000             </div>`)[0];
+                popup_719b4fa8b2a29bc881a40ed4516b1cf3.setContent(html_bf84ccc8e7c34b8cf3a97c33d070ed3e);
+            
+        
+
+        marker_f36f8249159bb466f4cbb0869740daf9.bindPopup(popup_719b4fa8b2a29bc881a40ed4516b1cf3)
+        ;
+
+        
+    
+    
+            marker_f36f8249159bb466f4cbb0869740daf9.bindTooltip(
+                `<div>
+                     ✈️ TEST2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f36f8249159bb466f4cbb0869740daf9.setIcon(icon_3e2cf41641f1c9ddc453d5d0966a2344);
+            
+    
+            var marker_c9122b2c98077a006a8330a3a6aaffa8 = L.marker(
+                [40.715, -74.003],
+                {
+}
+            ).addTo(map_7375502838ff415a8021d2c0dbd96e04);
+        
+    
+            var icon_96554386c603af4e5a38421f9ed0a1e4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "helicopter",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3c699813a3f4d76bcfb5c138b8f1cb3a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_03d5a24735cca3deae54a8e03c04e814 = $(`<div id="html_03d5a24735cca3deae54a8e03c04e814" style="width: 100.0%; height: 100.0%;">             <b>🚁 Drone</b><br>             ID: DRONE1<br>             Altitude: 150 m<br>             Speed: 20 m/s<br>             Heading: 90°<br>             Time Step: 1<br>             Lat: 40.7150<br>             Lon: -74.0030<br>             Timestamp: 2025-10-11 20:00:00             </div>`)[0];
+                popup_3c699813a3f4d76bcfb5c138b8f1cb3a.setContent(html_03d5a24735cca3deae54a8e03c04e814);
+            
+        
+
+        marker_c9122b2c98077a006a8330a3a6aaffa8.bindPopup(popup_3c699813a3f4d76bcfb5c138b8f1cb3a)
+        ;
+
+        
+    
+    
+            marker_c9122b2c98077a006a8330a3a6aaffa8.bindTooltip(
+                `<div>
+                     🚁 Drone DRONE1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c9122b2c98077a006a8330a3a6aaffa8.setIcon(icon_96554386c603af4e5a38421f9ed0a1e4);
+            
+    
+            var marker_7ad8384ac862eb868042e2624193573a = L.marker(
+                [40.718, -73.998],
+                {
+}
+            ).addTo(map_7375502838ff415a8021d2c0dbd96e04);
+        
+    
+            var icon_c8caba8cc647b01839389a33ec30915e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "helicopter",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_af6dab6f9ca9318c64f6e2f196b6c4e4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_21c6cc3a3cd6b8a603944c951b793c21 = $(`<div id="html_21c6cc3a3cd6b8a603944c951b793c21" style="width: 100.0%; height: 100.0%;">             <b>🚁 Drone</b><br>             ID: DRONE2<br>             Altitude: 180 m<br>             Speed: 25 m/s<br>             Heading: 180°<br>             Time Step: 1<br>             Lat: 40.7180<br>             Lon: -73.9980<br>             Timestamp: 2025-10-11 20:00:00             </div>`)[0];
+                popup_af6dab6f9ca9318c64f6e2f196b6c4e4.setContent(html_21c6cc3a3cd6b8a603944c951b793c21);
+            
+        
+
+        marker_7ad8384ac862eb868042e2624193573a.bindPopup(popup_af6dab6f9ca9318c64f6e2f196b6c4e4)
+        ;
+
+        
+    
+    
+            marker_7ad8384ac862eb868042e2624193573a.bindTooltip(
+                `<div>
+                     🚁 Drone DRONE2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7ad8384ac862eb868042e2624193573a.setIcon(icon_c8caba8cc647b01839389a33ec30915e);
+            
+</script>
+</html>

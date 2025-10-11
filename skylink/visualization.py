@@ -60,34 +60,33 @@ def add_planes_to_map(map_obj: folium.Map, planes_df: pd.DataFrame) -> int:
     """
     planes_added = 0
     
+    print(f"Adding {len(planes_df)} planes to map...")
+    
     for idx, plane in planes_df.iterrows():
         try:
             # Skip rows with missing coordinates
             if pd.isna(plane['latitude']) or pd.isna(plane['longitude']):
+                print(f"Skipping plane {plane.get('icao24', 'Unknown')} - missing coordinates")
                 continue
             
             # Create popup text with plane information
             popup_text = f"""
-            <b>Aircraft</b><br>
+            <b>✈️ Aircraft</b><br>
             ICAO24: {plane.get('icao24', 'N/A')}<br>
             Callsign: {plane.get('callsign', 'N/A')}<br>
             Altitude: {plane.get('baro_altitude', 'N/A')} m<br>
             Velocity: {plane.get('velocity', 'N/A')} m/s<br>
+            Country: {plane.get('origin_country', 'N/A')}<br>
             Lat: {plane['latitude']:.4f}<br>
             Lon: {plane['longitude']:.4f}
             """
             
-            # Add plane marker (blue circle)
-            folium.CircleMarker(
+            # Add plane marker (blue circle with plane icon)
+            folium.Marker(
                 location=[plane['latitude'], plane['longitude']],
-                radius=8,
-                popup=folium.Popup(popup_text, max_width=200),
-                color='blue',
-                fill=True,
-                fillColor='lightblue',
-                fillOpacity=0.7,
-                weight=2,
-                tooltip=f"Plane: {plane.get('callsign', plane.get('icao24', 'Unknown'))}"
+                popup=folium.Popup(popup_text, max_width=300),
+                icon=folium.Icon(color='blue', icon='plane', prefix='fa'),
+                tooltip=f"✈️ {plane.get('callsign', plane.get('icao24', 'Unknown'))}"
             ).add_to(map_obj)
             
             planes_added += 1
@@ -96,6 +95,7 @@ def add_planes_to_map(map_obj: folium.Map, planes_df: pd.DataFrame) -> int:
             print(f"Error adding plane {plane.get('icao24', 'Unknown')}: {e}")
             continue
     
+    print(f"Successfully added {planes_added} planes to map")
     return planes_added
 
 
@@ -112,35 +112,34 @@ def add_drones_to_map(map_obj: folium.Map, drones_df: pd.DataFrame) -> int:
     """
     drones_added = 0
     
+    print(f"Adding {len(drones_df)} drones to map...")
+    
     for idx, drone in drones_df.iterrows():
         try:
             # Skip rows with missing coordinates
             if pd.isna(drone['latitude']) or pd.isna(drone['longitude']):
+                print(f"Skipping drone {drone.get('drone_id', 'Unknown')} - missing coordinates")
                 continue
             
             # Create popup text with drone information
             popup_text = f"""
-            <b>Drone</b><br>
+            <b>🚁 Drone</b><br>
             ID: {drone.get('drone_id', 'N/A')}<br>
             Altitude: {drone.get('altitude', 'N/A')} m<br>
             Speed: {drone.get('speed', 'N/A')} m/s<br>
             Heading: {drone.get('heading', 'N/A')}°<br>
+            Time Step: {drone.get('time_step', 'N/A')}<br>
             Lat: {drone['latitude']:.4f}<br>
             Lon: {drone['longitude']:.4f}<br>
-            Time: {drone.get('timestamp', 'N/A')}
+            Timestamp: {drone.get('timestamp', 'N/A')}
             """
             
-            # Add drone marker (green circle)
-            folium.CircleMarker(
+            # Add drone marker (green helicopter icon)
+            folium.Marker(
                 location=[drone['latitude'], drone['longitude']],
-                radius=6,
-                popup=folium.Popup(popup_text, max_width=200),
-                color='green',
-                fill=True,
-                fillColor='lightgreen',
-                fillOpacity=0.7,
-                weight=2,
-                tooltip=f"Drone: {drone.get('drone_id', 'Unknown')}"
+                popup=folium.Popup(popup_text, max_width=300),
+                icon=folium.Icon(color='green', icon='helicopter', prefix='fa'),
+                tooltip=f"🚁 Drone {drone.get('drone_id', 'Unknown')}"
             ).add_to(map_obj)
             
             drones_added += 1
@@ -149,6 +148,7 @@ def add_drones_to_map(map_obj: folium.Map, drones_df: pd.DataFrame) -> int:
             print(f"Error adding drone {drone.get('drone_id', 'Unknown')}: {e}")
             continue
     
+    print(f"Successfully added {drones_added} drones to map")
     return drones_added
 
 

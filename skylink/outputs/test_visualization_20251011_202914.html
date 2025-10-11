@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6f72669edd182e8ed1a4834d9ced172c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+        <div style="position: fixed; 
+                    bottom: 50px; left: 50px; width: 150px; height: 120px; 
+                    background-color: white; border:2px solid grey; z-index:9999; 
+                    font-size:14px; padding: 10px">
+        <p><b>Legend</b></p>
+        <p><i class="fa fa-circle" style="color:lightblue"></i> Planes (5)</p>
+        <p><i class="fa fa-circle" style="color:lightgreen"></i> Drones (5)</p>
+        <p><i class="fa fa-circle" style="color:red"></i> Alerts (5)</p>
+        </div>
+        
+    
+            <div class="folium-map" id="map_6f72669edd182e8ed1a4834d9ced172c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6f72669edd182e8ed1a4834d9ced172c = L.map(
+                "map_6f72669edd182e8ed1a4834d9ced172c",
+                {
+                    center: [40.713300000000004, -74.00550000000001],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f5397b77c5e8dcb5d3d4e1783c6e8ac0 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f5397b77c5e8dcb5d3d4e1783c6e8ac0.addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var tile_layer_9cd18a4d1f8d1ada4bcfe3ecbeae7cf9 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_9cd18a4d1f8d1ada4bcfe3ecbeae7cf9.addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var layer_control_5b67b66a5f54629f7dc380184450a190_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_f5397b77c5e8dcb5d3d4e1783c6e8ac0,
+                    "cartodbpositron" : tile_layer_9cd18a4d1f8d1ada4bcfe3ecbeae7cf9,
+                },
+                overlays :  {
+                },
+            };
+            let layer_control_5b67b66a5f54629f7dc380184450a190 = L.control.layers(
+                layer_control_5b67b66a5f54629f7dc380184450a190_layers.base_layers,
+                layer_control_5b67b66a5f54629f7dc380184450a190_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+
+        
+    
+            var marker_5768974e67358ea27e5bf63001f9d5db = L.marker(
+                [40.6728, -74.046],
+                {
+}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var icon_bc73d752891800b7c55c83a6ef65e8ca = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_699ff2d709efaac939b8a3dadeca43c3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b0b22092801410a3349fda1e6d39788c = $(`<div id="html_b0b22092801410a3349fda1e6d39788c" style="width: 100.0%; height: 100.0%;">             <b>✈️ Aircraft</b><br>             ICAO24: TEST000<br>             Callsign: UAL100<br>             Altitude: 200 m<br>             Velocity: 150 m/s<br>             Country: United States<br>             Lat: 40.6728<br>             Lon: -74.0460             </div>`)[0];
+                popup_699ff2d709efaac939b8a3dadeca43c3.setContent(html_b0b22092801410a3349fda1e6d39788c);
+            
+        
+
+        marker_5768974e67358ea27e5bf63001f9d5db.bindPopup(popup_699ff2d709efaac939b8a3dadeca43c3)
+        ;
+
+        
+    
+    
+            marker_5768974e67358ea27e5bf63001f9d5db.bindTooltip(
+                `<div>
+                     ✈️ UAL100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5768974e67358ea27e5bf63001f9d5db.setIcon(icon_bc73d752891800b7c55c83a6ef65e8ca);
+            
+    
+            var marker_96d5112b4dbc963ed8c2b6fc8a2ba060 = L.marker(
+                [40.692800000000005, -74.02600000000001],
+                {
+}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var icon_0629d743f64d18e79a82e900a72f120d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bc615122f7c383be5cd7a67d9c97aa9f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_55e7b545a99a44d305a15079d376c311 = $(`<div id="html_55e7b545a99a44d305a15079d376c311" style="width: 100.0%; height: 100.0%;">             <b>✈️ Aircraft</b><br>             ICAO24: TEST001<br>             Callsign: UAL101<br>             Altitude: 250 m<br>             Velocity: 170 m/s<br>             Country: United States<br>             Lat: 40.6928<br>             Lon: -74.0260             </div>`)[0];
+                popup_bc615122f7c383be5cd7a67d9c97aa9f.setContent(html_55e7b545a99a44d305a15079d376c311);
+            
+        
+
+        marker_96d5112b4dbc963ed8c2b6fc8a2ba060.bindPopup(popup_bc615122f7c383be5cd7a67d9c97aa9f)
+        ;
+
+        
+    
+    
+            marker_96d5112b4dbc963ed8c2b6fc8a2ba060.bindTooltip(
+                `<div>
+                     ✈️ UAL101
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_96d5112b4dbc963ed8c2b6fc8a2ba060.setIcon(icon_0629d743f64d18e79a82e900a72f120d);
+            
+    
+            var marker_fca7af928c8c7840a75e89fed7daa138 = L.marker(
+                [40.7128, -74.006],
+                {
+}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var icon_f574d0477e11bdea017d5493259fafd1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_65d18fde532e37b77553c2c9ce39f180 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dc263cb2658d8a26320c3cdeb3d36b3c = $(`<div id="html_dc263cb2658d8a26320c3cdeb3d36b3c" style="width: 100.0%; height: 100.0%;">             <b>✈️ Aircraft</b><br>             ICAO24: TEST002<br>             Callsign: UAL102<br>             Altitude: 300 m<br>             Velocity: 190 m/s<br>             Country: United States<br>             Lat: 40.7128<br>             Lon: -74.0060             </div>`)[0];
+                popup_65d18fde532e37b77553c2c9ce39f180.setContent(html_dc263cb2658d8a26320c3cdeb3d36b3c);
+            
+        
+
+        marker_fca7af928c8c7840a75e89fed7daa138.bindPopup(popup_65d18fde532e37b77553c2c9ce39f180)
+        ;
+
+        
+    
+    
+            marker_fca7af928c8c7840a75e89fed7daa138.bindTooltip(
+                `<div>
+                     ✈️ UAL102
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fca7af928c8c7840a75e89fed7daa138.setIcon(icon_f574d0477e11bdea017d5493259fafd1);
+            
+    
+            var marker_288ae2c8cf7336986bfc35187743971f = L.marker(
+                [40.732800000000005, -73.986],
+                {
+}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var icon_67c915758128cac00baf5715fffcd78c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b6a2ffdc26db794411707e9fb4a2accf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_216a0fe5fa13fb90d92b6bdb1b442013 = $(`<div id="html_216a0fe5fa13fb90d92b6bdb1b442013" style="width: 100.0%; height: 100.0%;">             <b>✈️ Aircraft</b><br>             ICAO24: TEST003<br>             Callsign: UAL103<br>             Altitude: 350 m<br>             Velocity: 210 m/s<br>             Country: United States<br>             Lat: 40.7328<br>             Lon: -73.9860             </div>`)[0];
+                popup_b6a2ffdc26db794411707e9fb4a2accf.setContent(html_216a0fe5fa13fb90d92b6bdb1b442013);
+            
+        
+
+        marker_288ae2c8cf7336986bfc35187743971f.bindPopup(popup_b6a2ffdc26db794411707e9fb4a2accf)
+        ;
+
+        
+    
+    
+            marker_288ae2c8cf7336986bfc35187743971f.bindTooltip(
+                `<div>
+                     ✈️ UAL103
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_288ae2c8cf7336986bfc35187743971f.setIcon(icon_67c915758128cac00baf5715fffcd78c);
+            
+    
+            var marker_05a20bf37477e21eef9259a2ff85f2bf = L.marker(
+                [40.7528, -73.96600000000001],
+                {
+}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var icon_3942009378a244efbea4c49930363442 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_360d6293445ec37b85463f43eb99ca79 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a047cbf8ead4a7a0dcfaaa0104b40a98 = $(`<div id="html_a047cbf8ead4a7a0dcfaaa0104b40a98" style="width: 100.0%; height: 100.0%;">             <b>✈️ Aircraft</b><br>             ICAO24: TEST004<br>             Callsign: UAL104<br>             Altitude: 400 m<br>             Velocity: 230 m/s<br>             Country: United States<br>             Lat: 40.7528<br>             Lon: -73.9660             </div>`)[0];
+                popup_360d6293445ec37b85463f43eb99ca79.setContent(html_a047cbf8ead4a7a0dcfaaa0104b40a98);
+            
+        
+
+        marker_05a20bf37477e21eef9259a2ff85f2bf.bindPopup(popup_360d6293445ec37b85463f43eb99ca79)
+        ;
+
+        
+    
+    
+            marker_05a20bf37477e21eef9259a2ff85f2bf.bindTooltip(
+                `<div>
+                     ✈️ UAL104
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_05a20bf37477e21eef9259a2ff85f2bf.setIcon(icon_3942009378a244efbea4c49930363442);
+            
+    
+            var marker_0d6cb08f3c4aaede0e6224c92870f223 = L.marker(
+                [40.6738, -74.045],
+                {
+}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var icon_b0ffb885531f904fa91ffcd24c70ec3c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "helicopter",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e30f1cdd016325daf0bd94a6df620318 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_336a203c7d33f99c73632cceb1604623 = $(`<div id="html_336a203c7d33f99c73632cceb1604623" style="width: 100.0%; height: 100.0%;">             <b>🚁 Drone</b><br>             ID: DRONE_0<br>             Altitude: 180 m<br>             Speed: 15 m/s<br>             Heading: 0°<br>             Time Step: 1<br>             Lat: 40.6738<br>             Lon: -74.0450<br>             Timestamp: 2025-10-11 20:00:00             </div>`)[0];
+                popup_e30f1cdd016325daf0bd94a6df620318.setContent(html_336a203c7d33f99c73632cceb1604623);
+            
+        
+
+        marker_0d6cb08f3c4aaede0e6224c92870f223.bindPopup(popup_e30f1cdd016325daf0bd94a6df620318)
+        ;
+
+        
+    
+    
+            marker_0d6cb08f3c4aaede0e6224c92870f223.bindTooltip(
+                `<div>
+                     🚁 Drone DRONE_0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0d6cb08f3c4aaede0e6224c92870f223.setIcon(icon_b0ffb885531f904fa91ffcd24c70ec3c);
+            
+    
+            var marker_9a988d8227eddfbd0604ce8effa0e5f0 = L.marker(
+                [40.6938, -74.025],
+                {
+}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var icon_ec410041b841aa16382a9e27eb63986f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "helicopter",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2cb278a5938bf47ad10b53cc590c9245 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_13443800e2cc6b44060cc56c9239f579 = $(`<div id="html_13443800e2cc6b44060cc56c9239f579" style="width: 100.0%; height: 100.0%;">             <b>🚁 Drone</b><br>             ID: DRONE_1<br>             Altitude: 230 m<br>             Speed: 17 m/s<br>             Heading: 72°<br>             Time Step: 1<br>             Lat: 40.6938<br>             Lon: -74.0250<br>             Timestamp: 2025-10-11 20:00:00             </div>`)[0];
+                popup_2cb278a5938bf47ad10b53cc590c9245.setContent(html_13443800e2cc6b44060cc56c9239f579);
+            
+        
+
+        marker_9a988d8227eddfbd0604ce8effa0e5f0.bindPopup(popup_2cb278a5938bf47ad10b53cc590c9245)
+        ;
+
+        
+    
+    
+            marker_9a988d8227eddfbd0604ce8effa0e5f0.bindTooltip(
+                `<div>
+                     🚁 Drone DRONE_1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9a988d8227eddfbd0604ce8effa0e5f0.setIcon(icon_ec410041b841aa16382a9e27eb63986f);
+            
+    
+            var marker_35f564a419b1369e67072998441deefb = L.marker(
+                [40.7138, -74.005],
+                {
+}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var icon_f779cd69afa2ff54b5e866409aca9d00 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "helicopter",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_93ae2f9e3482c6d923e1e98277d6c13f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5266c44317ccf2d9ee8bfb16ab74e49c = $(`<div id="html_5266c44317ccf2d9ee8bfb16ab74e49c" style="width: 100.0%; height: 100.0%;">             <b>🚁 Drone</b><br>             ID: DRONE_2<br>             Altitude: 280 m<br>             Speed: 19 m/s<br>             Heading: 144°<br>             Time Step: 1<br>             Lat: 40.7138<br>             Lon: -74.0050<br>             Timestamp: 2025-10-11 20:00:00             </div>`)[0];
+                popup_93ae2f9e3482c6d923e1e98277d6c13f.setContent(html_5266c44317ccf2d9ee8bfb16ab74e49c);
+            
+        
+
+        marker_35f564a419b1369e67072998441deefb.bindPopup(popup_93ae2f9e3482c6d923e1e98277d6c13f)
+        ;
+
+        
+    
+    
+            marker_35f564a419b1369e67072998441deefb.bindTooltip(
+                `<div>
+                     🚁 Drone DRONE_2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_35f564a419b1369e67072998441deefb.setIcon(icon_f779cd69afa2ff54b5e866409aca9d00);
+            
+    
+            var marker_a59ccf5edf44756b4df7d4b6884ede97 = L.marker(
+                [40.7338, -73.985],
+                {
+}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var icon_87ced00b252ee5584daa01f47fa4e6a8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "helicopter",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0b20552bf73d5c82089f97f20a8f0aed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cdf8dfe4d1215ac910f9ed31c52595c7 = $(`<div id="html_cdf8dfe4d1215ac910f9ed31c52595c7" style="width: 100.0%; height: 100.0%;">             <b>🚁 Drone</b><br>             ID: DRONE_3<br>             Altitude: 330 m<br>             Speed: 21 m/s<br>             Heading: 216°<br>             Time Step: 1<br>             Lat: 40.7338<br>             Lon: -73.9850<br>             Timestamp: 2025-10-11 20:00:00             </div>`)[0];
+                popup_0b20552bf73d5c82089f97f20a8f0aed.setContent(html_cdf8dfe4d1215ac910f9ed31c52595c7);
+            
+        
+
+        marker_a59ccf5edf44756b4df7d4b6884ede97.bindPopup(popup_0b20552bf73d5c82089f97f20a8f0aed)
+        ;
+
+        
+    
+    
+            marker_a59ccf5edf44756b4df7d4b6884ede97.bindTooltip(
+                `<div>
+                     🚁 Drone DRONE_3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a59ccf5edf44756b4df7d4b6884ede97.setIcon(icon_87ced00b252ee5584daa01f47fa4e6a8);
+            
+    
+            var marker_126632a5add5b6515ae3563165d47230 = L.marker(
+                [40.7538, -73.965],
+                {
+}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var icon_1948ac20a5f977461b1423b8d1692f60 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "helicopter",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_50bebeb963a628d5a70bf32393afdbe7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ea2265a21354900c74ebfe1d78394fe8 = $(`<div id="html_ea2265a21354900c74ebfe1d78394fe8" style="width: 100.0%; height: 100.0%;">             <b>🚁 Drone</b><br>             ID: DRONE_4<br>             Altitude: 380 m<br>             Speed: 23 m/s<br>             Heading: 288°<br>             Time Step: 1<br>             Lat: 40.7538<br>             Lon: -73.9650<br>             Timestamp: 2025-10-11 20:00:00             </div>`)[0];
+                popup_50bebeb963a628d5a70bf32393afdbe7.setContent(html_ea2265a21354900c74ebfe1d78394fe8);
+            
+        
+
+        marker_126632a5add5b6515ae3563165d47230.bindPopup(popup_50bebeb963a628d5a70bf32393afdbe7)
+        ;
+
+        
+    
+    
+            marker_126632a5add5b6515ae3563165d47230.bindTooltip(
+                `<div>
+                     🚁 Drone DRONE_4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_126632a5add5b6515ae3563165d47230.setIcon(icon_1948ac20a5f977461b1423b8d1692f60);
+            
+    
+            var circle_marker_731daf23d486b4fcd83296bc5c39e641 = L.circleMarker(
+                [40.6733, -74.0455],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+        var popup_a208f20f039c2fc77d5b96638b75e8ac = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fcb47ad9629832ccdaf0e1bf823b58a1 = $(`<div id="html_fcb47ad9629832ccdaf0e1bf823b58a1" style="width: 100.0%; height: 100.0%;">             <b>COLLISION ALERT</b><br>             Drone ID: DRONE_0<br>             Plane ICAO24: TEST000<br>             Horizontal Distance: 0.14 km<br>             Vertical Distance: 20.0 m<br>             Drone Alt: 180.0 m<br>             Plane Alt: 200.0 m             </div>`)[0];
+                popup_a208f20f039c2fc77d5b96638b75e8ac.setContent(html_fcb47ad9629832ccdaf0e1bf823b58a1);
+            
+        
+
+        circle_marker_731daf23d486b4fcd83296bc5c39e641.bindPopup(popup_a208f20f039c2fc77d5b96638b75e8ac)
+        ;
+
+        
+    
+    
+            circle_marker_731daf23d486b4fcd83296bc5c39e641.bindTooltip(
+                `<div>
+                     ALERT: Drone DRONE_0 vs Plane TEST000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_78f0f08312fc3e877821f936e80773c1 = L.polyline(
+                [[40.6738, -74.045], [40.6728, -74.046]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": "5, 10", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var circle_marker_5d4440914f391791f55bd4d6fccd5734 = L.circleMarker(
+                [40.69330000000001, -74.02550000000001],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+        var popup_b5dd3690a24c143745c53b8177941942 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b357764148b6aaa559ac7b06814fce9b = $(`<div id="html_b357764148b6aaa559ac7b06814fce9b" style="width: 100.0%; height: 100.0%;">             <b>COLLISION ALERT</b><br>             Drone ID: DRONE_1<br>             Plane ICAO24: TEST001<br>             Horizontal Distance: 0.14 km<br>             Vertical Distance: 20.0 m<br>             Drone Alt: 230.0 m<br>             Plane Alt: 250.0 m             </div>`)[0];
+                popup_b5dd3690a24c143745c53b8177941942.setContent(html_b357764148b6aaa559ac7b06814fce9b);
+            
+        
+
+        circle_marker_5d4440914f391791f55bd4d6fccd5734.bindPopup(popup_b5dd3690a24c143745c53b8177941942)
+        ;
+
+        
+    
+    
+            circle_marker_5d4440914f391791f55bd4d6fccd5734.bindTooltip(
+                `<div>
+                     ALERT: Drone DRONE_1 vs Plane TEST001
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_66167ceb0daaebb4112f0b64af7e9151 = L.polyline(
+                [[40.6938, -74.025], [40.692800000000005, -74.02600000000001]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": "5, 10", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var circle_marker_d4c0539c3061dc7a7c4d262dca693e82 = L.circleMarker(
+                [40.713300000000004, -74.0055],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+        var popup_5efc04cc8aaba9634f8db5e6e4493c3e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3ef3beeaaa0e6f1baa5d5f4dde3e82c6 = $(`<div id="html_3ef3beeaaa0e6f1baa5d5f4dde3e82c6" style="width: 100.0%; height: 100.0%;">             <b>COLLISION ALERT</b><br>             Drone ID: DRONE_2<br>             Plane ICAO24: TEST002<br>             Horizontal Distance: 0.14 km<br>             Vertical Distance: 20.0 m<br>             Drone Alt: 280.0 m<br>             Plane Alt: 300.0 m             </div>`)[0];
+                popup_5efc04cc8aaba9634f8db5e6e4493c3e.setContent(html_3ef3beeaaa0e6f1baa5d5f4dde3e82c6);
+            
+        
+
+        circle_marker_d4c0539c3061dc7a7c4d262dca693e82.bindPopup(popup_5efc04cc8aaba9634f8db5e6e4493c3e)
+        ;
+
+        
+    
+    
+            circle_marker_d4c0539c3061dc7a7c4d262dca693e82.bindTooltip(
+                `<div>
+                     ALERT: Drone DRONE_2 vs Plane TEST002
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_96a14076e57fbdfb175866aa91f117e4 = L.polyline(
+                [[40.7138, -74.005], [40.7128, -74.006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": "5, 10", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var circle_marker_8e7581cba88675a5a529a2ea56c37e93 = L.circleMarker(
+                [40.7333, -73.9855],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+        var popup_3a425835f723cef7fd2a4d7977753bad = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ed34c4f5275284f29830d2844156e797 = $(`<div id="html_ed34c4f5275284f29830d2844156e797" style="width: 100.0%; height: 100.0%;">             <b>COLLISION ALERT</b><br>             Drone ID: DRONE_3<br>             Plane ICAO24: TEST003<br>             Horizontal Distance: 0.14 km<br>             Vertical Distance: 20.0 m<br>             Drone Alt: 330.0 m<br>             Plane Alt: 350.0 m             </div>`)[0];
+                popup_3a425835f723cef7fd2a4d7977753bad.setContent(html_ed34c4f5275284f29830d2844156e797);
+            
+        
+
+        circle_marker_8e7581cba88675a5a529a2ea56c37e93.bindPopup(popup_3a425835f723cef7fd2a4d7977753bad)
+        ;
+
+        
+    
+    
+            circle_marker_8e7581cba88675a5a529a2ea56c37e93.bindTooltip(
+                `<div>
+                     ALERT: Drone DRONE_3 vs Plane TEST003
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4d98dcaecd5a9792a94b8550f51f6f4f = L.polyline(
+                [[40.7338, -73.985], [40.732800000000005, -73.986]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": "5, 10", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+            var circle_marker_2ccaf721eb546bdadc07c39f70b58941 = L.circleMarker(
+                [40.753299999999996, -73.9655],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+    
+        var popup_8081adec3dbf6f28065101260f0e318e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7364c7d3332a49e192c228a5d5cba2d4 = $(`<div id="html_7364c7d3332a49e192c228a5d5cba2d4" style="width: 100.0%; height: 100.0%;">             <b>COLLISION ALERT</b><br>             Drone ID: DRONE_4<br>             Plane ICAO24: TEST004<br>             Horizontal Distance: 0.14 km<br>             Vertical Distance: 20.0 m<br>             Drone Alt: 380.0 m<br>             Plane Alt: 400.0 m             </div>`)[0];
+                popup_8081adec3dbf6f28065101260f0e318e.setContent(html_7364c7d3332a49e192c228a5d5cba2d4);
+            
+        
+
+        circle_marker_2ccaf721eb546bdadc07c39f70b58941.bindPopup(popup_8081adec3dbf6f28065101260f0e318e)
+        ;
+
+        
+    
+    
+            circle_marker_2ccaf721eb546bdadc07c39f70b58941.bindTooltip(
+                `<div>
+                     ALERT: Drone DRONE_4 vs Plane TEST004
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_83c6f8612117ea3172d343041b810bde = L.polyline(
+                [[40.7538, -73.965], [40.7528, -73.96600000000001]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": "5, 10", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6f72669edd182e8ed1a4834d9ced172c);
+        
+</script>
+</html>
