@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3796f008d05c0cb79906a95c68b18e63 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3796f008d05c0cb79906a95c68b18e63" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3796f008d05c0cb79906a95c68b18e63 = L.map(
+                "map_3796f008d05c0cb79906a95c68b18e63",
+                {
+                    center: [40.723396774193546, -73.95593709677419],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ee64cf42bf6dc3a6252abdd44929ddef = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ee64cf42bf6dc3a6252abdd44929ddef.addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var marker_dc6b03659c9b95e2d2694cef1225aa9f = L.marker(
+                [40.7589, -73.9851],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_54e4a563183f65ad3447fa7036fea17c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_780ae9a914d4f74395cac9a18f0026b2 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_5c6d129c8b28ab771dbb03d882e5c79c = $(`<div id="html_5c6d129c8b28ab771dbb03d882e5c79c" style="width: 100.0%; height: 100.0%;">             <b>Alert #1</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D001<br>             Plane: 400cb6<br>             H-Distance: 0.0 km<br>             V-Distance: 47.6 m<br>             </div>`)[0];
+                popup_780ae9a914d4f74395cac9a18f0026b2.setContent(html_5c6d129c8b28ab771dbb03d882e5c79c);
+            
+        
+
+        marker_dc6b03659c9b95e2d2694cef1225aa9f.bindPopup(popup_780ae9a914d4f74395cac9a18f0026b2)
+        ;
+
+        
+    
+    
+            marker_dc6b03659c9b95e2d2694cef1225aa9f.bindTooltip(
+                `<div>
+                     Alert #1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dc6b03659c9b95e2d2694cef1225aa9f.setIcon(icon_54e4a563183f65ad3447fa7036fea17c);
+            
+    
+            var marker_b29741f90dd4b752b3d9254e9883eb29 = L.marker(
+                [40.759, -73.985],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_afcb382113493f00370ecd5599a34bf0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_378ac9e27e9e5de592b48a059aaa11c0 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_38af088ecb37919f37ca4d168953d7d1 = $(`<div id="html_38af088ecb37919f37ca4d168953d7d1" style="width: 100.0%; height: 100.0%;">             <b>Alert #2</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D001<br>             Plane: 400cb6<br>             H-Distance: 0.028 km<br>             V-Distance: 44.6 m<br>             </div>`)[0];
+                popup_378ac9e27e9e5de592b48a059aaa11c0.setContent(html_38af088ecb37919f37ca4d168953d7d1);
+            
+        
+
+        marker_b29741f90dd4b752b3d9254e9883eb29.bindPopup(popup_378ac9e27e9e5de592b48a059aaa11c0)
+        ;
+
+        
+    
+    
+            marker_b29741f90dd4b752b3d9254e9883eb29.bindTooltip(
+                `<div>
+                     Alert #2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b29741f90dd4b752b3d9254e9883eb29.setIcon(icon_afcb382113493f00370ecd5599a34bf0);
+            
+    
+            var marker_ba42e7a38914a6a398459957dcbbdc17 = L.marker(
+                [40.759100000000004, -73.98490000000001],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_c3ee4e084ff8fa025403d64ee066b28c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fa24318da148cbbc0f8b8d24751f1be7 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2fdd81e1a97b5ada7bb604299efd7505 = $(`<div id="html_2fdd81e1a97b5ada7bb604299efd7505" style="width: 100.0%; height: 100.0%;">             <b>Alert #3</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D001<br>             Plane: 400cb6<br>             H-Distance: 0.056 km<br>             V-Distance: 41.5 m<br>             </div>`)[0];
+                popup_fa24318da148cbbc0f8b8d24751f1be7.setContent(html_2fdd81e1a97b5ada7bb604299efd7505);
+            
+        
+
+        marker_ba42e7a38914a6a398459957dcbbdc17.bindPopup(popup_fa24318da148cbbc0f8b8d24751f1be7)
+        ;
+
+        
+    
+    
+            marker_ba42e7a38914a6a398459957dcbbdc17.bindTooltip(
+                `<div>
+                     Alert #3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ba42e7a38914a6a398459957dcbbdc17.setIcon(icon_c3ee4e084ff8fa025403d64ee066b28c);
+            
+    
+            var marker_3fb7aca0f65a60038289949ab9c5914b = L.marker(
+                [40.6892, -74.1745],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_2838cf3c917c10237f6cd12a34b9c8d8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1eeab6ac3a52f1bc7c0ada1dd5a3cfd0 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_bd9b912d1e23d2de45a8ccb33190d234 = $(`<div id="html_bd9b912d1e23d2de45a8ccb33190d234" style="width: 100.0%; height: 100.0%;">             <b>Alert #4</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D002<br>             Plane: 4b1812<br>             H-Distance: 0.0 km<br>             V-Distance: 58.1 m<br>             </div>`)[0];
+                popup_1eeab6ac3a52f1bc7c0ada1dd5a3cfd0.setContent(html_bd9b912d1e23d2de45a8ccb33190d234);
+            
+        
+
+        marker_3fb7aca0f65a60038289949ab9c5914b.bindPopup(popup_1eeab6ac3a52f1bc7c0ada1dd5a3cfd0)
+        ;
+
+        
+    
+    
+            marker_3fb7aca0f65a60038289949ab9c5914b.bindTooltip(
+                `<div>
+                     Alert #4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3fb7aca0f65a60038289949ab9c5914b.setIcon(icon_2838cf3c917c10237f6cd12a34b9c8d8);
+            
+    
+            var marker_b5f6289a1245bc31783eb3ab28ab6692 = L.marker(
+                [40.6893, -74.17439999999999],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_6db984f2905c729a3513480addb9e28f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3b3705052870293986bb9ef6c96a6396 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_94ad1b27cf701387495202955bc187ca = $(`<div id="html_94ad1b27cf701387495202955bc187ca" style="width: 100.0%; height: 100.0%;">             <b>Alert #5</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D002<br>             Plane: 4b1812<br>             H-Distance: 0.028 km<br>             V-Distance: 55.3 m<br>             </div>`)[0];
+                popup_3b3705052870293986bb9ef6c96a6396.setContent(html_94ad1b27cf701387495202955bc187ca);
+            
+        
+
+        marker_b5f6289a1245bc31783eb3ab28ab6692.bindPopup(popup_3b3705052870293986bb9ef6c96a6396)
+        ;
+
+        
+    
+    
+            marker_b5f6289a1245bc31783eb3ab28ab6692.bindTooltip(
+                `<div>
+                     Alert #5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b5f6289a1245bc31783eb3ab28ab6692.setIcon(icon_6db984f2905c729a3513480addb9e28f);
+            
+    
+            var marker_8ac36320ccd52785b2c02f68d0a79ebf = L.marker(
+                [40.6894, -74.17429999999999],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_63c570db45f5d2777d4c1d987516e868 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b3faf159bf6c90af339c10feb8efe110 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_d7b8c0b5d4cc1a9d36aa7147ca0dd9a8 = $(`<div id="html_d7b8c0b5d4cc1a9d36aa7147ca0dd9a8" style="width: 100.0%; height: 100.0%;">             <b>Alert #6</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D002<br>             Plane: 4b1812<br>             H-Distance: 0.056 km<br>             V-Distance: 52.7 m<br>             </div>`)[0];
+                popup_b3faf159bf6c90af339c10feb8efe110.setContent(html_d7b8c0b5d4cc1a9d36aa7147ca0dd9a8);
+            
+        
+
+        marker_8ac36320ccd52785b2c02f68d0a79ebf.bindPopup(popup_b3faf159bf6c90af339c10feb8efe110)
+        ;
+
+        
+    
+    
+            marker_8ac36320ccd52785b2c02f68d0a79ebf.bindTooltip(
+                `<div>
+                     Alert #6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8ac36320ccd52785b2c02f68d0a79ebf.setIcon(icon_63c570db45f5d2777d4c1d987516e868);
+            
+    
+            var marker_ab2f714eecba02c5c48a6afcb8595a56 = L.marker(
+                [40.7831, -73.9712],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_e6c6043f8314383cd6b3e92b60619c1e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_594075f65dc131354c9baf2da0b81170 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1786aec5a16d4935b107700e98dda976 = $(`<div id="html_1786aec5a16d4935b107700e98dda976" style="width: 100.0%; height: 100.0%;">             <b>Alert #7</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D003<br>             Plane: a4f234<br>             H-Distance: 0.0 km<br>             V-Distance: 21.9 m<br>             </div>`)[0];
+                popup_594075f65dc131354c9baf2da0b81170.setContent(html_1786aec5a16d4935b107700e98dda976);
+            
+        
+
+        marker_ab2f714eecba02c5c48a6afcb8595a56.bindPopup(popup_594075f65dc131354c9baf2da0b81170)
+        ;
+
+        
+    
+    
+            marker_ab2f714eecba02c5c48a6afcb8595a56.bindTooltip(
+                `<div>
+                     Alert #7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ab2f714eecba02c5c48a6afcb8595a56.setIcon(icon_e6c6043f8314383cd6b3e92b60619c1e);
+            
+    
+            var marker_66b9270930af46334d90bb37bee6b55b = L.marker(
+                [40.783199999999994, -73.9711],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_e1122d8ed3e401e537d2091936de9be3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0bf8ac2f1198ad8f131f5dc9405d6a9e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2656ca4a2e7720a0882d4f611e43ff85 = $(`<div id="html_2656ca4a2e7720a0882d4f611e43ff85" style="width: 100.0%; height: 100.0%;">             <b>Alert #8</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D003<br>             Plane: a4f234<br>             H-Distance: 0.028 km<br>             V-Distance: 18.8 m<br>             </div>`)[0];
+                popup_0bf8ac2f1198ad8f131f5dc9405d6a9e.setContent(html_2656ca4a2e7720a0882d4f611e43ff85);
+            
+        
+
+        marker_66b9270930af46334d90bb37bee6b55b.bindPopup(popup_0bf8ac2f1198ad8f131f5dc9405d6a9e)
+        ;
+
+        
+    
+    
+            marker_66b9270930af46334d90bb37bee6b55b.bindTooltip(
+                `<div>
+                     Alert #8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_66b9270930af46334d90bb37bee6b55b.setIcon(icon_e1122d8ed3e401e537d2091936de9be3);
+            
+    
+            var marker_cc52025fd3518b378271982deb48b1bc = L.marker(
+                [40.7833, -73.971],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_ba6a1cae1388b5536f6536298ed5ea16 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_34fc39f4207ae9502ee5cc670eafbb0e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e531bd07d76c3c8bfae524f7b7bb6dad = $(`<div id="html_e531bd07d76c3c8bfae524f7b7bb6dad" style="width: 100.0%; height: 100.0%;">             <b>Alert #9</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D003<br>             Plane: a4f234<br>             H-Distance: 0.056 km<br>             V-Distance: 15.2 m<br>             </div>`)[0];
+                popup_34fc39f4207ae9502ee5cc670eafbb0e.setContent(html_e531bd07d76c3c8bfae524f7b7bb6dad);
+            
+        
+
+        marker_cc52025fd3518b378271982deb48b1bc.bindPopup(popup_34fc39f4207ae9502ee5cc670eafbb0e)
+        ;
+
+        
+    
+    
+            marker_cc52025fd3518b378271982deb48b1bc.bindTooltip(
+                `<div>
+                     Alert #9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cc52025fd3518b378271982deb48b1bc.setIcon(icon_ba6a1cae1388b5536f6536298ed5ea16);
+            
+    
+            var marker_4656f91fa5baba666ade5bca5fb0b870 = L.marker(
+                [40.6331, -73.7796],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_3b7fc24dbc90caa94465ad2fe994bffb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5138f7b4843da8645e61c4490b1bd08f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f8b273351d41875d1f9e3489d15e0d4f = $(`<div id="html_f8b273351d41875d1f9e3489d15e0d4f" style="width: 100.0%; height: 100.0%;">             <b>Alert #10</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D004<br>             Plane: 4ca7b2<br>             H-Distance: 0.0 km<br>             V-Distance: 58.6 m<br>             </div>`)[0];
+                popup_5138f7b4843da8645e61c4490b1bd08f.setContent(html_f8b273351d41875d1f9e3489d15e0d4f);
+            
+        
+
+        marker_4656f91fa5baba666ade5bca5fb0b870.bindPopup(popup_5138f7b4843da8645e61c4490b1bd08f)
+        ;
+
+        
+    
+    
+            marker_4656f91fa5baba666ade5bca5fb0b870.bindTooltip(
+                `<div>
+                     Alert #10
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4656f91fa5baba666ade5bca5fb0b870.setIcon(icon_3b7fc24dbc90caa94465ad2fe994bffb);
+            
+    
+            var marker_139ef9dca6a9c2d7f5b78270ef969aab = L.marker(
+                [40.632999999999996, -73.77969999999999],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_e915417db601d7ed8cb79a2b4478bbb5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_02744c92c754d7e6b544c8ad6b555de0 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_da7a7b47df932a1a702ee0fa2a76c5f3 = $(`<div id="html_da7a7b47df932a1a702ee0fa2a76c5f3" style="width: 100.0%; height: 100.0%;">             <b>Alert #11</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D004<br>             Plane: 4ca7b2<br>             H-Distance: 0.028 km<br>             V-Distance: 55.5 m<br>             </div>`)[0];
+                popup_02744c92c754d7e6b544c8ad6b555de0.setContent(html_da7a7b47df932a1a702ee0fa2a76c5f3);
+            
+        
+
+        marker_139ef9dca6a9c2d7f5b78270ef969aab.bindPopup(popup_02744c92c754d7e6b544c8ad6b555de0)
+        ;
+
+        
+    
+    
+            marker_139ef9dca6a9c2d7f5b78270ef969aab.bindTooltip(
+                `<div>
+                     Alert #11
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_139ef9dca6a9c2d7f5b78270ef969aab.setIcon(icon_e915417db601d7ed8cb79a2b4478bbb5);
+            
+    
+            var marker_1693b7f34cbb913f5084b9dc25212028 = L.marker(
+                [40.6329, -73.7798],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_120b226e447b6c17b1a4f3735b3475a9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d2efe02ce5663f50e60a3765423cb006 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_a3b63e7024324b10ed95259984d23df7 = $(`<div id="html_a3b63e7024324b10ed95259984d23df7" style="width: 100.0%; height: 100.0%;">             <b>Alert #12</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D004<br>             Plane: 4ca7b2<br>             H-Distance: 0.056 km<br>             V-Distance: 52.2 m<br>             </div>`)[0];
+                popup_d2efe02ce5663f50e60a3765423cb006.setContent(html_a3b63e7024324b10ed95259984d23df7);
+            
+        
+
+        marker_1693b7f34cbb913f5084b9dc25212028.bindPopup(popup_d2efe02ce5663f50e60a3765423cb006)
+        ;
+
+        
+    
+    
+            marker_1693b7f34cbb913f5084b9dc25212028.bindTooltip(
+                `<div>
+                     Alert #12
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1693b7f34cbb913f5084b9dc25212028.setIcon(icon_120b226e447b6c17b1a4f3735b3475a9);
+            
+    
+            var marker_0655e6e9fa56952118786cd3847ecc07 = L.marker(
+                [40.8176, -73.7781],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_c05df29fcabc659f2c8a710d967b1bf1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8b9fa33f561fadc695c905daccdd975e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_91d113685c36b584ef6008cc2e867399 = $(`<div id="html_91d113685c36b584ef6008cc2e867399" style="width: 100.0%; height: 100.0%;">             <b>Alert #13</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D005<br>             Plane: a0c4e2<br>             H-Distance: 0.0 km<br>             V-Distance: 82.4 m<br>             </div>`)[0];
+                popup_8b9fa33f561fadc695c905daccdd975e.setContent(html_91d113685c36b584ef6008cc2e867399);
+            
+        
+
+        marker_0655e6e9fa56952118786cd3847ecc07.bindPopup(popup_8b9fa33f561fadc695c905daccdd975e)
+        ;
+
+        
+    
+    
+            marker_0655e6e9fa56952118786cd3847ecc07.bindTooltip(
+                `<div>
+                     Alert #13
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0655e6e9fa56952118786cd3847ecc07.setIcon(icon_c05df29fcabc659f2c8a710d967b1bf1);
+            
+    
+            var marker_08b97395ebe61d6a197a7d6016104167 = L.marker(
+                [40.817499999999995, -73.7782],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_7ca18392fa2d844a37edbec23c0f0eeb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_93fe01e719b411b107466867866df0f1 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_8bbb9045533581ed6ae2f6789fe8fe2c = $(`<div id="html_8bbb9045533581ed6ae2f6789fe8fe2c" style="width: 100.0%; height: 100.0%;">             <b>Alert #14</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D005<br>             Plane: a0c4e2<br>             H-Distance: 0.028 km<br>             V-Distance: 79.3 m<br>             </div>`)[0];
+                popup_93fe01e719b411b107466867866df0f1.setContent(html_8bbb9045533581ed6ae2f6789fe8fe2c);
+            
+        
+
+        marker_08b97395ebe61d6a197a7d6016104167.bindPopup(popup_93fe01e719b411b107466867866df0f1)
+        ;
+
+        
+    
+    
+            marker_08b97395ebe61d6a197a7d6016104167.bindTooltip(
+                `<div>
+                     Alert #14
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_08b97395ebe61d6a197a7d6016104167.setIcon(icon_7ca18392fa2d844a37edbec23c0f0eeb);
+            
+    
+            var marker_2e659ca32caf3584bc6e42bfe5a1a79a = L.marker(
+                [40.8174, -73.7783],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_0115ce566ba8ff9c50bb9ff8414b1fdf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_388eef7426e8038c9f7862ae0e249d82 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_590dd6246a9e5461bc959f074497e222 = $(`<div id="html_590dd6246a9e5461bc959f074497e222" style="width: 100.0%; height: 100.0%;">             <b>Alert #15</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D005<br>             Plane: a0c4e2<br>             H-Distance: 0.056 km<br>             V-Distance: 76.1 m<br>             </div>`)[0];
+                popup_388eef7426e8038c9f7862ae0e249d82.setContent(html_590dd6246a9e5461bc959f074497e222);
+            
+        
+
+        marker_2e659ca32caf3584bc6e42bfe5a1a79a.bindPopup(popup_388eef7426e8038c9f7862ae0e249d82)
+        ;
+
+        
+    
+    
+            marker_2e659ca32caf3584bc6e42bfe5a1a79a.bindTooltip(
+                `<div>
+                     Alert #15
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2e659ca32caf3584bc6e42bfe5a1a79a.setIcon(icon_0115ce566ba8ff9c50bb9ff8414b1fdf);
+            
+    
+            var marker_5a9db4fdd446d39b6faa30b7197a78ba = L.marker(
+                [40.7282, -74.0776],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_24a9ed09c69d5d2afc4b0426e9e47e5f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3f194f2b83bd9b5d77a9513bc6f07e86 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1a4b06908a73035c7dc5e3229782808a = $(`<div id="html_1a4b06908a73035c7dc5e3229782808a" style="width: 100.0%; height: 100.0%;">             <b>Alert #16</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D006<br>             Plane: 4b19ea<br>             H-Distance: 0.0 km<br>             V-Distance: 23.4 m<br>             </div>`)[0];
+                popup_3f194f2b83bd9b5d77a9513bc6f07e86.setContent(html_1a4b06908a73035c7dc5e3229782808a);
+            
+        
+
+        marker_5a9db4fdd446d39b6faa30b7197a78ba.bindPopup(popup_3f194f2b83bd9b5d77a9513bc6f07e86)
+        ;
+
+        
+    
+    
+            marker_5a9db4fdd446d39b6faa30b7197a78ba.bindTooltip(
+                `<div>
+                     Alert #16
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5a9db4fdd446d39b6faa30b7197a78ba.setIcon(icon_24a9ed09c69d5d2afc4b0426e9e47e5f);
+            
+    
+            var marker_faab3d0e2badaf48252127a167ab3c71 = L.marker(
+                [40.7281, -74.0777],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_9962098d95527b409b44135bf207f9c9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_84e0518901bec815e697fd0c11dfb6a3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_baddf3dd387c3fa08873ac1e39fa061d = $(`<div id="html_baddf3dd387c3fa08873ac1e39fa061d" style="width: 100.0%; height: 100.0%;">             <b>Alert #17</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D006<br>             Plane: 4b19ea<br>             H-Distance: 0.028 km<br>             V-Distance: 26.5 m<br>             </div>`)[0];
+                popup_84e0518901bec815e697fd0c11dfb6a3.setContent(html_baddf3dd387c3fa08873ac1e39fa061d);
+            
+        
+
+        marker_faab3d0e2badaf48252127a167ab3c71.bindPopup(popup_84e0518901bec815e697fd0c11dfb6a3)
+        ;
+
+        
+    
+    
+            marker_faab3d0e2badaf48252127a167ab3c71.bindTooltip(
+                `<div>
+                     Alert #17
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_faab3d0e2badaf48252127a167ab3c71.setIcon(icon_9962098d95527b409b44135bf207f9c9);
+            
+    
+            var marker_24ef148edf6ebc7660a3dcc8161005af = L.marker(
+                [40.728, -74.0778],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_8cc2f77195f7d2e6ff4189731e5d13ec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d644235c50b324bb44ac4dce6ca750ef = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2995a51e13f05822a1a0ea7800ba4197 = $(`<div id="html_2995a51e13f05822a1a0ea7800ba4197" style="width: 100.0%; height: 100.0%;">             <b>Alert #18</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D006<br>             Plane: 4b19ea<br>             H-Distance: 0.056 km<br>             V-Distance: 29.8 m<br>             </div>`)[0];
+                popup_d644235c50b324bb44ac4dce6ca750ef.setContent(html_2995a51e13f05822a1a0ea7800ba4197);
+            
+        
+
+        marker_24ef148edf6ebc7660a3dcc8161005af.bindPopup(popup_d644235c50b324bb44ac4dce6ca750ef)
+        ;
+
+        
+    
+    
+            marker_24ef148edf6ebc7660a3dcc8161005af.bindTooltip(
+                `<div>
+                     Alert #18
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_24ef148edf6ebc7660a3dcc8161005af.setIcon(icon_8cc2f77195f7d2e6ff4189731e5d13ec);
+            
+    
+            var marker_10fbd798671be3de7c6d6e6c82aa6a42 = L.marker(
+                [40.6441, -73.7822],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_9359a27c47999df70d0d75b79b3051d8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_60e4337774fa294b83650d7d0b9df055 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_8d826ea7f063f93bcf986980d34d5083 = $(`<div id="html_8d826ea7f063f93bcf986980d34d5083" style="width: 100.0%; height: 100.0%;">             <b>Alert #19</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D007<br>             Plane: a81f3c<br>             H-Distance: 0.0 km<br>             V-Distance: 93.8 m<br>             </div>`)[0];
+                popup_60e4337774fa294b83650d7d0b9df055.setContent(html_8d826ea7f063f93bcf986980d34d5083);
+            
+        
+
+        marker_10fbd798671be3de7c6d6e6c82aa6a42.bindPopup(popup_60e4337774fa294b83650d7d0b9df055)
+        ;
+
+        
+    
+    
+            marker_10fbd798671be3de7c6d6e6c82aa6a42.bindTooltip(
+                `<div>
+                     Alert #19
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_10fbd798671be3de7c6d6e6c82aa6a42.setIcon(icon_9359a27c47999df70d0d75b79b3051d8);
+            
+    
+            var marker_60f9eb804468a0ff54a2abb73e2bf8d4 = L.marker(
+                [40.6442, -73.7821],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_40dfe4cb7c529e922dd729002ce717ac = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f84c6dfddfe84ca468b99d180536d596 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_03c1c2711c8accfbc166a82a78ace8c1 = $(`<div id="html_03c1c2711c8accfbc166a82a78ace8c1" style="width: 100.0%; height: 100.0%;">             <b>Alert #20</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D007<br>             Plane: a81f3c<br>             H-Distance: 0.028 km<br>             V-Distance: 90.8 m<br>             </div>`)[0];
+                popup_f84c6dfddfe84ca468b99d180536d596.setContent(html_03c1c2711c8accfbc166a82a78ace8c1);
+            
+        
+
+        marker_60f9eb804468a0ff54a2abb73e2bf8d4.bindPopup(popup_f84c6dfddfe84ca468b99d180536d596)
+        ;
+
+        
+    
+    
+            marker_60f9eb804468a0ff54a2abb73e2bf8d4.bindTooltip(
+                `<div>
+                     Alert #20
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_60f9eb804468a0ff54a2abb73e2bf8d4.setIcon(icon_40dfe4cb7c529e922dd729002ce717ac);
+            
+    
+            var marker_0b278de571b0519bdef0b7eeffc78891 = L.marker(
+                [40.6443, -73.78200000000001],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_80156be0edf56f2fcccd0da5e19b7e8b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4a13adf2c86a203b1e539acc982aac81 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_241621f9129a1e29297ca342926b451a = $(`<div id="html_241621f9129a1e29297ca342926b451a" style="width: 100.0%; height: 100.0%;">             <b>Alert #21</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D007<br>             Plane: a81f3c<br>             H-Distance: 0.056 km<br>             V-Distance: 87.7 m<br>             </div>`)[0];
+                popup_4a13adf2c86a203b1e539acc982aac81.setContent(html_241621f9129a1e29297ca342926b451a);
+            
+        
+
+        marker_0b278de571b0519bdef0b7eeffc78891.bindPopup(popup_4a13adf2c86a203b1e539acc982aac81)
+        ;
+
+        
+    
+    
+            marker_0b278de571b0519bdef0b7eeffc78891.bindTooltip(
+                `<div>
+                     Alert #21
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0b278de571b0519bdef0b7eeffc78891.setIcon(icon_80156be0edf56f2fcccd0da5e19b7e8b);
+            
+    
+            var marker_7ed6e3d490a02d8ec9e3253ce7483e44 = L.marker(
+                [40.7833, -73.96785],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_0a013e558b4acc882b454c01f68d182b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1794b72908b0d69d5e6855f43d71670f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_77d43d287fc8abd02491d00ebe8e0101 = $(`<div id="html_77d43d287fc8abd02491d00ebe8e0101" style="width: 100.0%; height: 100.0%;">             <b>Alert #22</b><br>             <b>Risk Level:</b> MEDIUM<br>             Drone: D003<br>             Plane: 4ca234<br>             H-Distance: 0.5 km<br>             V-Distance: 35.2 m<br>             </div>`)[0];
+                popup_1794b72908b0d69d5e6855f43d71670f.setContent(html_77d43d287fc8abd02491d00ebe8e0101);
+            
+        
+
+        marker_7ed6e3d490a02d8ec9e3253ce7483e44.bindPopup(popup_1794b72908b0d69d5e6855f43d71670f)
+        ;
+
+        
+    
+    
+            marker_7ed6e3d490a02d8ec9e3253ce7483e44.bindTooltip(
+                `<div>
+                     Alert #22
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7ed6e3d490a02d8ec9e3253ce7483e44.setIcon(icon_0a013e558b4acc882b454c01f68d182b);
+            
+    
+            var marker_f4c061d1575d5d69318e8c488e8077f0 = L.marker(
+                [40.7831, -73.9649],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_0f299851eb55015c9e92ae180afd0023 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a1ec55f73a8045af98ff5c8f545d0b52 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f2d486df2dfe2b050ceb413168b6458f = $(`<div id="html_f2d486df2dfe2b050ceb413168b6458f" style="width: 100.0%; height: 100.0%;">             <b>Alert #23</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D008<br>             Plane: 4ca234<br>             H-Distance: 0.0 km<br>             V-Distance: 4.8 m<br>             </div>`)[0];
+                popup_a1ec55f73a8045af98ff5c8f545d0b52.setContent(html_f2d486df2dfe2b050ceb413168b6458f);
+            
+        
+
+        marker_f4c061d1575d5d69318e8c488e8077f0.bindPopup(popup_a1ec55f73a8045af98ff5c8f545d0b52)
+        ;
+
+        
+    
+    
+            marker_f4c061d1575d5d69318e8c488e8077f0.bindTooltip(
+                `<div>
+                     Alert #23
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f4c061d1575d5d69318e8c488e8077f0.setIcon(icon_0f299851eb55015c9e92ae180afd0023);
+            
+    
+            var marker_8a8da08cbb1fd9ff3f788ca507ebb75f = L.marker(
+                [40.783199999999994, -73.9648],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_d51947740487f34228b7ed38a923ae4a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6f9abc58a9c1bb924283aba37ade280f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_93bc0e47ae50e115cd02b415f4985011 = $(`<div id="html_93bc0e47ae50e115cd02b415f4985011" style="width: 100.0%; height: 100.0%;">             <b>Alert #24</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D008<br>             Plane: 4ca234<br>             H-Distance: 0.028 km<br>             V-Distance: 8.1 m<br>             </div>`)[0];
+                popup_6f9abc58a9c1bb924283aba37ade280f.setContent(html_93bc0e47ae50e115cd02b415f4985011);
+            
+        
+
+        marker_8a8da08cbb1fd9ff3f788ca507ebb75f.bindPopup(popup_6f9abc58a9c1bb924283aba37ade280f)
+        ;
+
+        
+    
+    
+            marker_8a8da08cbb1fd9ff3f788ca507ebb75f.bindTooltip(
+                `<div>
+                     Alert #24
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8a8da08cbb1fd9ff3f788ca507ebb75f.setIcon(icon_d51947740487f34228b7ed38a923ae4a);
+            
+    
+            var marker_bb716a80b2aafd08f7b2dfeac18978ee = L.marker(
+                [40.7833, -73.9647],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_8c8d90f1fdcf5832ae6b6361d6728779 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b5cd1020bd02c171c980c6cc82e1de16 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_75586eb5167e37d656b4bba6ab75cb6d = $(`<div id="html_75586eb5167e37d656b4bba6ab75cb6d" style="width: 100.0%; height: 100.0%;">             <b>Alert #25</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D008<br>             Plane: 4ca234<br>             H-Distance: 0.056 km<br>             V-Distance: 11.5 m<br>             </div>`)[0];
+                popup_b5cd1020bd02c171c980c6cc82e1de16.setContent(html_75586eb5167e37d656b4bba6ab75cb6d);
+            
+        
+
+        marker_bb716a80b2aafd08f7b2dfeac18978ee.bindPopup(popup_b5cd1020bd02c171c980c6cc82e1de16)
+        ;
+
+        
+    
+    
+            marker_bb716a80b2aafd08f7b2dfeac18978ee.bindTooltip(
+                `<div>
+                     Alert #25
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bb716a80b2aafd08f7b2dfeac18978ee.setIcon(icon_8c8d90f1fdcf5832ae6b6361d6728779);
+            
+    
+            var marker_a664285e3a306acb69230d2010d5cf6a = L.marker(
+                [40.6176, -74.0364],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_e2da9b814000c5890a03f6f3a476038c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f9b463353c680ee2e86dd00c5782d3b3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_11a1357d847bb51ec5ded05802076519 = $(`<div id="html_11a1357d847bb51ec5ded05802076519" style="width: 100.0%; height: 100.0%;">             <b>Alert #26</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D009<br>             Plane: a4d8b1<br>             H-Distance: 0.0 km<br>             V-Distance: 22.8 m<br>             </div>`)[0];
+                popup_f9b463353c680ee2e86dd00c5782d3b3.setContent(html_11a1357d847bb51ec5ded05802076519);
+            
+        
+
+        marker_a664285e3a306acb69230d2010d5cf6a.bindPopup(popup_f9b463353c680ee2e86dd00c5782d3b3)
+        ;
+
+        
+    
+    
+            marker_a664285e3a306acb69230d2010d5cf6a.bindTooltip(
+                `<div>
+                     Alert #26
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a664285e3a306acb69230d2010d5cf6a.setIcon(icon_e2da9b814000c5890a03f6f3a476038c);
+            
+    
+            var marker_f38fd1b086709b5cb27c7bccc282b27c = L.marker(
+                [40.6177, -74.0363],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_527af8307a64afb8f7a2af2872207cdd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_afd216b7eeafc726bb2a406fa3ad24b2 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_19441cec0e654a29179f7adc02d521ab = $(`<div id="html_19441cec0e654a29179f7adc02d521ab" style="width: 100.0%; height: 100.0%;">             <b>Alert #27</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D009<br>             Plane: a4d8b1<br>             H-Distance: 0.028 km<br>             V-Distance: 19.5 m<br>             </div>`)[0];
+                popup_afd216b7eeafc726bb2a406fa3ad24b2.setContent(html_19441cec0e654a29179f7adc02d521ab);
+            
+        
+
+        marker_f38fd1b086709b5cb27c7bccc282b27c.bindPopup(popup_afd216b7eeafc726bb2a406fa3ad24b2)
+        ;
+
+        
+    
+    
+            marker_f38fd1b086709b5cb27c7bccc282b27c.bindTooltip(
+                `<div>
+                     Alert #27
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f38fd1b086709b5cb27c7bccc282b27c.setIcon(icon_527af8307a64afb8f7a2af2872207cdd);
+            
+    
+            var marker_d70f962206354ccbfe649bb2c9fb81f0 = L.marker(
+                [40.6178, -74.03620000000001],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_291134aaec7b4f530360b482bc38ee44 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_84cb088063981c9ebf324dcda6b53616 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_eeb0f57fa88ed7da833a664148fcdd4d = $(`<div id="html_eeb0f57fa88ed7da833a664148fcdd4d" style="width: 100.0%; height: 100.0%;">             <b>Alert #28</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D009<br>             Plane: a4d8b1<br>             H-Distance: 0.056 km<br>             V-Distance: 16.1 m<br>             </div>`)[0];
+                popup_84cb088063981c9ebf324dcda6b53616.setContent(html_eeb0f57fa88ed7da833a664148fcdd4d);
+            
+        
+
+        marker_d70f962206354ccbfe649bb2c9fb81f0.bindPopup(popup_84cb088063981c9ebf324dcda6b53616)
+        ;
+
+        
+    
+    
+            marker_d70f962206354ccbfe649bb2c9fb81f0.bindTooltip(
+                `<div>
+                     Alert #28
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d70f962206354ccbfe649bb2c9fb81f0.setIcon(icon_291134aaec7b4f530360b482bc38ee44);
+            
+    
+            var marker_44587f2a7592f4e07b79553195d7157d = L.marker(
+                [40.7589, -74.006],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_283cf704a2963f36a930c57312adaa20 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ab5412fd3868096978deaecef48cc2a7 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_3b25fbd8a5dccd072fcc58bafc4de6db = $(`<div id="html_3b25fbd8a5dccd072fcc58bafc4de6db" style="width: 100.0%; height: 100.0%;">             <b>Alert #29</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D010<br>             Plane: 4b1645<br>             H-Distance: 0.0 km<br>             V-Distance: 27.1 m<br>             </div>`)[0];
+                popup_ab5412fd3868096978deaecef48cc2a7.setContent(html_3b25fbd8a5dccd072fcc58bafc4de6db);
+            
+        
+
+        marker_44587f2a7592f4e07b79553195d7157d.bindPopup(popup_ab5412fd3868096978deaecef48cc2a7)
+        ;
+
+        
+    
+    
+            marker_44587f2a7592f4e07b79553195d7157d.bindTooltip(
+                `<div>
+                     Alert #29
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_44587f2a7592f4e07b79553195d7157d.setIcon(icon_283cf704a2963f36a930c57312adaa20);
+            
+    
+            var marker_fe862ec28d7147c95c4c6a58b2f65811 = L.marker(
+                [40.758799999999994, -74.0061],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_e2727f860396801d877987a0c2d12b7b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1b21164e0f4cdd3ccb5436e6ecaa471b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_c009ea0a4f39fa865e1dd5f60f1e0fdc = $(`<div id="html_c009ea0a4f39fa865e1dd5f60f1e0fdc" style="width: 100.0%; height: 100.0%;">             <b>Alert #30</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D010<br>             Plane: 4b1645<br>             H-Distance: 0.028 km<br>             V-Distance: 23.8 m<br>             </div>`)[0];
+                popup_1b21164e0f4cdd3ccb5436e6ecaa471b.setContent(html_c009ea0a4f39fa865e1dd5f60f1e0fdc);
+            
+        
+
+        marker_fe862ec28d7147c95c4c6a58b2f65811.bindPopup(popup_1b21164e0f4cdd3ccb5436e6ecaa471b)
+        ;
+
+        
+    
+    
+            marker_fe862ec28d7147c95c4c6a58b2f65811.bindTooltip(
+                `<div>
+                     Alert #30
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fe862ec28d7147c95c4c6a58b2f65811.setIcon(icon_e2727f860396801d877987a0c2d12b7b);
+            
+    
+            var marker_a1c98edcf98ff34116b253fe3be39eaa = L.marker(
+                [40.7587, -74.0062],
+                {
+}
+            ).addTo(map_3796f008d05c0cb79906a95c68b18e63);
+        
+    
+            var icon_58b8ce30db4a3cac6c94b1291e875107 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c78fe222062c494c993e752bd16f0a76 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_a03164530010fed3b8bf7f6a8a22398d = $(`<div id="html_a03164530010fed3b8bf7f6a8a22398d" style="width: 100.0%; height: 100.0%;">             <b>Alert #31</b><br>             <b>Risk Level:</b> HIGH<br>             Drone: D010<br>             Plane: 4b1645<br>             H-Distance: 0.056 km<br>             V-Distance: 20.3 m<br>             </div>`)[0];
+                popup_c78fe222062c494c993e752bd16f0a76.setContent(html_a03164530010fed3b8bf7f6a8a22398d);
+            
+        
+
+        marker_a1c98edcf98ff34116b253fe3be39eaa.bindPopup(popup_c78fe222062c494c993e752bd16f0a76)
+        ;
+
+        
+    
+    
+            marker_a1c98edcf98ff34116b253fe3be39eaa.bindTooltip(
+                `<div>
+                     Alert #31
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a1c98edcf98ff34116b253fe3be39eaa.setIcon(icon_58b8ce30db4a3cac6c94b1291e875107);
+            
+</script>
+</html>
