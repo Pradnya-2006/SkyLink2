@@ -1,0 +1,20 @@
+{
+  "region": "New York Metropolitan Area",
+  "analysis_time": "2025-10-12T00:06:59.336498",
+  "processing_time_seconds": 0.375276,
+  "parameters": {
+    "altitude_limit_m": 500,
+    "horizontal_threshold_km": 0.3,
+    "vertical_threshold_m": 75
+  },
+  "aircraft_counts": {
+    "total_planes": 10452,
+    "total_drones": 600,
+    "regional_planes": 50,
+    "regional_drones": 100
+  },
+  "alerts": {
+    "total_count": 0,
+    "alerts_data": []
+  }
+}

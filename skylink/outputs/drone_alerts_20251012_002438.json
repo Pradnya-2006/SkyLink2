@@ -1,0 +1,6602 @@
+[
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.911805,
+      77.536925
+    ],
+    "altitude": 303.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.9183,
+      77.545606
+    ],
+    "altitude": 86.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.959768,
+      77.587136
+    ],
+    "altitude": 115.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.989716,
+      77.553317
+    ],
+    "altitude": 222.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.98931,
+      77.567795
+    ],
+    "altitude": 394.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.993071,
+      77.582292
+    ],
+    "altitude": 96.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.988523,
+      77.51072
+    ],
+    "altitude": 126.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.912914,
+      77.50268
+    ],
+    "altitude": 324.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.957217,
+      77.514612
+    ],
+    "altitude": 201.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.912523,
+      77.58284
+    ],
+    "altitude": 298.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.988697,
+      77.598509
+    ],
+    "altitude": 226.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.961062,
+      77.576463
+    ],
+    "altitude": 108.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.9366,
+      77.501742
+    ],
+    "altitude": 365.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.982706,
+      77.598721
+    ],
+    "altitude": 119.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.979403,
+      77.515878
+    ],
+    "altitude": 175.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.900275,
+      77.566068
+    ],
+    "altitude": 58.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.972044,
+      77.510929
+    ],
+    "altitude": 290.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.911477,
+      77.528767
+    ],
+    "altitude": 179.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.924261,
+      77.593221
+    ],
+    "altitude": 164.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.983839,
+      77.511984
+    ],
+    "altitude": 182.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.995459,
+      77.595326
+    ],
+    "altitude": 367.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.909031,
+      77.590264
+    ],
+    "altitude": 168.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.973974,
+      77.585408
+    ],
+    "altitude": 351.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.930787,
+      77.539097
+    ],
+    "altitude": 279.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.921029,
+      77.589025
+    ],
+    "altitude": 368.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.980974,
+      77.590143
+    ],
+    "altitude": 100.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.957886,
+      77.519098
+    ],
+    "altitude": 282.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.919068,
+      77.523323
+    ],
+    "altitude": 214.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.91743,
+      77.526221
+    ],
+    "altitude": 104.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.908052,
+      77.544594
+    ],
+    "altitude": 151.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.91154,
+      77.536767
+    ],
+    "altitude": 302.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.918452,
+      77.54647
+    ],
+    "altitude": 81.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.959642,
+      77.586205
+    ],
+    "altitude": 118.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.989455,
+      77.552995
+    ],
+    "altitude": 222.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.989418,
+      77.567753
+    ],
+    "altitude": 392.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.993117,
+      77.582868
+    ],
+    "altitude": 94.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.989189,
+      77.510636
+    ],
+    "altitude": 126.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.912711,
+      77.503124
+    ],
+    "altitude": 319.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.957609,
+      77.514174
+    ],
+    "altitude": 196.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.912358,
+      77.582361
+    ],
+    "altitude": 297.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.987874,
+      77.599064
+    ],
+    "altitude": 228.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.960547,
+      77.575805
+    ],
+    "altitude": 103.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.937351,
+      77.50241
+    ],
+    "altitude": 363.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.982229,
+      77.598279
+    ],
+    "altitude": 123.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.979512,
+      77.516332
+    ],
+    "altitude": 176.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.900743,
+      77.566295
+    ],
+    "altitude": 62.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.972423,
+      77.510181
+    ],
+    "altitude": 289.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.910879,
+      77.527771
+    ],
+    "altitude": 180.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.924567,
+      77.593342
+    ],
+    "altitude": 165.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.98441,
+      77.512564
+    ],
+    "altitude": 185.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.995919,
+      77.595319
+    ],
+    "altitude": 363.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.909543,
+      77.591008
+    ],
+    "altitude": 170.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.97432,
+      77.58496
+    ],
+    "altitude": 347.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.930254,
+      77.539883
+    ],
+    "altitude": 277.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.921761,
+      77.588419
+    ],
+    "altitude": 364.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.980316,
+      77.590616
+    ],
+    "altitude": 100.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.95737,
+      77.518587
+    ],
+    "altitude": 279.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.91965,
+      77.523308
+    ],
+    "altitude": 212.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.917249,
+      77.526608
+    ],
+    "altitude": 99.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.907519,
+      77.545309
+    ],
+    "altitude": 147.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.911892,
+      77.536214
+    ],
+    "altitude": 301.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.919229,
+      77.546675
+    ],
+    "altitude": 83.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.959941,
+      77.586227
+    ],
+    "altitude": 116.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.989478,
+      77.55342
+    ],
+    "altitude": 218.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.989031,
+      77.568251
+    ],
+    "altitude": 396.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.993849,
+      77.582072
+    ],
+    "altitude": 95.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.988522,
+      77.511255
+    ],
+    "altitude": 121.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.913077,
+      77.502307
+    ],
+    "altitude": 321.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.9569,
+      77.513756
+    ],
+    "altitude": 196.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.911405,
+      77.582337
+    ],
+    "altitude": 296.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.986919,
+      77.59889
+    ],
+    "altitude": 228.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.960258,
+      77.575445
+    ],
+    "altitude": 103.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.937939,
+      77.502775
+    ],
+    "altitude": 365.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.98123,
+      77.597649
+    ],
+    "altitude": 119.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.979004,
+      77.51648
+    ],
+    "altitude": 179.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.901332,
+      77.566713
+    ],
+    "altitude": 61.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.972913,
+      77.510253
+    ],
+    "altitude": 293.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.910806,
+      77.526952
+    ],
+    "altitude": 181.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.92492,
+      77.593441
+    ],
+    "altitude": 164.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.983554,
+      77.513514
+    ],
+    "altitude": 182.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.995498,
+      77.59619
+    ],
+    "altitude": 365.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.909275,
+      77.59124
+    ],
+    "altitude": 170.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.975196,
+      77.585843
+    ],
+    "altitude": 348.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.929514,
+      77.53891
+    ],
+    "altitude": 272.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.920863,
+      77.588549
+    ],
+    "altitude": 363.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.980942,
+      77.591586
+    ],
+    "altitude": 99.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.958105,
+      77.51871
+    ],
+    "altitude": 282.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.919892,
+      77.522384
+    ],
+    "altitude": 207.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.917214,
+      77.527276
+    ],
+    "altitude": 99.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.907033,
+      77.544759
+    ],
+    "altitude": 148.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.911455,
+      77.536548
+    ],
+    "altitude": 297.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.918734,
+      77.54694
+    ],
+    "altitude": 80.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.959417,
+      77.58706
+    ],
+    "altitude": 120.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.990333,
+      77.554058
+    ],
+    "altitude": 218.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.989588,
+      77.567885
+    ],
+    "altitude": 396.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.994357,
+      77.581855
+    ],
+    "altitude": 96.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.988338,
+      77.511046
+    ],
+    "altitude": 125.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.913811,
+      77.501386
+    ],
+    "altitude": 324.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.956804,
+      77.513203
+    ],
+    "altitude": 195.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.911329,
+      77.582259
+    ],
+    "altitude": 297.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.985997,
+      77.598906
+    ],
+    "altitude": 227.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.960038,
+      77.57535
+    ],
+    "altitude": 104.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.938552,
+      77.502208
+    ],
+    "altitude": 366.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.980875,
+      77.596792
+    ],
+    "altitude": 116.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.978742,
+      77.516857
+    ],
+    "altitude": 176.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.9013,
+      77.56728
+    ],
+    "altitude": 59.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.973423,
+      77.510225
+    ],
+    "altitude": 289.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.910418,
+      77.526643
+    ],
+    "altitude": 182.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.925182,
+      77.593835
+    ],
+    "altitude": 162.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.983797,
+      77.513423
+    ],
+    "altitude": 185.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.996025,
+      77.595999
+    ],
+    "altitude": 361.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.909121,
+      77.590338
+    ],
+    "altitude": 170.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.975335,
+      77.585936
+    ],
+    "altitude": 343.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.928866,
+      77.539436
+    ],
+    "altitude": 267.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.921795,
+      77.587678
+    ],
+    "altitude": 363.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.980992,
+      77.590714
+    ],
+    "altitude": 99.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.957142,
+      77.518907
+    ],
+    "altitude": 279.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.9195,
+      77.522614
+    ],
+    "altitude": 202.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.91768,
+      77.527544
+    ],
+    "altitude": 102.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.906872,
+      77.545354
+    ],
+    "altitude": 146.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.912243,
+      77.536199
+    ],
+    "altitude": 292.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.918014,
+      77.547233
+    ],
+    "altitude": 78.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.959727,
+      77.587327
+    ],
+    "altitude": 124.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.989675,
+      77.553962
+    ],
+    "altitude": 217.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.989654,
+      77.568267
+    ],
+    "altitude": 393.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.993651,
+      77.582147
+    ],
+    "altitude": 94.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.98903,
+      77.511007
+    ],
+    "altitude": 128.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.914666,
+      77.500744
+    ],
+    "altitude": 324.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.956335,
+      77.512667
+    ],
+    "altitude": 195.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.91161,
+      77.5826
+    ],
+    "altitude": 301.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.985066,
+      77.598868
+    ],
+    "altitude": 231.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.960129,
+      77.575482
+    ],
+    "altitude": 106.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.938258,
+      77.501983
+    ],
+    "altitude": 365.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.980005,
+      77.596047
+    ],
+    "altitude": 120.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.978922,
+      77.517704
+    ],
+    "altitude": 174.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.901558,
+      77.566415
+    ],
+    "altitude": 54.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.973527,
+      77.511002
+    ],
+    "altitude": 290.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.91106,
+      77.526005
+    ],
+    "altitude": 182.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.925084,
+      77.593168
+    ],
+    "altitude": 158.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.98396,
+      77.514328
+    ],
+    "altitude": 180.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.996888,
+      77.595544
+    ],
+    "altitude": 363.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.908643,
+      77.590592
+    ],
+    "altitude": 173.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.975975,
+      77.585042
+    ],
+    "altitude": 340.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.929805,
+      77.538878
+    ],
+    "altitude": 263.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.92182,
+      77.588398
+    ],
+    "altitude": 366.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.981366,
+      77.591319
+    ],
+    "altitude": 103.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.956746,
+      77.518546
+    ],
+    "altitude": 278.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.919214,
+      77.522716
+    ],
+    "altitude": 200.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.918061,
+      77.526594
+    ],
+    "altitude": 97.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.906035,
+      77.545883
+    ],
+    "altitude": 147.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.912136,
+      77.537152
+    ],
+    "altitude": 294.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.918276,
+      77.547791
+    ],
+    "altitude": 75.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.95942,
+      77.58656
+    ],
+    "altitude": 120.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.990636,
+      77.553294
+    ],
+    "altitude": 216.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.990179,
+      77.568512
+    ],
+    "altitude": 388.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.993043,
+      77.581746
+    ],
+    "altitude": 94.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.988133,
+      77.51104
+    ],
+    "altitude": 132.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.914671,
+      77.501305
+    ],
+    "altitude": 320.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.955944,
+      77.512609
+    ],
+    "altitude": 191.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.911179,
+      77.583082
+    ],
+    "altitude": 296.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.985672,
+      77.598453
+    ],
+    "altitude": 233.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.960806,
+      77.575156
+    ],
+    "altitude": 101.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.939162,
+      77.501278
+    ],
+    "altitude": 364.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.979398,
+      77.596803
+    ],
+    "altitude": 123.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.978206,
+      77.516926
+    ],
+    "altitude": 173.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.901592,
+      77.56722
+    ],
+    "altitude": 51.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.974075,
+      77.510766
+    ],
+    "altitude": 287.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.911876,
+      77.525834
+    ],
+    "altitude": 177.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.925697,
+      77.593489
+    ],
+    "altitude": 157.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.984008,
+      77.514122
+    ],
+    "altitude": 178.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.9959,
+      77.595371
+    ],
+    "altitude": 363.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.908419,
+      77.591041
+    ],
+    "altitude": 175.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.976249,
+      77.585446
+    ],
+    "altitude": 338.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.929439,
+      77.538223
+    ],
+    "altitude": 259.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.921015,
+      77.588259
+    ],
+    "altitude": 365.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.980416,
+      77.591225
+    ],
+    "altitude": 98.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.957721,
+      77.519071
+    ],
+    "altitude": 277.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.918964,
+      77.521786
+    ],
+    "altitude": 197.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.918277,
+      77.52676
+    ],
+    "altitude": 101.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.905932,
+      77.54676
+    ],
+    "altitude": 143.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.911643,
+      77.537554
+    ],
+    "altitude": 289.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.919,
+      77.548004
+    ],
+    "altitude": 72.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.959328,
+      77.587442
+    ],
+    "altitude": 117.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.990222,
+      77.553665
+    ],
+    "altitude": 218.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.990448,
+      77.569138
+    ],
+    "altitude": 389.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.993939,
+      77.580935
+    ],
+    "altitude": 90.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.988912,
+      77.510072
+    ],
+    "altitude": 128.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.91424,
+      77.502097
+    ],
+    "altitude": 320.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.956422,
+      77.512891
+    ],
+    "altitude": 186.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.910467,
+      77.584035
+    ],
+    "altitude": 295.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.986525,
+      77.598182
+    ],
+    "altitude": 232.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.960347,
+      77.574923
+    ],
+    "altitude": 100.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.938172,
+      77.50102
+    ],
+    "altitude": 363.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.979518,
+      77.596379
+    ],
+    "altitude": 124.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.977994,
+      77.517515
+    ],
+    "altitude": 172.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.902155,
+      77.567049
+    ],
+    "altitude": 50.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.974025,
+      77.510933
+    ],
+    "altitude": 283.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.912226,
+      77.525158
+    ],
+    "altitude": 173.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.926607,
+      77.594294
+    ],
+    "altitude": 152.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.984185,
+      77.513841
+    ],
+    "altitude": 179.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.996063,
+      77.596137
+    ],
+    "altitude": 364.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.908916,
+      77.591329
+    ],
+    "altitude": 175.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.975282,
+      77.585654
+    ],
+    "altitude": 341.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.930058,
+      77.538709
+    ],
+    "altitude": 258.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.921039,
+      77.588224
+    ],
+    "altitude": 363.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.980845,
+      77.591699
+    ],
+    "altitude": 102.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.957637,
+      77.518854
+    ],
+    "altitude": 275.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.918627,
+      77.521093
+    ],
+    "altitude": 199.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.91788,
+      77.526076
+    ],
+    "altitude": 101.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.905681,
+      77.547604
+    ],
+    "altitude": 142.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.912247,
+      77.536798
+    ],
+    "altitude": 290.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.91932,
+      77.547012
+    ],
+    "altitude": 68.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.958767,
+      77.587935
+    ],
+    "altitude": 115.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.989621,
+      77.554062
+    ],
+    "altitude": 221.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.99068,
+      77.569317
+    ],
+    "altitude": 390.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.993377,
+      77.580114
+    ],
+    "altitude": 87.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.988676,
+      77.510336
+    ],
+    "altitude": 132.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.91393,
+      77.501589
+    ],
+    "altitude": 317.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.955474,
+      77.512822
+    ],
+    "altitude": 188.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.910988,
+      77.583804
+    ],
+    "altitude": 294.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.986899,
+      77.599124
+    ],
+    "altitude": 235.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.959584,
+      77.575218
+    ],
+    "altitude": 104.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.938328,
+      77.50006
+    ],
+    "altitude": 358.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.979886,
+      77.596347
+    ],
+    "altitude": 125.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.97813,
+      77.517534
+    ],
+    "altitude": 173.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.901985,
+      77.567602
+    ],
+    "altitude": 49.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.974834,
+      77.511415
+    ],
+    "altitude": 281.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.911695,
+      77.52428
+    ],
+    "altitude": 170.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.926207,
+      77.595177
+    ],
+    "altitude": 156.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.984434,
+      77.51342
+    ],
+    "altitude": 180.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.99613,
+      77.595484
+    ],
+    "altitude": 368.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.909261,
+      77.592222
+    ],
+    "altitude": 176.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.97586,
+      77.585239
+    ],
+    "altitude": 340.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.929291,
+      77.539167
+    ],
+    "altitude": 255.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.920859,
+      77.587352
+    ],
+    "altitude": 362.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.98007,
+      77.592392
+    ],
+    "altitude": 99.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.95741,
+      77.519294
+    ],
+    "altitude": 277.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.919442,
+      77.521674
+    ],
+    "altitude": 198.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.917885,
+      77.527015
+    ],
+    "altitude": 105.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.904765,
+      77.548249
+    ],
+    "altitude": 144.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.912015,
+      77.537291
+    ],
+    "altitude": 291.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.920213,
+      77.547632
+    ],
+    "altitude": 65.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.957838,
+      77.587579
+    ],
+    "altitude": 112.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.98998,
+      77.553223
+    ],
+    "altitude": 217.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.990835,
+      77.569113
+    ],
+    "altitude": 392.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.993384,
+      77.579347
+    ],
+    "altitude": 91.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.988284,
+      77.509452
+    ],
+    "altitude": 131.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.91301,
+      77.501561
+    ],
+    "altitude": 321.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.955892,
+      77.512484
+    ],
+    "altitude": 190.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.911769,
+      77.582967
+    ],
+    "altitude": 296.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.986558,
+      77.599603
+    ],
+    "altitude": 230.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.959294,
+      77.575743
+    ],
+    "altitude": 102.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.93858,
+      77.500707
+    ],
+    "altitude": 357.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.980036,
+      77.596203
+    ],
+    "altitude": 122.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.977694,
+      77.518134
+    ],
+    "altitude": 170.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.901218,
+      77.567581
+    ],
+    "altitude": 45.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.975461,
+      77.511967
+    ],
+    "altitude": 276.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.91225,
+      77.52335
+    ],
+    "altitude": 168.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.926552,
+      77.595896
+    ],
+    "altitude": 154.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.98542,
+      77.513434
+    ],
+    "altitude": 175.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.996824,
+      77.596091
+    ],
+    "altitude": 371.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.910136,
+      77.592197
+    ],
+    "altitude": 177.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.976757,
+      77.584636
+    ],
+    "altitude": 342.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.930007,
+      77.538591
+    ],
+    "altitude": 258.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.919969,
+      77.587622
+    ],
+    "altitude": 365.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.980886,
+      77.592123
+    ],
+    "altitude": 97.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.958013,
+      77.519498
+    ],
+    "altitude": 277.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.920026,
+      77.522501
+    ],
+    "altitude": 194.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.918874,
+      77.526331
+    ],
+    "altitude": 103.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.905492,
+      77.547586
+    ],
+    "altitude": 140.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.9116,
+      77.537252
+    ],
+    "altitude": 286.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.919759,
+      77.547162
+    ],
+    "altitude": 69.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.957664,
+      77.587467
+    ],
+    "altitude": 116.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.990751,
+      77.553248
+    ],
+    "altitude": 213.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.991203,
+      77.568716
+    ],
+    "altitude": 390.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.993019,
+      77.579538
+    ],
+    "altitude": 89.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.988723,
+      77.508873
+    ],
+    "altitude": 132.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.913043,
+      77.501917
+    ],
+    "altitude": 316.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.955041,
+      77.512151
+    ],
+    "altitude": 189.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.91115,
+      77.583617
+    ],
+    "altitude": 297.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.986234,
+      77.599557
+    ],
+    "altitude": 227.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.958938,
+      77.57536
+    ],
+    "altitude": 101.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.938131,
+      77.50008
+    ],
+    "altitude": 354.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.980339,
+      77.59533
+    ],
+    "altitude": 126.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.977986,
+      77.517403
+    ],
+    "altitude": 168.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.901177,
+      77.567527
+    ],
+    "altitude": 41.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.97465,
+      77.511176
+    ],
+    "altitude": 276.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.911483,
+      77.522686
+    ],
+    "altitude": 167.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.927124,
+      77.596043
+    ],
+    "altitude": 149.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.985041,
+      77.513059
+    ],
+    "altitude": 179.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.996517,
+      77.59516
+    ],
+    "altitude": 375.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.909731,
+      77.59256
+    ],
+    "altitude": 181.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.977618,
+      77.584271
+    ],
+    "altitude": 346.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.929429,
+      77.538526
+    ],
+    "altitude": 257.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.919762,
+      77.588034
+    ],
+    "altitude": 363.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.981295,
+      77.591297
+    ],
+    "altitude": 97.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.957379,
+      77.519062
+    ],
+    "altitude": 279.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.919481,
+      77.521908
+    ],
+    "altitude": 195.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.918913,
+      77.525392
+    ],
+    "altitude": 106.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.906259,
+      77.547717
+    ],
+    "altitude": 135.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.910828,
+      77.537099
+    ],
+    "altitude": 281.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.919707,
+      77.547783
+    ],
+    "altitude": 64.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.95801,
+      77.587776
+    ],
+    "altitude": 113.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.991727,
+      77.553292
+    ],
+    "altitude": 210.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.991595,
+      77.568534
+    ],
+    "altitude": 389.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.993081,
+      77.580175
+    ],
+    "altitude": 92.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.989674,
+      77.508523
+    ],
+    "altitude": 136.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.912887,
+      77.502801
+    ],
+    "altitude": 311.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.955348,
+      77.511834
+    ],
+    "altitude": 187.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.910307,
+      77.583983
+    ],
+    "altitude": 296.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.985985,
+      77.598848
+    ],
+    "altitude": 226.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.959566,
+      77.576043
+    ],
+    "altitude": 98.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.939017,
+      77.501002
+    ],
+    "altitude": 358.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.980593,
+      77.595123
+    ],
+    "altitude": 129.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.978811,
+      77.517942
+    ],
+    "altitude": 172.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.900981,
+      77.566769
+    ],
+    "altitude": 37.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.974574,
+      77.511013
+    ],
+    "altitude": 277.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.912152,
+      77.522741
+    ],
+    "altitude": 168.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.926347,
+      77.596165
+    ],
+    "altitude": 152.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.985914,
+      77.512322
+    ],
+    "altitude": 175.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.997136,
+      77.595341
+    ],
+    "altitude": 370.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.908978,
+      77.592071
+    ],
+    "altitude": 185.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.978471,
+      77.58398
+    ],
+    "altitude": 350.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.928732,
+      77.539155
+    ],
+    "altitude": 257.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.92055,
+      77.587938
+    ],
+    "altitude": 361.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.981083,
+      77.591185
+    ],
+    "altitude": 96.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.956754,
+      77.518552
+    ],
+    "altitude": 279.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.919087,
+      77.522508
+    ],
+    "altitude": 190.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.91865,
+      77.525933
+    ],
+    "altitude": 110.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.90562,
+      77.548522
+    ],
+    "altitude": 133.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.910049,
+      77.537722
+    ],
+    "altitude": 281.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.919464,
+      77.547905
+    ],
+    "altitude": 66.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.957639,
+      77.587879
+    ],
+    "altitude": 109.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.991233,
+      77.552605
+    ],
+    "altitude": 214.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.991114,
+      77.569088
+    ],
+    "altitude": 384.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.992501,
+      77.581055
+    ],
+    "altitude": 87.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.990453,
+      77.509379
+    ],
+    "altitude": 140.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.91305,
+      77.502843
+    ],
+    "altitude": 310.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.955087,
+      77.511784
+    ],
+    "altitude": 184.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.910901,
+      77.58367
+    ],
+    "altitude": 295.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.986465,
+      77.59834
+    ],
+    "altitude": 229.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.960072,
+      77.575718
+    ],
+    "altitude": 94.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.939153,
+      77.501584
+    ],
+    "altitude": 360.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.97966,
+      77.594709
+    ],
+    "altitude": 124.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.979596,
+      77.518141
+    ],
+    "altitude": 172.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.900827,
+      77.56705
+    ],
+    "altitude": 39.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.973785,
+      77.510255
+    ],
+    "altitude": 278.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.912274,
+      77.523049
+    ],
+    "altitude": 172.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.926922,
+      77.596892
+    ],
+    "altitude": 154.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.986384,
+      77.512513
+    ],
+    "altitude": 170.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.997839,
+      77.594747
+    ],
+    "altitude": 370.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.908591,
+      77.591892
+    ],
+    "altitude": 187.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.978401,
+      77.584486
+    ],
+    "altitude": 352.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.928467,
+      77.539679
+    ],
+    "altitude": 259.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.919699,
+      77.588093
+    ],
+    "altitude": 360.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.981222,
+      77.591468
+    ],
+    "altitude": 99.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.957272,
+      77.519372
+    ],
+    "altitude": 281.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.920053,
+      77.522939
+    ],
+    "altitude": 193.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.917656,
+      77.526168
+    ],
+    "altitude": 112.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.906459,
+      77.549175
+    ],
+    "altitude": 135.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.910204,
+      77.537571
+    ],
+    "altitude": 277.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.918943,
+      77.548226
+    ],
+    "altitude": 68.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.957679,
+      77.587995
+    ],
+    "altitude": 105.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.991564,
+      77.552559
+    ],
+    "altitude": 218.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.990791,
+      77.569021
+    ],
+    "altitude": 388.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.99296,
+      77.581068
+    ],
+    "altitude": 88.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.990599,
+      77.50972
+    ],
+    "altitude": 138.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.913703,
+      77.502192
+    ],
+    "altitude": 308.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.954552,
+      77.511725
+    ],
+    "altitude": 182.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.910717,
+      77.583068
+    ],
+    "altitude": 294.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.987021,
+      77.598603
+    ],
+    "altitude": 232.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.959691,
+      77.576242
+    ],
+    "altitude": 92.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.938996,
+      77.500611
+    ],
+    "altitude": 357.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.980104,
+      77.594503
+    ],
+    "altitude": 124.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.978819,
+      77.519135
+    ],
+    "altitude": 168.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.900391,
+      77.566309
+    ],
+    "altitude": 38.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.973329,
+      77.511019
+    ],
+    "altitude": 278.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.913213,
+      77.523401
+    ],
+    "altitude": 172.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.926831,
+      77.596546
+    ],
+    "altitude": 154.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.986639,
+      77.512921
+    ],
+    "altitude": 167.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.998559,
+      77.594954
+    ],
+    "altitude": 373.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.909436,
+      77.591418
+    ],
+    "altitude": 184.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.977423,
+      77.585077
+    ],
+    "altitude": 353.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.929303,
+      77.540331
+    ],
+    "altitude": 262.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.920307,
+      77.588047
+    ],
+    "altitude": 359.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.982155,
+      77.59089
+    ],
+    "altitude": 98.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.956534,
+      77.518839
+    ],
+    "altitude": 276.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.920259,
+      77.522594
+    ],
+    "altitude": 193.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.917048,
+      77.525958
+    ],
+    "altitude": 116.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.90562,
+      77.550106
+    ],
+    "altitude": 134.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.910787,
+      77.537942
+    ],
+    "altitude": 273.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.919619,
+      77.547471
+    ],
+    "altitude": 72.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.95738,
+      77.588945
+    ],
+    "altitude": 104.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.990626,
+      77.553028
+    ],
+    "altitude": 216.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.990602,
+      77.568246
+    ],
+    "altitude": 392.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.992255,
+      77.580652
+    ],
+    "altitude": 88.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.99026,
+      77.510557
+    ],
+    "altitude": 133.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.913235,
+      77.50317
+    ],
+    "altitude": 306.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.954991,
+      77.511303
+    ],
+    "altitude": 183.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.910598,
+      77.583463
+    ],
+    "altitude": 292.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.986095,
+      77.598683
+    ],
+    "altitude": 233.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.9599,
+      77.577055
+    ],
+    "altitude": 90.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.939349,
+      77.499803
+    ],
+    "altitude": 361.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.980628,
+      77.594125
+    ],
+    "altitude": 121.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.979015,
+      77.518851
+    ],
+    "altitude": 169.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.900002,
+      77.565907
+    ],
+    "altitude": 39.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.973516,
+      77.511561
+    ],
+    "altitude": 281.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.912282,
+      77.523334
+    ],
+    "altitude": 169.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.927259,
+      77.59732
+    ],
+    "altitude": 157.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.986669,
+      77.512159
+    ],
+    "altitude": 167.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.998701,
+      77.594091
+    ],
+    "altitude": 373.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.909589,
+      77.592091
+    ],
+    "altitude": 187.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.978073,
+      77.585778
+    ],
+    "altitude": 353.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.928599,
+      77.539744
+    ],
+    "altitude": 265.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.919455,
+      77.58859
+    ],
+    "altitude": 363.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.982957,
+      77.591086
+    ],
+    "altitude": 96.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.957006,
+      77.519454
+    ],
+    "altitude": 273.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.920952,
+      77.522733
+    ],
+    "altitude": 190.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.91612,
+      77.526734
+    ],
+    "altitude": 113.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.905931,
+      77.550396
+    ],
+    "altitude": 129.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.910623,
+      77.537458
+    ],
+    "altitude": 268.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.91937,
+      77.547179
+    ],
+    "altitude": 68.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.958164,
+      77.588534
+    ],
+    "altitude": 106.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.989874,
+      77.552933
+    ],
+    "altitude": 217.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.990513,
+      77.568754
+    ],
+    "altitude": 396.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.992346,
+      77.580544
+    ],
+    "altitude": 92.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.989601,
+      77.51081
+    ],
+    "altitude": 130.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.912321,
+      77.50274
+    ],
+    "altitude": 308.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.955562,
+      77.511661
+    ],
+    "altitude": 179.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.911512,
+      77.582812
+    ],
+    "altitude": 295.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.985406,
+      77.599079
+    ],
+    "altitude": 233.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.960864,
+      77.576095
+    ],
+    "altitude": 93.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.939147,
+      77.499789
+    ],
+    "altitude": 358.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.981035,
+      77.595025
+    ],
+    "altitude": 118.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.979611,
+      77.519339
+    ],
+    "altitude": 169.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.899671,
+      77.565812
+    ],
+    "altitude": 39.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.973692,
+      77.511694
+    ],
+    "altitude": 277.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.912113,
+      77.523289
+    ],
+    "altitude": 169.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.927457,
+      77.597392
+    ],
+    "altitude": 156.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.98703,
+      77.512
+    ],
+    "altitude": 164.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.999449,
+      77.593619
+    ],
+    "altitude": 376.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.909495,
+      77.591526
+    ],
+    "altitude": 184.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.978743,
+      77.586519
+    ],
+    "altitude": 349.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.928368,
+      77.540054
+    ],
+    "altitude": 261.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.918903,
+      77.589555
+    ],
+    "altitude": 361.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.982024,
+      77.59136
+    ],
+    "altitude": 91.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.957972,
+      77.519011
+    ],
+    "altitude": 269.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.920102,
+      77.522497
+    ],
+    "altitude": 191.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.915172,
+      77.527457
+    ],
+    "altitude": 108.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.906655,
+      77.550038
+    ],
+    "altitude": 129.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.909669,
+      77.537458
+    ],
+    "altitude": 266.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.918684,
+      77.547337
+    ],
+    "altitude": 67.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.958518,
+      77.588663
+    ],
+    "altitude": 107.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.989288,
+      77.55253
+    ],
+    "altitude": 220.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.990855,
+      77.569513
+    ],
+    "altitude": 392.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.991999,
+      77.57994
+    ],
+    "altitude": 90.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.988917,
+      77.510655
+    ],
+    "altitude": 127.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.9116,
+      77.502009
+    ],
+    "altitude": 306.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.955538,
+      77.512296
+    ],
+    "altitude": 179.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.911662,
+      77.583214
+    ],
+    "altitude": 291.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.98495,
+      77.60002
+    ],
+    "altitude": 229.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.960033,
+      77.576155
+    ],
+    "altitude": 88.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.939031,
+      77.499715
+    ],
+    "altitude": 359.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.98065,
+      77.594512
+    ],
+    "altitude": 120.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.980475,
+      77.520151
+    ],
+    "altitude": 172.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.899615,
+      77.565417
+    ],
+    "altitude": 43.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.972921,
+      77.512374
+    ],
+    "altitude": 278.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.911586,
+      77.524258
+    ],
+    "altitude": 173.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.927347,
+      77.597409
+    ],
+    "altitude": 154.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.986466,
+      77.51219
+    ],
+    "altitude": 164.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.998529,
+      77.592847
+    ],
+    "altitude": 378.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.909979,
+      77.59191
+    ],
+    "altitude": 182.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.977878,
+      77.586533
+    ],
+    "altitude": 349.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.928192,
+      77.54022
+    ],
+    "altitude": 264.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.91874,
+      77.588559
+    ],
+    "altitude": 362.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.981104,
+      77.591668
+    ],
+    "altitude": 87.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.958241,
+      77.518064
+    ],
+    "altitude": 266.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.920628,
+      77.523009
+    ],
+    "altitude": 187.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.915105,
+      77.526829
+    ],
+    "altitude": 106.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.90599,
+      77.550248
+    ],
+    "altitude": 132.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.910331,
+      77.537645
+    ],
+    "altitude": 262.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.919592,
+      77.548282
+    ],
+    "altitude": 65.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.958006,
+      77.589656
+    ],
+    "altitude": 111.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.98902,
+      77.552401
+    ],
+    "altitude": 216.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.991039,
+      77.568744
+    ],
+    "altitude": 396.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.991407,
+      77.580551
+    ],
+    "altitude": 87.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.989154,
+      77.50982
+    ],
+    "altitude": 123.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.910724,
+      77.502056
+    ],
+    "altitude": 305.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.956224,
+      77.511347
+    ],
+    "altitude": 179.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.912178,
+      77.583033
+    ],
+    "altitude": 294.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.984072,
+      77.599907
+    ],
+    "altitude": 228.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.959461,
+      77.576613
+    ],
+    "altitude": 89.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.938323,
+      77.500091
+    ],
+    "altitude": 355.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.981394,
+      77.594154
+    ],
+    "altitude": 115.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.980945,
+      77.519495
+    ],
+    "altitude": 172.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.899123,
+      77.566331
+    ],
+    "altitude": 42.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.973748,
+      77.51233
+    ],
+    "altitude": 279.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.911248,
+      77.523737
+    ],
+    "altitude": 171.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.927826,
+      77.596625
+    ],
+    "altitude": 153.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.985667,
+      77.512989
+    ],
+    "altitude": 168.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.999317,
+      77.593247
+    ],
+    "altitude": 381.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.910189,
+      77.591761
+    ],
+    "altitude": 177.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.978213,
+      77.585627
+    ],
+    "altitude": 350.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.92737,
+      77.539512
+    ],
+    "altitude": 266.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.918156,
+      77.588952
+    ],
+    "altitude": 365.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.981727,
+      77.590946
+    ],
+    "altitude": 85.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.959051,
+      77.517641
+    ],
+    "altitude": 268.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.920351,
+      77.522635
+    ],
+    "altitude": 183.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.91477,
+      77.526381
+    ],
+    "altitude": 106.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.90555,
+      77.550504
+    ],
+    "altitude": 130.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.911036,
+      77.53706
+    ],
+    "altitude": 257.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.918592,
+      77.548139
+    ],
+    "altitude": 62.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.958384,
+      77.588682
+    ],
+    "altitude": 108.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.988718,
+      77.552596
+    ],
+    "altitude": 218.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.991771,
+      77.568969
+    ],
+    "altitude": 397.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.991613,
+      77.580679
+    ],
+    "altitude": 83.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.988848,
+      77.509814
+    ],
+    "altitude": 119.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.910882,
+      77.502334
+    ],
+    "altitude": 302.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.957073,
+      77.512087
+    ],
+    "altitude": 178.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.912552,
+      77.582453
+    ],
+    "altitude": 289.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.983664,
+      77.599646
+    ],
+    "altitude": 225.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.959627,
+      77.576619
+    ],
+    "altitude": 88.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.939022,
+      77.499363
+    ],
+    "altitude": 351.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.982254,
+      77.594494
+    ],
+    "altitude": 116.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.981696,
+      77.518501
+    ],
+    "altitude": 171.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.898267,
+      77.566057
+    ],
+    "altitude": 46.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.973425,
+      77.513198
+    ],
+    "altitude": 277.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.912077,
+      77.523667
+    ],
+    "altitude": 166.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.928737,
+      77.596128
+    ],
+    "altitude": 154.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.985522,
+      77.513825
+    ],
+    "altitude": 171.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.999187,
+      77.592678
+    ],
+    "altitude": 382.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.910947,
+      77.590969
+    ],
+    "altitude": 176.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.977514,
+      77.5855
+    ],
+    "altitude": 353.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.926431,
+      77.538583
+    ],
+    "altitude": 263.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.918195,
+      77.588313
+    ],
+    "altitude": 364.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.980853,
+      77.590601
+    ],
+    "altitude": 88.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.959845,
+      77.518488
+    ],
+    "altitude": 264.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.919954,
+      77.522767
+    ],
+    "altitude": 184.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.914875,
+      77.526451
+    ],
+    "altitude": 102.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.904711,
+      77.550058
+    ],
+    "altitude": 126.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.911392,
+      77.536656
+    ],
+    "altitude": 252.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.91943,
+      77.548814
+    ],
+    "altitude": 63.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.958636,
+      77.589615
+    ],
+    "altitude": 107.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.988898,
+      77.553071
+    ],
+    "altitude": 215.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.991314,
+      77.569647
+    ],
+    "altitude": 400.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.991094,
+      77.581444
+    ],
+    "altitude": 83.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.988107,
+      77.51065
+    ],
+    "altitude": 120.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.910298,
+      77.503147
+    ],
+    "altitude": 305.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.957744,
+      77.512367
+    ],
+    "altitude": 174.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.911803,
+      77.582601
+    ],
+    "altitude": 293.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.983259,
+      77.599376
+    ],
+    "altitude": 226.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.9604,
+      77.576451
+    ],
+    "altitude": 90.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.938199,
+      77.500134
+    ],
+    "altitude": 352.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.98207,
+      77.595178
+    ],
+    "altitude": 111.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.981835,
+      77.517541
+    ],
+    "altitude": 173.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.898276,
+      77.565905
+    ],
+    "altitude": 48.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.973374,
+      77.51338
+    ],
+    "altitude": 280.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.911769,
+      77.523092
+    ],
+    "altitude": 164.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.92817,
+      77.596589
+    ],
+    "altitude": 150.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.984694,
+      77.51446
+    ],
+    "altitude": 166.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.998974,
+      77.593172
+    ],
+    "altitude": 379.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.911411,
+      77.591129
+    ],
+    "altitude": 174.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.977173,
+      77.58552
+    ],
+    "altitude": 349.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.925599,
+      77.53908
+    ],
+    "altitude": 263.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.917314,
+      77.589212
+    ],
+    "altitude": 362.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.980965,
+      77.591349
+    ],
+    "altitude": 91.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.959194,
+      77.518478
+    ],
+    "altitude": 263.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.919256,
+      77.523628
+    ],
+    "altitude": 187.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.914616,
+      77.526126
+    ],
+    "altitude": 104.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.905475,
+      77.549394
+    ],
+    "altitude": 125.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_1",
+    "location": [
+      12.910737,
+      77.537007
+    ],
+    "altitude": 253.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_2",
+    "location": [
+      12.918651,
+      77.548676
+    ],
+    "altitude": 60.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_3",
+    "location": [
+      12.95919,
+      77.589728
+    ],
+    "altitude": 105.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_4",
+    "location": [
+      12.988206,
+      77.552881
+    ],
+    "altitude": 210.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_5",
+    "location": [
+      12.991427,
+      77.568673
+    ],
+    "altitude": 397.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_6",
+    "location": [
+      12.99026,
+      77.581367
+    ],
+    "altitude": 79.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_7",
+    "location": [
+      12.987216,
+      77.50971
+    ],
+    "altitude": 122.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_8",
+    "location": [
+      12.909509,
+      77.502682
+    ],
+    "altitude": 308.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_9",
+    "location": [
+      12.957917,
+      77.511445
+    ],
+    "altitude": 176.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_10",
+    "location": [
+      12.912644,
+      77.582747
+    ],
+    "altitude": 297.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_11",
+    "location": [
+      12.983825,
+      77.598629
+    ],
+    "altitude": 226.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_12",
+    "location": [
+      12.960226,
+      77.576323
+    ],
+    "altitude": 90.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_13",
+    "location": [
+      12.937751,
+      77.499954
+    ],
+    "altitude": 349.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_14",
+    "location": [
+      12.98193,
+      77.59511
+    ],
+    "altitude": 112.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_15",
+    "location": [
+      12.982256,
+      77.517625
+    ],
+    "altitude": 173.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_16",
+    "location": [
+      12.898894,
+      77.566642
+    ],
+    "altitude": 46.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_17",
+    "location": [
+      12.972572,
+      77.513573
+    ],
+    "altitude": 280.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_18",
+    "location": [
+      12.912658,
+      77.523029
+    ],
+    "altitude": 163.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_19",
+    "location": [
+      12.927879,
+      77.595769
+    ],
+    "altitude": 151.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_20",
+    "location": [
+      12.984594,
+      77.51374
+    ],
+    "altitude": 164.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_21",
+    "location": [
+      12.999887,
+      77.592415
+    ],
+    "altitude": 378.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_22",
+    "location": [
+      12.911857,
+      77.590426
+    ],
+    "altitude": 175.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_23",
+    "location": [
+      12.976877,
+      77.586456
+    ],
+    "altitude": 353.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_24",
+    "location": [
+      12.92492,
+      77.539977
+    ],
+    "altitude": 267.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_25",
+    "location": [
+      12.917568,
+      77.589637
+    ],
+    "altitude": 365.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_26",
+    "location": [
+      12.980408,
+      77.592281
+    ],
+    "altitude": 92.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_27",
+    "location": [
+      12.958471,
+      77.518944
+    ],
+    "altitude": 267.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_28",
+    "location": [
+      12.9184,
+      77.523878
+    ],
+    "altitude": 188.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_29",
+    "location": [
+      12.913978,
+      77.526123
+    ],
+    "altitude": 100.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  },
+  {
+    "drone_id": "Drone_30",
+    "location": [
+      12.905929,
+      77.548906
+    ],
+    "altitude": 120.0,
+    "alerts": [],
+    "alert_count": 0,
+    "highest_priority": "SAFE"
+  }
+]
