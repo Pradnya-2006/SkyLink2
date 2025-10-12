@@ -1,0 +1,3 @@
+drone_id,plane_icao24,horizontal_distance,vertical_distance,drone_lat,drone_lon,plane_lat,plane_lon,drone_altitude,plane_altitude,callsign,drone_speed,plane_velocity
+Drone_3,a53edd,0.0,0.28,40.756,-74.0851,40.756,-74.0851,716.0,716.28,GPD437  ,11,102.81
+Drone_4,a53edd,0.014,1.72,40.7561,-74.085,40.756,-74.0851,718.0,716.28,GPD437  ,41,102.81

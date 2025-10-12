@@ -132,7 +132,7 @@ class DroneAlertTranslator:
         filename = f"drone_alerts_{timestamp}.json"
         filepath = f"{output_path}/{filename}"
         
-        with open(filepath, 'w') as f:
-            json.dump(alerts_data, f, indent=2)
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(alerts_data, f, indent=2, ensure_ascii=False)
             
         return filepath

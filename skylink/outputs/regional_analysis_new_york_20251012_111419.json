@@ -1,0 +1,51 @@
+{
+  "region": "New York Metropolitan Area",
+  "analysis_time": "2025-10-12T11:14:19.840688",
+  "processing_time_seconds": 0.025669,
+  "parameters": {
+    "altitude_limit_m": 1000,
+    "horizontal_threshold_km": 0.5,
+    "vertical_threshold_m": 100
+  },
+  "aircraft_counts": {
+    "total_planes": 10452,
+    "total_drones": 600,
+    "regional_planes": 22,
+    "regional_drones": 2
+  },
+  "alerts": {
+    "total_count": 2,
+    "alerts_data": [
+      {
+        "drone_id": "Drone_3",
+        "plane_icao24": "a53edd",
+        "horizontal_distance": 0.0,
+        "vertical_distance": 0.28,
+        "drone_lat": 40.756,
+        "drone_lon": -74.0851,
+        "plane_lat": 40.756,
+        "plane_lon": -74.0851,
+        "drone_altitude": 716.0,
+        "plane_altitude": 716.28,
+        "callsign": "GPD437  ",
+        "drone_speed": 11,
+        "plane_velocity": 102.81
+      },
+      {
+        "drone_id": "Drone_4",
+        "plane_icao24": "a53edd",
+        "horizontal_distance": 0.014,
+        "vertical_distance": 1.72,
+        "drone_lat": 40.7561,
+        "drone_lon": -74.085,
+        "plane_lat": 40.756,
+        "plane_lon": -74.0851,
+        "drone_altitude": 718.0,
+        "plane_altitude": 716.28,
+        "callsign": "GPD437  ",
+        "drone_speed": 41,
+        "plane_velocity": 102.81
+      }
+    ]
+  }
+}

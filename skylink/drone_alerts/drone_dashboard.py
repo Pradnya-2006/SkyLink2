@@ -31,7 +31,7 @@ class DroneDashboard:
         # Ensure output directory exists
         os.makedirs(output_dir, exist_ok=True)
         
-        with open(filepath, 'w') as f:
+        with open(filepath, 'w', encoding='utf-8') as f:
             f.write(dashboard_html)
             
         # Save alerts as JSON

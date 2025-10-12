@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "timestamp": "2025-10-12T11:13:23.086372",
+    "total_alerts": 1,
+    "processing_time_seconds": 0.021928,
+    "planes_processed": 36,
+    "drones_processed": 1,
+    "filters_applied": [
+      "geographic",
+      "altitude",
+      "sampling"
+    ]
+  },
+  "alerts": [
+    {
+      "drone_id": "Drone_8",
+      "plane_icao24": "aa096a",
+      "horizontal_distance": 0.0,
+      "vertical_distance": 0.28,
+      "drone_lat": 40.7802,
+      "drone_lon": -73.1259,
+      "plane_lat": 40.7802,
+      "plane_lon": -73.1259,
+      "drone_altitude": 46.0,
+      "plane_altitude": 45.72,
+      "callsign": "CXK554  ",
+      "drone_speed": 11,
+      "plane_velocity": 35.17
+    }
+  ]
+}

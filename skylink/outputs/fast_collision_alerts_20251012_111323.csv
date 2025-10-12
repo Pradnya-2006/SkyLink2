@@ -1,0 +1,2 @@
+drone_id,plane_icao24,horizontal_distance,vertical_distance,drone_lat,drone_lon,plane_lat,plane_lon,drone_altitude,plane_altitude,callsign,drone_speed,plane_velocity
+Drone_8,aa096a,0.0,0.28,40.7802,-73.1259,40.7802,-73.1259,46.0,45.72,CXK554  ,11,35.17
