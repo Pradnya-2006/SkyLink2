@@ -1030,17 +1030,22 @@ def get_drone_data():
 
 
 
+# At the very end of the file, replace the existing if __name__ == '__main__': section:
+
 if __name__ == '__main__':
-    # Get configuration from environment variables
-    import os
-    
-    # Configuration for both local and deployment
+    # Get configuration from environment variables with proper defaults for Render
     host = os.environ.get('HOST', '0.0.0.0')
-    port = int(os.environ.get('PORT', 5000))
-    debug = os.environ.get('FLASK_ENV', 'development') == 'development'
+    port = int(os.environ.get('PORT', 10000))  # Render uses port 10000 by default
+    flask_env = os.environ.get('FLASK_ENV', 'production')
+    debug = flask_env == 'development'
     
     print("🚁✈️ Starting SkyLink Unified System...")
-    print("="*50)
+    print("="*60)
+    print(f"Environment: {flask_env}")
+    print(f"Host: {host}")
+    print(f"Port: {port}")
+    print(f"Debug: {debug}")
+    
     if debug:
         print("Available Interfaces:")
         print(f"  🏠 Main Hub: http://localhost:{port}")
@@ -1048,7 +1053,7 @@ if __name__ == '__main__':
         print(f"  🚁 Drone Dashboard: http://localhost:{port}/drone-dashboard")
     else:
         print("🌐 Running in production mode")
-        print(f"  🏠 Port: {port}")
-    print("="*50)
+        print(f"  🌐 Application running on port {port}")
+    print("="*60)
     
     app.run(debug=debug, host=host, port=port)
