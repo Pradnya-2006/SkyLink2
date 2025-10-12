@@ -14,6 +14,14 @@ import math
 from datetime import datetime
 from typing import List, Dict, Optional, Tuple
 
+# Load environment variables
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # dotenv not available, use system environment variables
+    pass
+
 # Import existing modules (preserving core logic)
 import sys
 sys.path.append('.')
@@ -41,7 +49,7 @@ except ImportError as e:
         def process_multiple_alerts(self, drone_data, plane_data):
             return []
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__, template_folder='templates', static_folder='templates/static')
 
 class SkyLinkUnifiedService:
     def __init__(self):
@@ -1023,12 +1031,24 @@ def get_drone_data():
 
 
 if __name__ == '__main__':
+    # Get configuration from environment variables
+    import os
+    
+    # Configuration for both local and deployment
+    host = os.environ.get('HOST', '0.0.0.0')
+    port = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('FLASK_ENV', 'development') == 'development'
+    
     print("🚁✈️ Starting SkyLink Unified System...")
     print("="*50)
-    print("Available Interfaces:")
-    print("  🏠 Main Hub: http://localhost:5000")
-    print("  ✈️  Pilot Dashboard: http://localhost:5000/pilot-dashboard")  
-    print("  🚁 Drone Dashboard: http://localhost:5000/drone-dashboard")
+    if debug:
+        print("Available Interfaces:")
+        print(f"  🏠 Main Hub: http://localhost:{port}")
+        print(f"  ✈️  Pilot Dashboard: http://localhost:{port}/pilot-dashboard")  
+        print(f"  🚁 Drone Dashboard: http://localhost:{port}/drone-dashboard")
+    else:
+        print("🌐 Running in production mode")
+        print(f"  🏠 Port: {port}")
     print("="*50)
     
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=debug, host=host, port=port)

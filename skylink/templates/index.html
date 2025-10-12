@@ -37,20 +37,23 @@
             align-items: center;
             max-width: 1400px;
             margin: 0 auto;
+            height: 100%;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #00d4ff;
         }
 
-        .logo::before {
-            content: "🛡️";
-            margin-right: 0.5rem;
-            font-size: 2rem;
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            margin-right: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid #00d4ff;
         }
 
         .system-status {
@@ -85,18 +88,22 @@
         /* Main Content */
         .main-container {
             margin-top: 80px;
-            padding: 2rem;
             min-height: calc(100vh - 80px);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
         }
 
         .hero-section {
             text-align: center;
-            margin-bottom: 4rem;
-            max-width: 800px;
+            padding: 4rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .hero-title {
@@ -155,12 +162,37 @@
         }
 
         /* Dashboard Cards */
+        .dashboard-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .dashboard-selection {
             display: flex;
-            gap: 4rem;
+            gap: 3rem;
             margin-top: 2rem;
-            flex-wrap: wrap;
             justify-content: center;
+            align-items: stretch;
         }
 
         .dashboard-card {
@@ -168,15 +200,18 @@
             backdrop-filter: blur(15px);
             padding: 3rem 2rem;
             border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             text-align: center;
-            min-width: 300px;
+            width: 600px;
+            max-width: 700px;
             transition: all 0.4s ease;
             cursor: pointer;
             text-decoration: none;
             color: white;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            flex: 0 1 auto;
         }
 
         .dashboard-card::before {
@@ -190,14 +225,35 @@
             transition: all 0.6s ease;
         }
 
+        .dashboard-card::after {
+            content: '👆 CLICK TO ENTER';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 0.7rem;
+            color: #00d4ff;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            border: 1px solid #00d4ff;
+        }
+
         .dashboard-card:hover::before {
             left: 100%;
         }
 
+        .dashboard-card:hover::after {
+            opacity: 1;
+        }
+
         .dashboard-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(1.05);
             border-color: #00d4ff;
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .pilot-card {
@@ -223,29 +279,38 @@
         }
 
         .card-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
             margin-bottom: 1rem;
         }
 
         .card-description {
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
             margin-bottom: 1.5rem;
         }
 
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
         .card-features {
             list-style: none;
             text-align: left;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: auto 0;
+            padding: 1rem 0;
         }
 
         .card-features li {
-            margin-bottom: 0.5rem;
-            padding-left: 1rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
             position: relative;
+            line-height: 1.4;
         }
 
         .card-features li::before {
@@ -254,6 +319,44 @@
             left: 0;
             color: #00d4ff;
             font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        /* Call-to-Action Button */
+        .card-cta {
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .dashboard-card:hover .card-cta {
+            background: linear-gradient(45deg, #ffffff, #f0f0f0);
+            color: #0066cc;
+            border-color: #00d4ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .cta-arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .dashboard-card:hover .cta-arrow {
+            transform: translateX(5px);
+        }
+
+        .cta-text {
+            font-size: 0.9rem;
         }
 
         /* Footer */
@@ -269,34 +372,38 @@
         .data-mode-toggle {
             position: fixed;
             top: 100px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 1rem;
-            border-radius: 10px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.2rem;
+            border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            z-index: 999;
         }
 
         .toggle-btn {
-            background: #00d4ff;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
             color: white;
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 0.85rem;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .toggle-btn:hover {
-            background: #0099cc;
+            background: linear-gradient(45deg, #0099cc, #00d4ff);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
+        @media (max-width: 900px) {
             .dashboard-selection {
                 flex-direction: column;
                 align-items: center;
@@ -304,7 +411,27 @@
             }
 
             .dashboard-card {
-                min-width: 280px;
+                width: 90%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-section {
+                padding: 3rem 1.5rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .dashboard-card {
+                padding: 2rem 1.5rem;
             }
 
             .stats-container {
@@ -317,6 +444,24 @@
                 right: auto;
                 margin: 2rem auto;
                 width: fit-content;
+            }
+            
+            .nav-header {
+                padding: 0.5rem 1rem;
+            }
+            
+            .main-container {
+                margin-top: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .dashboard-section {
+                padding: 0 1rem 2rem;
             }
         }
 
@@ -354,6 +499,7 @@
     <nav class="nav-header">
         <div class="nav-content">
             <div class="logo">
+                <img src="/static/logo.jpg" alt="SkyLink Logo" class="logo-img">
                 SkyLink Command Center
             </div>
             <div class="system-status">
@@ -379,7 +525,7 @@
             <h1 class="hero-title">SkyLink Aviation Safety</h1>
             <p class="hero-subtitle">
                 Advanced collision detection and real-time monitoring system for aircraft and drone operations.
-                Choose your specialized dashboard to access comprehensive safety tools and situational awareness.
+                <strong>Click on any dashboard below</strong> to access specialized safety tools and situational awareness interfaces.
             </p>
         </div>
 
@@ -403,11 +549,18 @@
             </div>
         </div>
 
-        <!-- Dashboard Selection -->
-        <div class="dashboard-selection">
-            <!-- Pilot Dashboard Card -->
-            <a href="/pilot-dashboard" class="dashboard-card pilot-card slide-in-left">
-                <span class="card-icon">✈️</span>
+        <!-- Dashboard Section -->
+        <div class="dashboard-section">
+            <h2 class="section-title">Mission Control Dashboards</h2>
+            <p class="section-subtitle">
+                Choose your specialized control interface to access real-time monitoring, 
+                collision detection, and safety management tools for aviation operations.
+            </p>
+            
+            <div class="dashboard-selection">
+                <!-- Pilot Dashboard Card -->
+                <a href="/pilot-dashboard" class="dashboard-card pilot-card slide-in-left">
+                    <div class="card-content">
                 <h2 class="card-title">Pilot Cockpit Dashboard</h2>
                 <p class="card-description">
                     Comprehensive cockpit interface designed for airline pilots with real-time collision alerts,
@@ -421,11 +574,16 @@
                     <li>Multi-level threat classification</li>
                     <li>Cockpit-style interface</li>
                 </ul>
-            </a>
+                        <div class="card-cta">
+                            <span class="cta-text">Launch Pilot Dashboard</span>
+                            <span class="cta-arrow">→</span>
+                        </div>
+                    </div>
+                </a>
 
-            <!-- Drone Dashboard Card -->
-            <a href="/drone-dashboard" class="dashboard-card drone-card slide-in-right">
-                <span class="card-icon">🚁</span>
+                <!-- Drone Dashboard Card -->
+                <a href="/drone-dashboard" class="dashboard-card drone-card slide-in-right">
+                    <div class="card-content">
                 <h2 class="card-title">Drone Operations Center</h2>
                 <p class="card-description">
                     Specialized interface for drone operators featuring fleet management,
@@ -439,7 +597,13 @@
                     <li>Emergency response protocols</li>
                     <li>Multi-drone coordination</li>
                 </ul>
-            </a>
+                        <div class="card-cta">
+                            <span class="cta-text">Launch Drone Dashboard</span>
+                            <span class="cta-arrow">→</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -564,11 +728,16 @@
             const dashboardCards = document.querySelectorAll('.dashboard-card');
             dashboardCards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                    this.style.transform = 'translateY(-15px) scale(1.05)';
                 });
                 
                 card.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateY(0) scale(1)';
+                });
+                
+                // Add click feedback
+                card.addEventListener('mousedown', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
                 });
             });
             

@@ -5,6 +5,8 @@ This module contains configuration parameters for the SkyLink collision detectio
 Modify these settings to customize system behavior.
 """
 
+import os
+
 # ============================================================================
 # COLLISION DETECTION SETTINGS
 # ============================================================================
@@ -147,3 +149,37 @@ STRICT_COLUMN_VALIDATION = False   # Require all expected columns to be present
 # Compatibility options
 PANDAS_ENGINE = 'python'           # CSV reading engine: 'c', 'python', or 'pyarrow'
 DATE_FORMAT = 'ISO8601'           # Date format for timestamps
+
+# ============================================================================
+# DEPLOYMENT CONFIGURATION
+# ============================================================================
+
+class FlaskConfig:
+    """Base Flask configuration"""
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'skylink-development-key-2024')
+    
+class DevelopmentConfig(FlaskConfig):
+    """Development configuration"""
+    DEBUG = True
+    HOST = '0.0.0.0'
+    PORT = 5000
+    
+class ProductionConfig(FlaskConfig):
+    """Production configuration"""
+    DEBUG = False
+    HOST = '0.0.0.0'
+    PORT = int(os.environ.get('PORT', 8080))
+    SECRET_KEY = os.environ.get('SECRET_KEY')  # Must be set in production
+
+# Select configuration based on environment
+FLASK_CONFIGS = {
+    'development': DevelopmentConfig,
+    'production': ProductionConfig,
+    'default': DevelopmentConfig
+}
+
+def get_flask_config():
+    """Get Flask configuration based on FLASK_ENV"""
+    import os
+    env = os.environ.get('FLASK_ENV', 'development')
+    return FLASK_CONFIGS.get(env, FLASK_CONFIGS['default'])
