@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyLink Pilot Dashboard - Cockpit Interface</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #00ff00;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 0.5rem 1rem;
+            border-bottom: 2px solid #00ff00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .home-btn {
+            background: #333;
+            color: white;
+            border: 1px solid #00d4ff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: #00d4ff;
+            color: black;
+        }
+
+        /* Main Layout */
+        .cockpit-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr 300px;
+            grid-template-rows: 1fr;
+            height: calc(100vh - 60px);
+            gap: 2px;
+            background: #000;
+        }
+
+        /* Left Panel - Aircraft Controls */
+        .left-panel {
+            background: rgba(0, 20, 40, 0.9);
+            border: 2px solid #00ff00;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .panel-section {
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .panel-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffff00;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #ffff00;
+            padding-bottom: 0.5rem;
+        }
+
+        .aircraft-info {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        .info-label {
+            color: #cccccc;
+            font-size: 0.8rem;
+        }
+
+        .info-value {
+            color: #00ff00;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        /* Center Panel - Radar Display */
+        .center-panel {
+            background: #000;
+            border: 2px solid #00ff00;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #radar-map {
+            width: 100%;
+            height: 100%;
+            background: #001122;
+        }
+
+        .radar-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .radar-crosshair {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #ff0000;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.3) 0%, transparent 70%);
+        }
+
+        .range-indicator {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.5rem;
+            border: 1px solid #00ff00;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        /* Right Panel - Threats & Communications */
+        .right-panel {
+            background: rgba(40, 0, 0, 0.9);
+            border: 2px solid #ff0000;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .threat-section {
+            margin-bottom: 2rem;
+        }
+
+        .threat-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ff0000;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #ff0000;
+            padding-bottom: 0.5rem;
+        }
+
+        .threat-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .threat-item {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid #ff0000;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        .threat-critical {
+            background: rgba(255, 0, 0, 0.3);
+            border-color: #ff0000;
+            animation: blink 1s infinite;
+        }
+
+        .threat-high {
+            background: rgba(255, 165, 0, 0.2);
+            border-color: #ffa500;
+        }
+
+        .threat-medium {
+            background: rgba(255, 255, 0, 0.1);
+            border-color: #ffff00;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.5; }
+        }
+
+        /* Voice Control Panel */
+        .voice-controls {
+            background: rgba(0, 0, 20, 0.9);
+            border: 1px solid #0066ff;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .voice-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .voice-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00ff00;
+        }
+
+        .voice-indicator.speaking {
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        .control-button {
+            background: #333;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 0.5rem 1rem;
+            margin: 0.2rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .control-button:hover {
+            background: #00ff00;
+            color: #000;
+        }
+
+        .control-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Data Mode Toggle */
+        .data-mode {
+            background: rgba(0, 20, 40, 0.9);
+            padding: 1rem;
+            border: 1px solid #00d4ff;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .mode-toggle-btn {
+            background: #00d4ff;
+            color: black;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .mode-toggle-btn:hover {
+            background: #0099cc;
+        }
+
+        /* Status Indicators */
+        .status-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 0.5rem 1rem;
+            border-top: 1px solid #00ff00;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            z-index: 1001;
+        }
+
+        .status-item {
+            color: #00ff00;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .cockpit-layout {
+                grid-template-columns: 250px 1fr 250px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .cockpit-layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr auto;
+            }
+            
+            .left-panel, .right-panel {
+                height: auto;
+                max-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-title">
+            ✈️ SkyLink Pilot Dashboard - Cockpit Interface
+        </div>
+        <div class="nav-controls">
+            <a href="/" class="home-btn">← Command Center</a>
+            <div class="voice-status">
+                <div class="voice-indicator" id="voice-indicator"></div>
+                <span style="margin-left: 0.5rem; color: #00d4ff;">Voice: <span id="voice-status">Ready</span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Cockpit Layout -->
+    <div class="cockpit-layout">
+        <!-- Left Panel - Aircraft Information & Controls -->
+        <div class="left-panel">
+            <!-- Data Mode Selection -->
+            <div class="data-mode">
+                <div class="panel-title">DATA SOURCE</div>
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <span id="current-mode-display" style="color: #00d4ff; font-weight: bold;">TEST SCENARIO</span>
+                </div>
+                <button class="mode-toggle-btn" onclick="toggleDataMode()">Switch Mode</button>
+            </div>
+
+            <!-- Current Aircraft Information -->
+            <div class="panel-section">
+                <div class="panel-title">AIRCRAFT STATUS</div>
+                <div class="aircraft-info" id="aircraft-info">
+                    <div class="info-row">
+                        <span class="info-label">CALLSIGN:</span>
+                        <span class="info-value" id="aircraft-callsign">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">ALTITUDE:</span>
+                        <span class="info-value" id="aircraft-altitude">- ft</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">SPEED:</span>
+                        <span class="info-value" id="aircraft-speed">- kts</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">HEADING:</span>
+                        <span class="info-value" id="aircraft-heading">- °</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">POSITION:</span>
+                        <span class="info-value" id="aircraft-position">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">V/S:</span>
+                        <span class="info-value" id="aircraft-vertical">- fpm</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voice Control Panel -->
+            <div class="voice-controls">
+                <div class="panel-title">VOICE ALERTS</div>
+                <div class="control-button" onclick="testVoiceSystem()">Test Voice</div>
+                <div class="control-button" onclick="toggleVoice()" id="voice-toggle">Disable Voice</div>
+                <div class="control-button" onclick="clearVoiceQueue()">Clear Queue</div>
+                <div style="margin-top: 1rem; font-size: 0.7rem; color: #cccccc;">
+                    <div>Last Alert: <span id="last-voice-alert">None</span></div>
+                    <div>Cooldown: <span id="voice-cooldown">Ready</span></div>
+                </div>
+            </div>
+
+            <!-- Radar Controls -->
+            <div class="panel-section">
+                <div class="panel-title">RADAR RANGE</div>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <button class="control-button" onclick="setRadarRange(5)">5 NM</button>
+                    <button class="control-button" onclick="setRadarRange(10)" style="background: #00ff00; color: black;">10 NM</button>
+                    <button class="control-button" onclick="setRadarRange(20)">20 NM</button>
+                    <button class="control-button" onclick="setRadarRange(50)">50 NM</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Panel - Radar Display -->
+        <div class="center-panel">
+            <div id="radar-map"></div>
+            <div class="radar-overlay">
+                <div class="radar-crosshair"></div>
+                <div class="range-indicator">
+                    RADAR: <span id="current-range">10</span> NM
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Threat Information -->
+        <div class="right-panel">
+            <!-- Active Threats -->
+            <div class="threat-section">
+                <div class="threat-title">⚠️ COLLISION THREATS</div>
+                <div class="threat-list" id="threat-list">
+                    <div style="text-align: center; color: #666; padding: 2rem;">
+                        Scanning for threats...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nearby Aircraft -->
+            <div class="threat-section">
+                <div class="threat-title" style="color: #00ff00;">📡 NEARBY TRAFFIC</div>
+                <div class="threat-list" id="nearby-aircraft" style="max-height: 200px;">
+                    <div style="text-align: center; color: #666; padding: 1rem;">
+                        Loading traffic data...
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Status -->
+            <div class="threat-section">
+                <div class="threat-title" style="color: #00d4ff;">🔧 SYSTEM STATUS</div>
+                <div style="font-size: 0.8rem;">
+                    <div class="info-row">
+                        <span class="info-label">Aircraft:</span>
+                        <span class="info-value" id="total-aircraft">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Drones:</span>
+                        <span class="info-value" id="total-drones">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Alerts:</span>
+                        <span class="info-value" id="total-alerts">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Last Update:</span>
+                        <span class="info-value" id="last-update">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-item">SkyLink Collision Detection System</div>
+        <div class="status-item" id="connection-status">● CONNECTED</div>
+        <div class="status-item" id="current-time">--:--:--</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Global variables
+        let map;
+        let currentAircraft = null;
+        let voiceEnabled = true;
+        let lastVoiceTime = 0;
+        let voiceQueue = [];
+        let radarRange = 10;
+        let currentMode = 'TEST SCENARIO';
+        let updateInterval;
+        let aircraftMarkers = [];
+        let droneMarkers = [];
+        let currentAircraftMarker = null;
+
+        // Voice system configuration
+        const VOICE_COOLDOWN = 30000; // 30 seconds
+        const MAX_REPEATS = 2;
+        let voiceRepeats = {};
+
+        // Initialize map
+        function initializeMap() {
+            map = L.map('radar-map', {
+                center: [40.7128, -74.0060], // Default to NYC
+                zoom: 10,
+                zoomControl: false,
+                attributionControl: false
+            });
+
+            // Dark satellite-like tiles for radar effect
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(map);
+
+            console.log('Radar map initialized');
+        }
+
+        // Clear all markers from map
+        function clearMapMarkers() {
+            aircraftMarkers.forEach(marker => map.removeLayer(marker));
+            droneMarkers.forEach(marker => map.removeLayer(marker));
+            if (currentAircraftMarker) map.removeLayer(currentAircraftMarker);
+            
+            aircraftMarkers = [];
+            droneMarkers = [];
+            currentAircraftMarker = null;
+        }
+
+        // Update status display
+        function updateStatusDisplay(data) {
+            const aircraftCount = (data.nearby_aircraft ? data.nearby_aircraft.length : 0) + (data.current_aircraft ? 1 : 0);
+            const droneCount = data.all_drones ? data.all_drones.length : (data.nearby_drones ? data.nearby_drones.length : 0);
+            const threatCount = data.threats ? data.threats.length : 0;
+            
+            // Update mode display if it exists
+            const modeDisplay = document.getElementById('current-mode-display');
+            if (modeDisplay) {
+                const mode = data.data_source || (data.total_aircraft > 10 ? 'REAL DATA' : 'TEST SCENARIO');
+                modeDisplay.textContent = mode;
+            }
+            
+            console.log(`Status: ${aircraftCount} aircraft, ${droneCount} drones, ${threatCount} threats`);
+        }
+
+        // Add aircraft markers to map
+        function addAircraftToMap(aircraft, isCurrent = false) {
+            if (!aircraft || (!aircraft.latitude && aircraft.latitude !== 0) || (!aircraft.longitude && aircraft.longitude !== 0)) {
+                console.log('Invalid aircraft data:', aircraft);
+                return;
+            }
+
+            const lat = parseFloat(aircraft.latitude);
+            const lon = parseFloat(aircraft.longitude);
+            
+            if (isNaN(lat) || isNaN(lon)) {
+                console.log('Invalid coordinates:', lat, lon);
+                return;
+            }
+            
+            console.log(`Adding aircraft ${aircraft.callsign || aircraft.icao24} at (${lat}, ${lon})`);
+            
+            if (Math.abs(lat) > 90 || Math.abs(lon) > 180) {
+                console.log('Coordinates out of range:', lat, lon);
+                return;
+            }
+
+            // Create custom aircraft icon
+            const aircraftIcon = L.divIcon({
+                className: 'aircraft-marker',
+                html: `<div style="
+                    width: 20px; 
+                    height: 20px; 
+                    background: ${isCurrent ? '#ff0000' : '#00ff00'}; 
+                    border: 2px solid ${isCurrent ? '#ffffff' : '#ffffff'};
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 10px;
+                    color: white;
+                    font-weight: bold;
+                    transform: rotate(${aircraft.heading || 0}deg);
+                ">✈</div>`,
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
+            });
+
+            const marker = L.marker([lat, lon], { icon: aircraftIcon })
+                .bindPopup(`
+                    <div style="color: black; font-size: 0.8rem;">
+                        <strong>${aircraft.callsign || aircraft.icao24}</strong><br>
+                        Altitude: ${Math.round(aircraft.altitude || 0)} ft<br>
+                        Speed: ${Math.round(aircraft.speed || 0)} kts<br>
+                        Heading: ${Math.round(aircraft.heading || 0)}°<br>
+                        ${isCurrent ? '<strong>CURRENT AIRCRAFT</strong>' : ''}
+                    </div>
+                `)
+                .addTo(map);
+
+            if (isCurrent) {
+                currentAircraftMarker = marker;
+                marker.openPopup();
+                
+                // Center map on current aircraft
+                map.setView([lat, lon], Math.max(map.getZoom(), 10));
+            } else {
+                aircraftMarkers.push(marker);
+            }
+        }
+
+        // Add drone markers to map
+        function addDronesToMap(drones) {
+            if (!drones || !Array.isArray(drones)) {
+                console.log('No drones data or invalid format:', drones);
+                return;
+            }
+
+            drones.forEach((drone, index) => {
+                if (!drone || (!drone.latitude && drone.latitude !== 0) || (!drone.longitude && drone.longitude !== 0)) {
+                    console.log('Invalid drone data:', drone);
+                    return;
+                }
+
+                const lat = parseFloat(drone.latitude);
+                const lon = parseFloat(drone.longitude);
+                
+                if (isNaN(lat) || isNaN(lon)) {
+                    console.log('Invalid drone coordinates:', lat, lon);
+                    return;
+                }
+                
+                console.log(`Adding drone ${drone.drone_id} at (${lat}, ${lon})`);
+                
+                if (Math.abs(lat) > 90 || Math.abs(lon) > 180) {
+                    console.log('Drone coordinates out of range:', lat, lon);
+                    return;
+                }
+
+                // Create custom drone icon
+                const droneIcon = L.divIcon({
+                    className: 'drone-marker',
+                    html: `<div style="
+                        width: 16px; 
+                        height: 16px; 
+                        background: #ffaa00; 
+                        border: 1px solid #ffffff;
+                        border-radius: 3px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 8px;
+                        color: black;
+                        font-weight: bold;
+                        transform: rotate(${drone.heading || 0}deg);
+                    ">🚁</div>`,
+                    iconSize: [16, 16],
+                    iconAnchor: [8, 8]
+                });
+
+                const marker = L.marker([lat, lon], { icon: droneIcon })
+                    .bindPopup(`
+                        <div style="color: black; font-size: 0.8rem;">
+                            <strong>Drone: ${drone.drone_id}</strong><br>
+                            Altitude: ${Math.round(drone.altitude || 0)} m<br>
+                            Speed: ${Math.round(drone.speed || 0)} m/s<br>
+                            Heading: ${Math.round(drone.heading || 0)}°
+                        </div>
+                    `)
+                    .addTo(map);
+
+                droneMarkers.push(marker);
+            });
+        }
+
+        // Voice alert system
+        function speakAlert(message, priority = 'normal') {
+            if (!voiceEnabled) return;
+
+            const now = Date.now();
+            const messageKey = message.substring(0, 50); // Use first 50 chars as key
+
+            // Check cooldown
+            if (now - lastVoiceTime < VOICE_COOLDOWN) {
+                console.log('Voice alert blocked by cooldown');
+                return;
+            }
+
+            // Check repeat limit
+            if (voiceRepeats[messageKey] >= MAX_REPEATS) {
+                console.log('Voice alert blocked by repeat limit');
+                return;
+            }
+
+            try {
+                const utterance = new SpeechSynthesisUtterance(message);
+                utterance.rate = 0.9;
+                utterance.pitch = 1.0;
+                utterance.volume = 0.8;
+
+                utterance.onstart = function() {
+                    document.getElementById('voice-indicator').classList.add('speaking');
+                    document.getElementById('voice-status').textContent = 'Speaking';
+                };
+
+                utterance.onend = function() {
+                    document.getElementById('voice-indicator').classList.remove('speaking');
+                    document.getElementById('voice-status').textContent = 'Ready';
+                };
+
+                window.speechSynthesis.speak(utterance);
+
+                // Update tracking
+                lastVoiceTime = now;
+                voiceRepeats[messageKey] = (voiceRepeats[messageKey] || 0) + 1;
+                document.getElementById('last-voice-alert').textContent = new Date().toLocaleTimeString();
+
+                // Update cooldown display
+                updateVoiceCooldown();
+
+            } catch (error) {
+                console.error('Voice synthesis error:', error);
+            }
+        }
+
+        // Update voice cooldown display
+        function updateVoiceCooldown() {
+            const remaining = Math.max(0, VOICE_COOLDOWN - (Date.now() - lastVoiceTime));
+            if (remaining > 0) {
+                const seconds = Math.ceil(remaining / 1000);
+                document.getElementById('voice-cooldown').textContent = `${seconds}s`;
+                setTimeout(updateVoiceCooldown, 1000);
+            } else {
+                document.getElementById('voice-cooldown').textContent = 'Ready';
+            }
+        }
+
+        // Voice control functions
+        function testVoiceSystem() {
+            speakAlert('SkyLink voice system test. All systems operational.');
+        }
+
+        function toggleVoice() {
+            voiceEnabled = !voiceEnabled;
+            const button = document.getElementById('voice-toggle');
+            button.textContent = voiceEnabled ? 'Disable Voice' : 'Enable Voice';
+            button.style.background = voiceEnabled ? '#ff0000' : '#00ff00';
+            document.getElementById('voice-status').textContent = voiceEnabled ? 'Ready' : 'Disabled';
+        }
+
+        function clearVoiceQueue() {
+            window.speechSynthesis.cancel();
+            voiceRepeats = {};
+            document.getElementById('last-voice-alert').textContent = 'None';
+            document.getElementById('voice-cooldown').textContent = 'Ready';
+        }
+
+        // Data mode toggle
+        async function toggleDataMode() {
+            try {
+                console.log('Toggling data mode...');
+                const response = await fetch('/api/toggle-data-source', { method: 'POST' });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                console.log('Toggle response:', data);
+                
+                if (data.success) {
+                    currentMode = data.data_source || (data.using_test_data ? 'TEST SCENARIO' : 'REAL DATA');
+                    document.getElementById('current-mode-display').textContent = currentMode;
+                    
+                    // Clear voice repeats when switching modes
+                    voiceRepeats = {};
+                    
+                    // Update map center based on data source
+                    if (data.using_test_data || currentMode.includes('TEST')) {
+                        map.setView([40.7128, -74.0060], 11); // NYC
+                    } else {
+                        map.setView([12.95, 77.55], 11); // Bangalore
+                    }
+                    
+                    // Clear existing markers
+                    clearMapMarkers();
+                    
+                    // Announce mode switch
+                    const modeAnnouncement = data.using_test_data ? 
+                        `Switched to test collision scenario. ${data.planes_loaded || 7} aircraft, ${data.drones_loaded || 9} drones loaded.` :
+                        `Switched to real flight data mode. ${data.planes_loaded || 0} aircraft, ${data.drones_loaded || 0} drones loaded.`;
+                    
+                    speakAlert(modeAnnouncement);
+                    
+                    console.log('Successfully switched to:', currentMode);
+                    
+                    // Refresh data immediately
+                    setTimeout(updatePilotData, 500);
+                } else {
+                    console.error('Failed to switch data mode:', data.error || 'Unknown error');
+                    speakAlert('Failed to switch data mode. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error toggling data mode:', error);
+            }
+        }
+
+        // Radar range controls
+        function setRadarRange(range) {
+            radarRange = range;
+            document.getElementById('current-range').textContent = range;
+            
+            // Update button styles
+            document.querySelectorAll('.control-button').forEach(btn => {
+                if (btn.textContent.includes(`${range} NM`)) {
+                    btn.style.background = '#00ff00';
+                    btn.style.color = 'black';
+                } else if (btn.textContent.includes('NM')) {
+                    btn.style.background = '#333';
+                    btn.style.color = '#00ff00';
+                }
+            });
+        }
+
+        // Update aircraft information display
+        function updateAircraftDisplay(aircraft) {
+            if (!aircraft) return;
+
+            document.getElementById('aircraft-callsign').textContent = aircraft.callsign || '-';
+            document.getElementById('aircraft-altitude').textContent = `${Math.round(aircraft.altitude || 0)} ft`;
+            document.getElementById('aircraft-speed').textContent = `${Math.round(aircraft.speed || 0)} kts`;
+            document.getElementById('aircraft-heading').textContent = `${Math.round(aircraft.heading || 0)}°`;
+            document.getElementById('aircraft-position').textContent = `${aircraft.latitude?.toFixed(3)}, ${aircraft.longitude?.toFixed(3)}`;
+            document.getElementById('aircraft-vertical').textContent = `${Math.round(aircraft.vertical_rate || 0)} fpm`;
+
+            currentAircraft = aircraft;
+        }
+
+        // Update nearby aircraft display
+        function updateNearbyAircraftDisplay(nearbyAircraft) {
+            const nearbyContainer = document.getElementById('nearby-aircraft');
+            
+            if (!nearbyAircraft || nearbyAircraft.length === 0) {
+                nearbyContainer.innerHTML = '<div style="text-align: center; color: #666; padding: 1rem;">No nearby traffic</div>';
+                return;
+            }
+
+            let html = '';
+            nearbyAircraft.forEach(aircraft => {
+                if (aircraft.callsign === (currentAircraft?.callsign)) return; // Skip current aircraft
+                
+                const distance = aircraft.distance_nm || 0;
+                const relativeAlt = aircraft.relative_altitude || 0;
+                
+                html += `
+                    <div style="background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 3px; font-size: 0.75rem;">
+                        <div style="font-weight: bold; color: #00ff00; margin-bottom: 0.3rem;">
+                            ${aircraft.callsign || aircraft.icao24}
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem;">
+                            <div>Dist: ${distance.toFixed(1)} NM</div>
+                            <div>Alt: ${Math.round(aircraft.altitude || 0)} ft</div>
+                            <div>Speed: ${Math.round(aircraft.speed || 0)} kts</div>
+                            <div>Rel Alt: ${relativeAlt > 0 ? '+' : ''}${Math.round(relativeAlt)} ft</div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            nearbyContainer.innerHTML = html;
+        }
+
+        // Update threat display
+        function updateThreatDisplay(threats) {
+            const threatList = document.getElementById('threat-list');
+            
+            if (!threats || threats.length === 0) {
+                threatList.innerHTML = '<div style="text-align: center; color: #00ff00; padding: 1rem;">✓ NO THREATS DETECTED</div>';
+                return;
+            }
+
+            let html = '';
+            threats.forEach((threat, index) => {
+                const distance = threat.horizontal_distance;
+                const altDiff = Math.abs(threat.vertical_distance || 0);
+                
+                let riskLevel = 'medium';
+                let riskColor = '#ffff00';
+                let riskText = 'MEDIUM';
+                
+                if (distance < 0.2) {
+                    riskLevel = 'critical';
+                    riskColor = '#ff0000';
+                    riskText = 'CRITICAL';
+                } else if (distance < 0.5) {
+                    riskLevel = 'high';
+                    riskColor = '#ffa500';
+                    riskText = 'HIGH';
+                }
+
+                html += `
+                    <div class="threat-item threat-${riskLevel}">
+                        <div style="color: ${riskColor}; font-weight: bold; margin-bottom: 0.5rem;">
+                            ${riskText} THREAT #${index + 1}
+                        </div>
+                        <div>Drone: ${threat.drone_id}</div>
+                        <div>Distance: ${distance.toFixed(3)} km</div>
+                        <div>Alt Diff: ${Math.round(altDiff)} ft</div>
+                        <div>Aircraft: ${threat.plane_icao24}</div>
+                    </div>
+                `;
+
+                // Voice alert for critical threats
+                if (riskLevel === 'critical') {
+                    speakAlert(`Critical collision alert! Drone ${threat.drone_id} at ${distance.toFixed(1)} kilometers. Immediate evasive action required.`);
+                } else if (riskLevel === 'high') {
+                    speakAlert(`High threat alert. Drone ${threat.drone_id} at ${distance.toFixed(1)} kilometers. Monitor closely.`);
+                }
+            });
+            
+            threatList.innerHTML = html;
+        }
+
+        // Fetch and update pilot data
+        async function updatePilotData() {
+            try {
+                const response = await fetch(`/api/pilot-data?range=${radarRange}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    console.log('Received data:', data); // Debug log
+                    
+                    // Update displays
+                    updateAircraftDisplay(data.current_aircraft);
+                    updateThreatDisplay(data.threats);
+                    updateNearbyAircraftDisplay(data.nearby_aircraft);
+                    
+                    // Clear existing markers
+                    clearMapMarkers();
+                    
+                    // Add current aircraft to map (red marker)
+                    if (data.current_aircraft) {
+                        addAircraftToMap(data.current_aircraft, true);
+                        console.log('Added current aircraft:', data.current_aircraft.callsign);
+                    }
+                    
+                    // Add nearby aircraft to map (blue markers)
+                    if (data.nearby_aircraft && data.nearby_aircraft.length > 0) {
+                        console.log(`Adding ${data.nearby_aircraft.length} nearby aircraft`);
+                        data.nearby_aircraft.forEach(aircraft => {
+                            addAircraftToMap(aircraft, false);
+                        });
+                    } else {
+                        console.log('No nearby aircraft found');
+                    }
+                    
+                    // Add all drones to map (orange markers) - check both field names
+                    const drones = data.all_drones || data.nearby_drones || [];
+                    if (drones && drones.length > 0) {
+                        console.log(`Adding ${drones.length} drones`);
+                        addDronesToMap(drones);
+                    } else {
+                        console.log('No drones found');
+                    }
+                    
+                    // Update status display
+                    updateStatusDisplay(data);
+                    
+                    // Update system status
+                    const now = new Date().toLocaleTimeString();
+                    document.getElementById('last-update').textContent = now;
+                    document.getElementById('connection-status').textContent = '● CONNECTED';
+                    
+                } else {
+                    console.error('Failed to fetch pilot data');
+                    document.getElementById('connection-status').textContent = '● DISCONNECTED';
+                }
+            } catch (error) {
+                console.error('Error fetching pilot data:', error);
+                document.getElementById('connection-status').textContent = '● ERROR';
+            }
+        }
+
+        // Update system statistics
+        async function updateSystemStats() {
+            try {
+                const response = await fetch('/api/system-status');
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    document.getElementById('total-aircraft').textContent = data.aircraft_count || 0;
+                    document.getElementById('total-drones').textContent = data.drone_count || 0;
+                    document.getElementById('total-alerts').textContent = data.alert_count || 0;
+                }
+            } catch (error) {
+                console.error('Error fetching system stats:', error);
+            }
+        }
+
+        // Update current time
+        function updateTime() {
+            document.getElementById('current-time').textContent = new Date().toLocaleTimeString();
+        }
+
+        // Initialize dashboard
+        function initializeDashboard() {
+            console.log('Initializing SkyLink Pilot Dashboard...');
+            
+            initializeMap();
+            
+            // Start data updates
+            updatePilotData();
+            updateSystemStats();
+            
+            // Set up intervals
+            updateInterval = setInterval(() => {
+                updatePilotData();
+                updateSystemStats();
+            }, 2000);
+            
+            setInterval(updateTime, 1000);
+            
+            // Initialize time
+            updateTime();
+            
+            console.log('Pilot Dashboard initialized successfully');
+        }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', function() {
+            if (updateInterval) {
+                clearInterval(updateInterval);
+            }
+            window.speechSynthesis.cancel();
+        });
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeDashboard);
+    </script>
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyLink Command Center - Aviation Safety Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c1445 0%, #1e3c72 50%, #2a5298 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-header {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        .logo::before {
+            content: "🛡️";
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .system-status {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: rgba(0, 212, 255, 0.2);
+            border: 1px solid #00d4ff;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00ff00;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Main Content */
+        .main-container {
+            margin-top: 80px;
+            padding: 2rem;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00d4ff, #ffffff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            min-width: 180px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.5rem;
+        }
+
+        /* Dashboard Cards */
+        .dashboard-selection {
+            display: flex;
+            gap: 4rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .dashboard-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            min-width: 300px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .dashboard-card:hover::before {
+            left: 100%;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-10px);
+            border-color: #00d4ff;
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .pilot-card {
+            border-left: 4px solid #ffd700;
+        }
+
+        .pilot-card:hover {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.1));
+        }
+
+        .drone-card {
+            border-left: 4px solid #00ff88;
+        }
+
+        .drone-card:hover {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(255, 255, 255, 0.1));
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-features {
+            list-style: none;
+            text-align: left;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .card-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .card-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Data Mode Toggle */
+        .data-mode-toggle {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .toggle-btn {
+            background: #00d4ff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background: #0099cc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .dashboard-selection {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .dashboard-card {
+                min-width: 280px;
+            }
+
+            .stats-container {
+                gap: 1rem;
+            }
+
+            .data-mode-toggle {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 2rem auto;
+                width: fit-content;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+        <div class="nav-content">
+            <div class="logo">
+                SkyLink Command Center
+            </div>
+            <div class="system-status">
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span id="system-status">SYSTEM OPERATIONAL</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Data Mode Toggle -->
+    <div class="data-mode-toggle">
+        <div style="margin-bottom: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.7);">Data Source:</div>
+        <div id="current-mode" style="font-weight: bold; margin-bottom: 0.5rem;">TEST SCENARIO</div>
+        <button class="toggle-btn" onclick="toggleDataMode()">Switch Mode</button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Hero Section -->
+        <div class="hero-section fade-in">
+            <h1 class="hero-title">SkyLink Aviation Safety</h1>
+            <p class="hero-subtitle">
+                Advanced collision detection and real-time monitoring system for aircraft and drone operations.
+                Choose your specialized dashboard to access comprehensive safety tools and situational awareness.
+            </p>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-container fade-in" style="animation-delay: 0.3s;">
+            <div class="stat-card">
+                <span class="stat-number" id="aircraft-count">-</span>
+                <div class="stat-label">Active Aircraft</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="drone-count">-</span>
+                <div class="stat-label">Monitored Drones</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="alert-count">-</span>
+                <div class="stat-label">Active Alerts</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="status-uptime">99.9%</span>
+                <div class="stat-label">System Uptime</div>
+            </div>
+        </div>
+
+        <!-- Dashboard Selection -->
+        <div class="dashboard-selection">
+            <!-- Pilot Dashboard Card -->
+            <a href="/pilot-dashboard" class="dashboard-card pilot-card slide-in-left">
+                <span class="card-icon">✈️</span>
+                <h2 class="card-title">Pilot Cockpit Dashboard</h2>
+                <p class="card-description">
+                    Comprehensive cockpit interface designed for airline pilots with real-time collision alerts,
+                    voice notifications, and proximity-based threat detection.
+                </p>
+                <ul class="card-features">
+                    <li>Real-time collision detection</li>
+                    <li>Voice alert system with cooldown</li>
+                    <li>Interactive radar display</li>
+                    <li>Proximity-based aircraft tracking</li>
+                    <li>Multi-level threat classification</li>
+                    <li>Cockpit-style interface</li>
+                </ul>
+            </a>
+
+            <!-- Drone Dashboard Card -->
+            <a href="/drone-dashboard" class="dashboard-card drone-card slide-in-right">
+                <span class="card-icon">🚁</span>
+                <h2 class="card-title">Drone Operations Center</h2>
+                <p class="card-description">
+                    Specialized interface for drone operators featuring fleet management,
+                    collision alerts, and automated safety protocols for unmanned aircraft systems.
+                </p>
+                <ul class="card-features">
+                    <li>Drone fleet monitoring</li>
+                    <li>Aircraft threat detection</li>
+                    <li>Automated alert translation</li>
+                    <li>Safe zone visualization</li>
+                    <li>Emergency response protocols</li>
+                    <li>Multi-drone coordination</li>
+                </ul>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 SkyLink Aviation Safety System | Advanced Collision Detection Technology</p>
+        <p>Ensuring safer skies through intelligent monitoring and real-time alerts</p>
+    </div>
+
+    <script>
+        // System status and statistics management
+        let systemStats = {
+            aircraft_count: 0,
+            drone_count: 0,
+            alert_count: 0,
+            data_mode: 'TEST SCENARIO',
+            system_status: 'OPERATIONAL'
+        };
+
+        // Update system statistics
+        async function updateSystemStats() {
+            try {
+                const response = await fetch('/api/system-status');
+                if (response.ok) {
+                    const data = await response.json();
+                    systemStats = data;
+                    
+                    // Update UI elements
+                    document.getElementById('aircraft-count').textContent = data.aircraft_count || '-';
+                    document.getElementById('drone-count').textContent = data.drone_count || '-';
+                    document.getElementById('alert-count').textContent = data.alert_count || '-';
+                    document.getElementById('current-mode').textContent = data.data_mode || 'UNKNOWN';
+                    document.getElementById('system-status').textContent = `SYSTEM ${data.system_status}`;
+                    
+                    console.log('Stats updated:', data);
+                } else {
+                    console.warn('Failed to fetch system status');
+                }
+            } catch (error) {
+                console.error('Error fetching system stats:', error);
+                // Show offline indicators
+                document.getElementById('system-status').textContent = 'SYSTEM OFFLINE';
+            }
+        }
+
+        // Toggle data source
+        async function toggleDataMode() {
+            try {
+                const response = await fetch('/api/toggle-data-source', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Data mode toggled:', data);
+                    
+                    // Update UI immediately
+                    document.getElementById('current-mode').textContent = data.data_source;
+                    
+                    // Refresh stats
+                    setTimeout(updateSystemStats, 500);
+                    
+                    // Show feedback
+                    showNotification(`Switched to ${data.data_source}`, 'success');
+                } else {
+                    showNotification('Failed to switch data mode', 'error');
+                }
+            } catch (error) {
+                console.error('Error toggling data mode:', error);
+                showNotification('Error switching data mode', 'error');
+            }
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 120px;
+                right: 20px;
+                background: ${type === 'success' ? '#00ff88' : type === 'error' ? '#ff4444' : '#00d4ff'};
+                color: ${type === 'success' || type === 'error' ? 'white' : '#000'};
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                font-weight: bold;
+                z-index: 2000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Add smooth scrolling and interaction effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial stats load
+            updateSystemStats();
+            
+            // Periodic stats update
+            setInterval(updateSystemStats, 5000);
+            
+            // Add hover effects to dashboard cards
+            const dashboardCards = document.querySelectorAll('.dashboard-card');
+            dashboardCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Add animation delays to stat cards
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('fade-in');
+            });
+            
+            console.log('SkyLink Command Center initialized');
+        });
+
+        // Handle navigation clicks with loading states
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.dashboard-card')) {
+                const card = e.target.closest('.dashboard-card');
+                card.style.opacity = '0.7';
+                card.style.transform = 'scale(0.98)';
+                
+                // Show loading indicator
+                showNotification('Loading dashboard...', 'info');
+            }
+        });
+    </script>
+</body>
+</html>

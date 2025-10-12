@@ -1,0 +1,5 @@
+# SkyLink Pilot Dashboard - Additional Requirements
+# Add these to the main requirements.txt
+
+flask>=2.3.0
+flask-cors>=4.0.0

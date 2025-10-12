@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyLink Pilot Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #00ff00;
+            overflow: hidden;
+        }
+
+        .cockpit-container {
+            display: grid;
+            grid-template-columns: 300px 1fr 300px;
+            grid-template-rows: 80px 1fr 120px;
+            height: 100vh;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        /* Header */
+        .header {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .aircraft-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .aircraft-callsign {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        .status-indicators {
+            display: flex;
+            gap: 15px;
+        }
+
+        .status-light {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            position: relative;
+        }
+
+        .status-light.green { background: #00ff00; box-shadow: 0 0 10px #00ff00; }
+        .status-light.red { background: #ff0000; box-shadow: 0 0 10px #ff0000; }
+        .status-light.yellow { background: #ffff00; box-shadow: 0 0 10px #ffff00; }
+
+        /* Left Panel - Aircraft Status */
+        .left-panel {
+            background: rgba(0, 20, 40, 0.8);
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .panel-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #00ffff;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 5px;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 5px;
+            background: rgba(0, 255, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        /* Main Map */
+        .map-container {
+            border: 3px solid #00ff00;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #pilot-map {
+            width: 100%;
+            height: 100%;
+            filter: hue-rotate(180deg) invert(1) brightness(0.8);
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #00ff00;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        /* Right Panel - Threat Assessment */
+        .right-panel {
+            background: rgba(40, 0, 0, 0.8);
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .threat-item {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .threat-high {
+            background: rgba(255, 0, 0, 0.4);
+            border-color: #ff0000;
+        }
+
+        .threat-medium {
+            background: rgba(255, 255, 0, 0.3);
+            border-color: #ffff00;
+        }
+
+        .threat-low {
+            background: rgba(0, 255, 255, 0.2);
+            border-color: #00ffff;
+        }
+
+        /* Bottom Panel - Controls */
+        .bottom-panel {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #2e1a1a, #3e1616);
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .control-group {
+            text-align: center;
+        }
+
+        .control-button {
+            background: rgba(0, 255, 0, 0.2);
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .control-button:hover {
+            background: rgba(0, 255, 0, 0.4);
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .control-button.active {
+            background: #00ff00;
+            color: #000;
+        }
+
+        .alert-banner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 10000;
+            display: none;
+            text-align: center;
+            border: 3px solid #fff;
+            animation: alertFlash 1s infinite;
+        }
+
+        @keyframes alertFlash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .distance-indicator {
+            font-size: 12px;
+            color: #ffff00;
+        }
+
+        .nearby-aircraft {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #00ffff;
+            border-radius: 5px;
+            padding: 8px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cockpit-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="aircraft-info">
+                <i class="fas fa-plane" style="font-size: 24px; color: #00ffff;"></i>
+                <div class="aircraft-callsign" id="aircraft-callsign">Loading...</div>
+                <div>
+                    <div>Alt: <span id="aircraft-altitude">0</span>ft</div>
+                    <div>Spd: <span id="aircraft-speed">0</span>kt</div>
+                </div>
+            </div>
+            <div class="status-indicators">
+                <div class="status-light green" id="nav-status" title="Navigation"></div>
+                <div class="status-light green" id="comm-status" title="Communication"></div>
+                <div class="status-light green" id="tcas-status" title="Traffic Alert"></div>
+            </div>
+        </div>
+
+        <!-- Left Panel - Aircraft Status -->
+        <div class="left-panel">
+            <div class="panel-title">AIRCRAFT STATUS</div>
+            <div id="aircraft-status">
+                <div class="status-item">
+                    <span>Latitude:</span>
+                    <span id="current-lat">--</span>
+                </div>
+                <div class="status-item">
+                    <span>Longitude:</span>
+                    <span id="current-lon">--</span>
+                </div>
+                <div class="status-item">
+                    <span>Heading:</span>
+                    <span id="current-heading">--°</span>
+                </div>
+                <div class="status-item">
+                    <span>Ground Speed:</span>
+                    <span id="current-speed">-- kt</span>
+                </div>
+                <div class="status-item">
+                    <span>Vertical Rate:</span>
+                    <span id="vertical-rate">-- ft/min</span>
+                </div>
+            </div>
+            
+            <div class="panel-title" style="margin-top: 20px;">VOICE ALERTS</div>
+            <div id="voice-status">
+                <div class="status-item">
+                    <span>Status:</span>
+                    <span id="voice-alert-status">ENABLED</span>
+                </div>
+                <div class="status-item">
+                    <span>Spoken Alerts:</span>
+                    <span id="spoken-count">0</span>
+                </div>
+            </div>
+            
+            <div class="panel-title" style="margin-top: 20px;">RADAR CONTACTS</div>
+            <div id="radar-contacts">
+                <div class="status-item">
+                    <span>Aircraft:</span>
+                    <span id="aircraft-count">0</span>
+                </div>
+                <div class="status-item">
+                    <span>Drones:</span>
+                    <span id="drone-count">0</span>
+                </div>
+                <div class="status-item">
+                    <span>Mode:</span>
+                    <span id="data-mode">TEST</span>
+                </div>
+            </div>
+            
+            <div class="panel-title" style="margin-top: 20px;">NEARBY AIRCRAFT</div>
+            <div id="nearby-aircraft-list">
+                <!-- Nearby aircraft will be populated here -->
+            </div>
+        </div>
+
+        <!-- Main Map -->
+        <div class="map-container">
+            <div class="map-overlay">
+                <div><strong>PILOT VIEW</strong></div>
+                <div>Range: <span id="radar-range">10</span> NM</div>
+                <div>Threats: <span id="threat-count">0</span></div>
+                <div id="data-source-indicator" style="color: #ff6600; font-weight: bold; margin-top: 5px;">
+                    TEST MODE
+                </div>
+            </div>
+            <div id="pilot-map"></div>
+        </div>
+
+        <!-- Right Panel - Threat Assessment -->
+        <div class="right-panel">
+            <div class="panel-title">COLLISION ALERTS</div>
+            <div id="threat-list">
+                <div style="text-align: center; color: #00ff00; margin-top: 50px;">
+                    <i class="fas fa-shield-alt" style="font-size: 48px;"></i>
+                    <div style="margin-top: 10px;">AIRSPACE CLEAR</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Panel - Controls -->
+        <div class="bottom-panel">
+            <div class="control-group">
+                <button class="control-button active" id="voice-toggle">
+                    <i class="fas fa-volume-up"></i> Voice Alerts
+                </button>
+            </div>
+            <div class="control-group">
+                <button class="control-button" id="clear-voice">
+                    <i class="fas fa-volume-mute"></i> Clear Voice
+                </button>
+            </div>
+            <div class="control-group">
+                <button class="control-button active" id="auto-update">
+                    <i class="fas fa-sync-alt"></i> Auto Update
+                </button>
+            </div>
+            <div class="control-group">
+                <button class="control-button" id="range-toggle">
+                    <i class="fas fa-search"></i> Range: 10 NM
+                </button>
+            </div>
+
+            <div class="control-group">
+                <button class="control-button" id="collision-demo">
+                    <i class="fas fa-chart-line"></i> Show Detection
+                </button>
+            </div>
+            <div class="control-group">
+                <button class="control-button" id="emergency">
+                    <i class="fas fa-exclamation-triangle"></i> Emergency
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Banner -->
+    <div class="alert-banner" id="alert-banner">
+        <div id="alert-text">COLLISION ALERT</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        class PilotDashboard {
+            constructor() {
+                this.map = null;
+                this.currentAircraft = null;
+                this.nearbyAircraft = [];
+                this.nearbyDrones = [];
+                this.threats = [];
+                this.voiceEnabled = true;
+                this.autoUpdate = true;
+                this.radarRange = 10; // nautical miles
+                this.updateInterval = null;
+                
+                // Voice alert management
+                this.lastVoiceAlerts = new Map(); // Track what alerts we've already spoken
+                this.voiceAlertCooldown = 30000; // 30 seconds cooldown per alert
+                this.maxVoiceRepeats = 2; // Maximum times to repeat same alert
+                this.voiceAlertCounts = new Map(); // Track how many times each alert was spoken
+                
+                this.initializeMap();
+                this.initializeControls();
+                this.startUpdates();
+            }
+
+            initializeMap() {
+                // Initialize the Leaflet map
+                this.map = L.map('pilot-map').setView([12.95, 77.55], 11);
+                
+                // Add dark tile layer for cockpit feel
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: 'SkyLink Pilot Dashboard'
+                }).addTo(this.map);
+
+                // Custom aircraft icon
+                this.aircraftIcon = L.divIcon({
+                    html: '<i class="fas fa-plane" style="color: #00ffff; font-size: 20px;"></i>',
+                    iconSize: [20, 20],
+                    className: 'aircraft-icon'
+                });
+
+                this.droneIcon = L.divIcon({
+                    html: '<i class="fas fa-helicopter" style="color: #ff6600; font-size: 16px;"></i>',
+                    iconSize: [16, 16],
+                    className: 'drone-icon'
+                });
+
+                this.threatIcon = L.divIcon({
+                    html: '<i class="fas fa-exclamation-triangle" style="color: #ff0000; font-size: 18px;"></i>',
+                    iconSize: [18, 18],
+                    className: 'threat-icon'
+                });
+            }
+
+            initializeControls() {
+                // Voice toggle
+                document.getElementById('voice-toggle').addEventListener('click', () => {
+                    this.voiceEnabled = !this.voiceEnabled;
+                    const btn = document.getElementById('voice-toggle');
+                    btn.classList.toggle('active');
+                    
+                    // Reset voice alerts when toggling
+                    this.resetVoiceAlerts();
+                    
+                    // Update voice status display
+                    this.updateVoiceStatus();
+                    
+                    // Don't use alert ID for system messages
+                    this.speak(this.voiceEnabled ? 'Voice alerts enabled' : 'Voice alerts disabled');
+                });
+
+                // Clear voice alerts button
+                document.getElementById('clear-voice').addEventListener('click', () => {
+                    // Stop any current speech
+                    if ('speechSynthesis' in window) {
+                        speechSynthesis.cancel();
+                    }
+                    
+                    // Reset all voice alert tracking
+                    this.resetVoiceAlerts();
+                    
+                    // Visual feedback
+                    const btn = document.getElementById('clear-voice');
+                    btn.style.backgroundColor = 'rgba(255, 0, 0, 0.4)';
+                    setTimeout(() => {
+                        btn.style.backgroundColor = 'rgba(0, 255, 0, 0.2)';
+                    }, 500);
+                    
+                    console.log('Voice alerts cleared by user');
+                });
+
+                // Auto update toggle
+                document.getElementById('auto-update').addEventListener('click', () => {
+                    this.autoUpdate = !this.autoUpdate;
+                    const btn = document.getElementById('auto-update');
+                    btn.classList.toggle('active');
+                    
+                    if (this.autoUpdate) {
+                        this.startUpdates();
+                    } else {
+                        this.stopUpdates();
+                    }
+                });
+
+                // Range toggle
+                document.getElementById('range-toggle').addEventListener('click', () => {
+                    const ranges = [10, 20, 50];
+                    const currentIndex = ranges.indexOf(this.radarRange);
+                    this.radarRange = ranges[(currentIndex + 1) % ranges.length];
+                    
+                    document.getElementById('range-toggle').innerHTML = 
+                        `<i class="fas fa-search"></i> Range: ${this.radarRange} NM`;
+                    document.getElementById('radar-range').textContent = this.radarRange;
+                    
+                    this.updateData();
+                });
+
+
+                // Collision detection demo
+                document.getElementById('collision-demo').addEventListener('click', async () => {
+                    try {
+                        const response = await fetch('/api/collision-demo');
+                        const data = await response.json();
+                        
+                        if (data.demo_results) {
+                            this.showCollisionDemo(data);
+                        }
+                    } catch (error) {
+                        console.error('Error getting collision demo:', error);
+                    }
+                });
+
+                // Emergency button
+                document.getElementById('emergency').addEventListener('click', () => {
+                    this.speak('Emergency button activated. Mayday, mayday, mayday.');
+                    this.showAlert('EMERGENCY DECLARED', 'red');
+                });
+            }
+
+            startUpdates() {
+                if (this.updateInterval) {
+                    clearInterval(this.updateInterval);
+                }
+                
+                // Update every 2 seconds
+                this.updateData();
+                this.updateInterval = setInterval(() => {
+                    if (this.autoUpdate) {
+                        this.updateData();
+                    }
+                }, 2000);
+            }
+
+            stopUpdates() {
+                if (this.updateInterval) {
+                    clearInterval(this.updateInterval);
+                    this.updateInterval = null;
+                }
+            }
+
+            async updateData() {
+                try {
+                    // Fetch current aircraft data and threats
+                    const response = await fetch('/api/pilot-data');
+                    const data = await response.json();
+                    
+                    this.currentAircraft = data.current_aircraft;
+                    this.nearbyAircraft = data.nearby_aircraft || [];
+                    this.nearbyDrones = data.nearby_drones || [];
+                    this.threats = data.threats || [];
+                    
+                    // Update data source indicator with counts
+                    const indicator = document.getElementById('data-source-indicator');
+                    if (data.data_source === 'test_scenario') {
+                        indicator.innerHTML = `TEST MODE<br><small>NYC: ${this.nearbyAircraft.length + 1} planes, ${this.nearbyDrones.length} drones</small>`;
+                        indicator.style.color = '#ff6600';
+                    } else if (data.data_source === 'real_data') {
+                        indicator.innerHTML = `REAL DATA<br><small>Live: ${this.nearbyAircraft.length + 1} planes, ${this.nearbyDrones.length} drones</small>`;
+                        indicator.style.color = '#00ff00';
+                    } else {
+                        indicator.innerHTML = 'DEMO MODE<br><small>Offline</small>';
+                        indicator.style.color = '#ffff00';
+                    }
+                    
+                    // Update status display with detailed counts
+                    this.updateStatusDisplay(data);
+                    
+                    this.updateDisplay();
+                    this.updateMap();
+                    this.updateThreats();
+                    
+                } catch (error) {
+                    console.error('Error updating data:', error);
+                    // Use demo data if API fails
+                    document.getElementById('data-source-indicator').textContent = 'DEMO MODE';
+                    document.getElementById('data-source-indicator').style.color = '#ffff00';
+                    this.loadDemoData();
+                }
+            }
+            
+            updateStatusDisplay(data) {
+                // Update aircraft count display
+                const aircraftCountElement = document.getElementById('aircraft-count');
+                if (aircraftCountElement) {
+                    const totalAircraft = this.nearbyAircraft.length + 1; // +1 for current aircraft
+                    aircraftCountElement.textContent = totalAircraft.toString();
+                    aircraftCountElement.style.color = totalAircraft >= 50 ? '#00ff00' : '#ffff00';
+                }
+                
+                // Update drone count display
+                const droneCountElement = document.getElementById('drone-count');
+                if (droneCountElement) {
+                    droneCountElement.textContent = this.nearbyDrones.length.toString();
+                    droneCountElement.style.color = this.nearbyDrones.length >= 20 ? '#00ff00' : '#ffff00';
+                }
+                
+                // Update data mode display
+                const dataModeElement = document.getElementById('data-mode');
+                if (dataModeElement) {
+                    const mode = data.data_source === 'test_scenario' ? 'TEST' : 'REAL';
+                    dataModeElement.textContent = mode;
+                    dataModeElement.style.color = data.data_source === 'real_data' ? '#00ff00' : '#ff6600';
+                }
+                
+                // Update radar range display
+                const radarRangeElement = document.getElementById('radar-range');
+                if (radarRangeElement) {
+                    radarRangeElement.textContent = `${data.radar_range_nm || this.radarRange}`;
+                }
+                
+                // Add debug info in console for troubleshooting
+                console.log(`Status Update - Mode: ${data.data_source}, Aircraft: ${this.nearbyAircraft.length + 1}, Drones: ${this.nearbyDrones.length}, Threats: ${this.threats.length}`);
+                
+                // Update nearby aircraft list with better display
+                this.updateNearbyAircraftList();
+                
+                // Validate real mode performance
+                if (data.data_source === 'real_data') {
+                    const aircraftOk = this.nearbyAircraft.length >= 50;
+                    const dronesOk = this.nearbyDrones.length >= 20;
+                    
+                    if (!aircraftOk || !dronesOk) {
+                        console.warn(`Real mode performance issue - Aircraft: ${this.nearbyAircraft.length}/50+, Drones: ${this.nearbyDrones.length}/20+`);
+                    } else {
+                        console.log(`✓ Real mode optimal - Aircraft: ${this.nearbyAircraft.length}, Drones: ${this.nearbyDrones.length}`);
+                    }
+                }
+            }
+            
+            updateNearbyAircraftList() {
+                const list = document.getElementById('nearby-aircraft-list');
+                if (!list) return;
+                
+                // Clear existing list
+                list.innerHTML = '';
+                
+                // Show first 5 aircraft with distances
+                const displayAircraft = this.nearbyAircraft.slice(0, 5);
+                
+                if (displayAircraft.length === 0) {
+                    list.innerHTML = '<div style="text-align: center; color: #888;">No nearby aircraft</div>';
+                    return;
+                }
+                
+                displayAircraft.forEach(aircraft => {
+                    const div = document.createElement('div');
+                    div.className = 'status-item';
+                    div.style.fontSize = '11px';
+                    div.innerHTML = `
+                        <span>${aircraft.callsign}</span>
+                        <span>${aircraft.distance?.toFixed(1) || 'N/A'} NM</span>
+                    `;
+                    list.appendChild(div);
+                });
+                
+                // Add summary if more aircraft exist
+                if (this.nearbyAircraft.length > 5) {
+                    const summary = document.createElement('div');
+                    summary.style.textAlign = 'center';
+                    summary.style.fontSize = '10px';
+                    summary.style.color = '#888';
+                    summary.textContent = `+${this.nearbyAircraft.length - 5} more aircraft`;
+                    list.appendChild(summary);
+                }
+            }
+
+            loadDemoData() {
+                // Use the same test scenario as test_visualization.py
+                console.log('Loading demo collision scenario...');
+                
+                // NYC coordinates - same as test scenario
+                this.currentAircraft = {
+                    callsign: 'UAL100',
+                    latitude: 40.7128,
+                    longitude: -74.0060,
+                    altitude: 200,
+                    speed: 150,
+                    heading: 90,
+                    vertical_rate: 0
+                };
+
+                // Nearby aircraft from test scenario
+                this.nearbyAircraft = [
+                    {
+                        callsign: 'UAL101',
+                        latitude: 40.6928,
+                        longitude: -74.0260,
+                        altitude: 250,
+                        distance: 1.8,
+                        relative_position: 'SW',
+                        bearing: 225
+                    },
+                    {
+                        callsign: 'UAL102',
+                        latitude: 40.7328,
+                        longitude: -73.9860,
+                        altitude: 300,
+                        distance: 2.1,
+                        relative_position: 'NE',
+                        bearing: 45
+                    },
+                    {
+                        callsign: 'UAL103',
+                        latitude: 40.7528,
+                        longitude: -73.9660,
+                        altitude: 350,
+                        distance: 3.2,
+                        relative_position: 'N',
+                        bearing: 0
+                    }
+                ];
+
+                // Nearby drones from test scenario
+                this.nearbyDrones = [
+                    {
+                        drone_id: 'DRONE_1',
+                        latitude: 40.7228,
+                        longitude: -74.0160,
+                        altitude: 180,
+                        speed: 15,
+                        heading: 90,
+                        distance: 0.8,
+                        relative_position: 'W',
+                        bearing: 270
+                    },
+                    {
+                        drone_id: 'DRONE_2',
+                        latitude: 40.7028,
+                        longitude: -73.9960,
+                        altitude: 220,
+                        speed: 20,
+                        heading: 180,
+                        distance: 1.2,
+                        relative_position: 'SE',
+                        bearing: 135
+                    }
+                ];
+
+                // Collision threats from test scenario (drones very close to planes)
+                this.threats = [
+                    {
+                        type: 'drone',
+                        id: 'DRONE_0',
+                        latitude: 40.7138,  // Very close to UAL100
+                        longitude: -74.0050,
+                        altitude: 180,
+                        horizontal_distance: 0.111,  // About 111 meters
+                        vertical_distance: 20,
+                        risk_level: 'critical'
+                    },
+                    {
+                        type: 'drone',
+                        id: 'DRONE_1',
+                        latitude: 40.6938,  // Close to UAL101
+                        longitude: -74.0250,
+                        altitude: 230,
+                        horizontal_distance: 0.135,
+                        vertical_distance: 20,
+                        risk_level: 'high'
+                    },
+                    {
+                        type: 'drone',
+                        id: 'DRONE_2',
+                        latitude: 40.7338,  // Close to UAL102
+                        longitude: -73.9850,
+                        altitude: 280,
+                        horizontal_distance: 0.156,
+                        vertical_distance: 20,
+                        risk_level: 'high'
+                    }
+                ];
+
+                // Show alert for the critical threat
+                this.showAlert('TEST SCENARIO: Multiple collision threats detected!', 'red');
+                this.speak('Test scenario loaded. Critical collision threat detected from drone zero at distance 111 meters.');
+
+                this.updateDisplay();
+                this.updateMap();
+                this.updateThreats();
+            }
+
+            updateDisplay() {
+                if (this.currentAircraft) {
+                    document.getElementById('aircraft-callsign').textContent = this.currentAircraft.callsign;
+                    document.getElementById('aircraft-altitude').textContent = Math.round(this.currentAircraft.altitude * 3.28084); // Convert to feet
+                    document.getElementById('aircraft-speed').textContent = Math.round(this.currentAircraft.speed * 1.944); // Convert to knots
+                    
+                    document.getElementById('current-lat').textContent = this.currentAircraft.latitude.toFixed(6);
+                    document.getElementById('current-lon').textContent = this.currentAircraft.longitude.toFixed(6);
+                    document.getElementById('current-heading').textContent = this.currentAircraft.heading + '°';
+                    document.getElementById('current-speed').textContent = Math.round(this.currentAircraft.speed * 1.944) + ' kt';
+                    document.getElementById('vertical-rate').textContent = (this.currentAircraft.vertical_rate * 196.85).toFixed(0) + ' ft/min';
+                }
+
+                // Update nearby aircraft list
+                const nearbyList = document.getElementById('nearby-aircraft-list');
+                nearbyList.innerHTML = '';
+                
+                // Add nearby aircraft
+                this.nearbyAircraft.forEach(aircraft => {
+                    const div = document.createElement('div');
+                    div.className = 'nearby-aircraft';
+                    div.innerHTML = `
+                        <div style="font-weight: bold;"><i class="fas fa-plane"></i> ${aircraft.callsign}</div>
+                        <div class="distance-indicator">${aircraft.distance.toFixed(1)} NM ${aircraft.relative_position}</div>
+                        <div class="distance-indicator">Alt: ${Math.round(aircraft.altitude * 3.28084)} ft</div>
+                    `;
+                    nearbyList.appendChild(div);
+                });
+                
+                // Add nearby drones
+                this.nearbyDrones.forEach(drone => {
+                    const div = document.createElement('div');
+                    div.className = 'nearby-aircraft';
+                    div.style.borderColor = '#ff6600';
+                    div.innerHTML = `
+                        <div style="font-weight: bold; color: #ff6600;"><i class="fas fa-helicopter"></i> ${drone.drone_id}</div>
+                        <div class="distance-indicator">${drone.distance.toFixed(1)} NM ${drone.relative_position}</div>
+                        <div class="distance-indicator">Alt: ${Math.round(drone.altitude * 3.28084)} ft</div>
+                    `;
+                    nearbyList.appendChild(div);
+                });
+            }
+
+            updateMap() {
+                // Clear existing markers
+                this.map.eachLayer(layer => {
+                    if (layer instanceof L.Marker || layer instanceof L.Circle) {
+                        this.map.removeLayer(layer);
+                    }
+                });
+
+                if (this.currentAircraft) {
+                    // Add current aircraft marker
+                    const aircraftMarker = L.marker([this.currentAircraft.latitude, this.currentAircraft.longitude], {
+                        icon: this.aircraftIcon
+                    }).addTo(this.map);
+                    
+                    aircraftMarker.bindPopup(`
+                        <b>YOUR AIRCRAFT</b><br>
+                        Callsign: ${this.currentAircraft.callsign}<br>
+                        Altitude: ${Math.round(this.currentAircraft.altitude * 3.28084)} ft<br>
+                        Speed: ${Math.round(this.currentAircraft.speed * 1.944)} kt
+                    `);
+
+                    // Add radar range circle
+                    L.circle([this.currentAircraft.latitude, this.currentAircraft.longitude], {
+                        radius: this.radarRange * 1852, // Convert NM to meters
+                        fill: false,
+                        color: '#00ff00',
+                        weight: 2,
+                        opacity: 0.5,
+                        dashArray: '5, 10'
+                    }).addTo(this.map);
+
+                    // Center map on current aircraft
+                    this.map.setView([this.currentAircraft.latitude, this.currentAircraft.longitude], 11);
+                }
+
+                // Add nearby aircraft
+                this.nearbyAircraft.forEach(aircraft => {
+                    const marker = L.marker([aircraft.latitude, aircraft.longitude], {
+                        icon: this.aircraftIcon
+                    }).addTo(this.map);
+                    
+                    marker.bindPopup(`
+                        <b>NEARBY AIRCRAFT</b><br>
+                        Callsign: ${aircraft.callsign}<br>
+                        Distance: ${aircraft.distance.toFixed(1)} NM<br>
+                        Bearing: ${aircraft.bearing.toFixed(0)}° (${aircraft.relative_position})<br>
+                        Altitude: ${Math.round(aircraft.altitude * 3.28084)} ft<br>
+                        Speed: ${Math.round(aircraft.speed * 1.944)} kt
+                    `);
+                });
+
+                // Add nearby drones
+                this.nearbyDrones.forEach(drone => {
+                    const marker = L.marker([drone.latitude, drone.longitude], {
+                        icon: this.droneIcon
+                    }).addTo(this.map);
+                    
+                    marker.bindPopup(`
+                        <b>NEARBY DRONE</b><br>
+                        ID: ${drone.drone_id}<br>
+                        Distance: ${drone.distance.toFixed(1)} NM<br>
+                        Bearing: ${drone.bearing.toFixed(0)}° (${drone.relative_position})<br>
+                        Altitude: ${Math.round(drone.altitude * 3.28084)} ft<br>
+                        Speed: ${Math.round(drone.speed * 1.944)} kt<br>
+                        Heading: ${drone.heading}°
+                    `);
+                });
+
+                // Add threats
+                this.threats.forEach(threat => {
+                    const marker = L.marker([threat.latitude, threat.longitude], {
+                        icon: threat.type === 'drone' ? this.droneIcon : this.threatIcon
+                    }).addTo(this.map);
+                    
+                    marker.bindPopup(`
+                        <b>THREAT - ${threat.type.toUpperCase()}</b><br>
+                        ID: ${threat.id}<br>
+                        H-Distance: ${threat.horizontal_distance.toFixed(2)} km<br>
+                        V-Distance: ${threat.vertical_distance} m<br>
+                        Risk: ${threat.risk_level.toUpperCase()}
+                    `);
+                });
+
+                // Add radar legend
+                const nearbyAircraftCount = this.nearbyAircraft.length;
+                const nearbyDronesCount = this.nearbyDrones.length;
+                const alertsCount = this.threats.length;
+                
+                const legend_html = `
+                <div style="position: fixed; 
+                            bottom: 50px; left: 50px; width: 200px; height: 150px; 
+                            background-color: rgba(0, 0, 0, 0.9); border:2px solid #00ff00; z-index:9999; 
+                            font-size:12px; padding: 12px; color: #00ff00; border-radius: 5px; 
+                            font-family: 'Courier New', monospace;">
+                <p style="margin:0; font-weight:bold; margin-bottom:8px;">🎯 RADAR LEGEND</p>
+                <p style="margin:2px 0;"><i class="fas fa-plane" style="color:#00ffff"></i> Your Aircraft: 1</p>
+                <p style="margin:2px 0;"><i class="fas fa-plane" style="color:#00ffff"></i> Traffic: ${nearbyAircraftCount}</p>
+                <p style="margin:2px 0;"><i class="fas fa-helicopter" style="color:#ff6600"></i> Drones: ${nearbyDronesCount}</p>
+                <p style="margin:2px 0;"><i class="fas fa-exclamation-triangle" style="color:#ff0000"></i> Threats: ${alertsCount}</p>
+                <p style="margin:6px 0 2px 0; font-size:10px; color:#ffff00;">Range: ${this.radarRange} NM</p>
+                </div>
+                `;
+                
+                // Remove existing legend if any
+                const existingLegend = document.querySelector('.radar-legend');
+                if (existingLegend) {
+                    existingLegend.remove();
+                }
+                
+                // Add new legend
+                const legendElement = document.createElement('div');
+                legendElement.className = 'radar-legend';
+                legendElement.innerHTML = legend_html;
+                document.body.appendChild(legendElement);
+            }
+
+            updateThreats() {
+                const threatList = document.getElementById('threat-list');
+                const threatCount = document.getElementById('threat-count');
+                
+                threatCount.textContent = this.threats.length;
+
+                if (this.threats.length === 0) {
+                    threatList.innerHTML = `
+                        <div style="text-align: center; color: #00ff00; margin-top: 50px;">
+                            <i class="fas fa-shield-alt" style="font-size: 48px;"></i>
+                            <div style="margin-top: 10px;">AIRSPACE CLEAR</div>
+                        </div>
+                    `;
+                    document.getElementById('tcas-status').className = 'status-light green';
+                    return;
+                }
+
+                // Update threat status light
+                const hasHighThreats = this.threats.some(t => t.risk_level === 'high' || t.risk_level === 'critical');
+                document.getElementById('tcas-status').className = hasHighThreats ? 'status-light red' : 'status-light yellow';
+
+                threatList.innerHTML = '';
+                
+                this.threats.forEach(threat => {
+                    const div = document.createElement('div');
+                    div.className = `threat-item threat-${threat.risk_level}`;
+                    
+                    const typeIcon = threat.type === 'drone' ? 'helicopter' : 'plane';
+                    
+                    div.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <i class="fas fa-${typeIcon}"></i> ${threat.id}
+                            </div>
+                            <div style="font-weight: bold; text-transform: uppercase;">
+                                ${threat.risk_level}
+                            </div>
+                        </div>
+                        <div style="margin-top: 5px; font-size: 12px;">
+                            H: ${threat.horizontal_distance.toFixed(2)} km | V: ${threat.vertical_distance} m
+                        </div>
+                        <div style="margin-top: 5px; font-size: 12px;">
+                            Alt: ${Math.round(threat.altitude * 3.28084)} ft
+                        </div>
+                    `;
+                    
+                    threatList.appendChild(div);
+                });
+
+                // Voice alert for high-risk threats (with cooldown and repeat limits)
+                const criticalThreats = this.threats.filter(t => t.risk_level === 'critical');
+                const highThreats = this.threats.filter(t => t.risk_level === 'high');
+
+                if (criticalThreats.length > 0) {
+                    const threat = criticalThreats[0];
+                    const alertId = `critical_${threat.id}`;
+                    
+                    this.showAlert(`CRITICAL: ${threat.id} - ${threat.horizontal_distance.toFixed(2)}km`, 'red');
+                    this.speak(
+                        `Traffic alert! Critical threat from ${threat.type} ${threat.id} at distance ${threat.horizontal_distance.toFixed(1)} kilometers`,
+                        alertId
+                    );
+                } else if (highThreats.length > 0) {
+                    const threat = highThreats[0];
+                    const alertId = `high_${threat.id}`;
+                    
+                    this.showAlert(`HIGH THREAT: ${threat.id}`, 'orange');
+                    this.speak(
+                        `Traffic advisory. ${threat.type} ${threat.id} at distance ${threat.horizontal_distance.toFixed(1)} kilometers`,
+                        alertId
+                    );
+                }
+            }
+
+            speak(text, alertId = null) {
+                if (!this.voiceEnabled || !('speechSynthesis' in window)) {
+                    return;
+                }
+
+                // If this is an alert with an ID, check cooldown and repeat limits
+                if (alertId) {
+                    const now = Date.now();
+                    const lastAlertTime = this.lastVoiceAlerts.get(alertId);
+                    const alertCount = this.voiceAlertCounts.get(alertId) || 0;
+                    
+                    // Check if we've exceeded maximum repeats
+                    if (alertCount >= this.maxVoiceRepeats) {
+                        console.log(`Voice alert '${alertId}' has reached maximum repeats (${this.maxVoiceRepeats})`);
+                        return;
+                    }
+                    
+                    // Check cooldown period
+                    if (lastAlertTime && (now - lastAlertTime) < this.voiceAlertCooldown) {
+                        console.log(`Voice alert '${alertId}' is in cooldown period`);
+                        return;
+                    }
+                    
+                    // Update tracking
+                    this.lastVoiceAlerts.set(alertId, now);
+                    this.voiceAlertCounts.set(alertId, alertCount + 1);
+                    
+                    console.log(`Speaking alert '${alertId}' (count: ${alertCount + 1}/${this.maxVoiceRepeats})`);
+                    
+                    // Update voice status display
+                    this.updateVoiceStatus();
+                }
+
+                // Stop any current speech
+                speechSynthesis.cancel();
+                
+                // Create and speak the utterance
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.8;
+                utterance.pitch = 1.0;
+                utterance.volume = 0.8;
+                
+                // Add error handling
+                utterance.onerror = (event) => {
+                    console.error('Speech synthesis error:', event);
+                };
+                
+                speechSynthesis.speak(utterance);
+            }
+
+            resetVoiceAlerts() {
+                // Clear all voice alert tracking (useful when switching aircraft or scenarios)
+                this.lastVoiceAlerts.clear();
+                this.voiceAlertCounts.clear();
+                
+                // Update voice status display
+                this.updateVoiceStatus();
+                
+                console.log('Voice alert tracking reset');
+            }
+
+            updateVoiceStatus() {
+                // Update voice alert status display
+                const statusElement = document.getElementById('voice-alert-status');
+                const countElement = document.getElementById('spoken-count');
+                
+                if (statusElement) {
+                    statusElement.textContent = this.voiceEnabled ? 'ENABLED' : 'DISABLED';
+                    statusElement.style.color = this.voiceEnabled ? '#00ff00' : '#ff6600';
+                }
+                
+                if (countElement) {
+                    let totalSpoken = 0;
+                    for (let count of this.voiceAlertCounts.values()) {
+                        totalSpoken += count;
+                    }
+                    countElement.textContent = totalSpoken.toString();
+                }
+            }
+
+            showAlert(text, color = 'red') {
+                const banner = document.getElementById('alert-banner');
+                const alertText = document.getElementById('alert-text');
+                
+                alertText.textContent = text;
+                
+                if (color === 'red') {
+                    banner.style.backgroundColor = 'rgba(255, 0, 0, 0.9)';
+                } else if (color === 'orange') {
+                    banner.style.backgroundColor = 'rgba(255, 165, 0, 0.9)';
+                } else if (color === 'green') {
+                    banner.style.backgroundColor = 'rgba(0, 150, 0, 0.9)';
+                } else {
+                    banner.style.backgroundColor = 'rgba(255, 0, 0, 0.9)';
+                }
+                
+                banner.style.display = 'block';
+                
+                setTimeout(() => {
+                    banner.style.display = 'none';
+                }, 5000);
+            }
+
+            showCollisionDemo(demoData) {
+                // Create a popup window with collision detection details
+                const popup = window.open('', 'CollisionDemo', 'width=800,height=600,scrollbars=yes');
+                
+                let html = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>Collision Detection Demo</title>
+                        <style>
+                            body { font-family: 'Courier New', monospace; background: #000; color: #00ff00; padding: 20px; }
+                            .demo-section { background: rgba(0, 50, 0, 0.3); border: 1px solid #00ff00; margin: 10px 0; padding: 15px; border-radius: 5px; }
+                            .threshold { color: #00ffff; font-weight: bold; }
+                            .alert-count { color: #ffff00; font-size: 18px; }
+                            .alert-item { background: rgba(255, 0, 0, 0.2); margin: 5px 0; padding: 8px; border-radius: 3px; }
+                            .data-info { color: #ff6600; }
+                        </style>
+                    </head>
+                    <body>
+                        <h2>🚁✈️ SkyLink Collision Detection Logic Demo</h2>
+                        <div class="data-info">
+                            <strong>Data Source:</strong> ${demoData.data_source}<br>
+                            <strong>Total Aircraft:</strong> ${demoData.total_planes}<br>
+                            <strong>Total Drones:</strong> ${demoData.total_drones}<br>
+                        </div>
+                `;
+                
+                demoData.demo_results.forEach(result => {
+                    html += `
+                        <div class="demo-section">
+                            <div class="threshold">
+                                ${result.threshold_name} Thresholds: 
+                                ${result.horizontal_km} km horizontal, ${result.vertical_m} m vertical
+                            </div>
+                            <div class="alert-count">
+                                Collision Alerts Found: ${result.alerts_found}
+                            </div>
+                    `;
+                    
+                    if (result.alerts.length > 0) {
+                        html += '<h4>Sample Alerts:</h4>';
+                        result.alerts.forEach((alert, i) => {
+                            html += `
+                                <div class="alert-item">
+                                    ${i + 1}. Drone ${alert.drone_id} vs Plane ${alert.plane_icao24}<br>
+                                    Distance: ${alert.horizontal_distance.toFixed(3)} km horizontal, ${alert.vertical_distance} m vertical<br>
+                                    Drone: (${alert.drone_lat.toFixed(4)}, ${alert.drone_lon.toFixed(4)}) at ${alert.drone_altitude}m<br>
+                                    Plane: (${alert.plane_lat.toFixed(4)}, ${alert.plane_lon.toFixed(4)}) at ${alert.plane_altitude}m
+                                </div>
+                            `;
+                        });
+                    }
+                    
+                    html += '</div>';
+                });
+                
+                html += `
+                        <br>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button onclick="window.close()" style="background: #00ff00; color: #000; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+                                Close Demo
+                            </button>
+                        </div>
+                    </body>
+                    </html>
+                `;
+                
+                popup.document.write(html);
+                popup.document.close();
+                
+                // Also speak the results
+                const alertCount = demoData.demo_results[1].alerts_found; // Use "Strict" threshold
+                this.speak(`Collision detection demo complete. Found ${alertCount} potential collision alerts using strict thresholds.`);
+            }
+        }
+
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const dashboard = new PilotDashboard();
+            
+            // Initialize voice status display
+            setTimeout(() => {
+                dashboard.updateVoiceStatus();
+            }, 500);
+        });
+    </script>
+</body>
+</html>

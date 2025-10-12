@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyLink Drone Operations Center</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a2f1a 0%, #1a4a2e 50%, #2d5f3f 100%);
+            color: #00ff88;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 0.5rem 1rem;
+            border-bottom: 2px solid #00ff88;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .home-btn {
+            background: #333;
+            color: white;
+            border: 1px solid #00d4ff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: #00d4ff;
+            color: black;
+        }
+
+        /* Main Layout */
+        .drone-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr 320px;
+            grid-template-rows: 1fr;
+            height: calc(100vh - 60px);
+            gap: 2px;
+            background: #000;
+        }
+
+        /* Left Panel - Drone Fleet Management */
+        .left-panel {
+            background: rgba(0, 40, 20, 0.9);
+            border: 2px solid #00ff88;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .panel-section {
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .panel-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffff88;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #ffff88;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Center Panel - Operations Map */
+        .center-panel {
+            background: #000;
+            border: 2px solid #00ff88;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #operations-map {
+            width: 100%;
+            height: 100%;
+            background: #001122;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .control-center {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            border: 1px solid #00ff88;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        /* Right Panel - Alerts & Safety */
+        .right-panel {
+            background: rgba(40, 20, 0, 0.9);
+            border: 2px solid #ff8800;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        /* Drone Cards */
+        .drone-card {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        .drone-card.active {
+            border-color: #ffff00;
+            background: rgba(255, 255, 0, 0.1);
+        }
+
+        .drone-card.alert {
+            border-color: #ff0000;
+            background: rgba(255, 0, 0, 0.2);
+            animation: alert-blink 2s infinite;
+        }
+
+        @keyframes alert-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .drone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .drone-id {
+            color: #00ff88;
+            font-size: 1rem;
+        }
+
+        .drone-status {
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .status-safe {
+            background: #00ff88;
+            color: black;
+        }
+
+        .status-warning {
+            background: #ffaa00;
+            color: black;
+        }
+
+        .status-danger {
+            background: #ff0000;
+            color: white;
+        }
+
+        .drone-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-label {
+            color: #cccccc;
+        }
+
+        .info-value {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        /* Alert Cards */
+        .alert-card {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid #ff0000;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        .alert-header {
+            color: #ff0000;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .alert-priority {
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+        }
+
+        .priority-critical {
+            background: #ff0000;
+            color: white;
+        }
+
+        .priority-high {
+            background: #ff8800;
+            color: white;
+        }
+
+        .priority-medium {
+            background: #ffaa00;
+            color: black;
+        }
+
+        /* Control Buttons */
+        .control-button {
+            background: #333;
+            color: #00ff88;
+            border: 1px solid #00ff88;
+            padding: 0.5rem 1rem;
+            margin: 0.2rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .control-button:hover {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .control-button.emergency {
+            background: #ff0000;
+            border-color: #ff0000;
+            color: white;
+        }
+
+        .control-button.emergency:hover {
+            background: #cc0000;
+        }
+
+        /* Data Mode Toggle */
+        .data-mode {
+            background: rgba(0, 40, 20, 0.9);
+            padding: 1rem;
+            border: 1px solid #00d4ff;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .mode-toggle-btn {
+            background: #00d4ff;
+            color: black;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .mode-toggle-btn:hover {
+            background: #0099cc;
+        }
+
+        /* Status Indicators */
+        .status-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 0.5rem 1rem;
+            border-top: 1px solid #00ff88;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            z-index: 1001;
+        }
+
+        .status-item {
+            color: #00ff88;
+        }
+
+        /* Safety Zone Controls */
+        .safety-controls {
+            background: rgba(0, 20, 40, 0.9);
+            border: 1px solid #0066ff;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .zone-button {
+            background: #0066ff;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            margin: 0.2rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        .zone-button.active {
+            background: #0099ff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .drone-layout {
+                grid-template-columns: 280px 1fr 280px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .drone-layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr auto;
+            }
+            
+            .left-panel, .right-panel {
+                height: auto;
+                max-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-title">
+            🚁 SkyLink Drone Operations Center
+        </div>
+        <div class="nav-controls">
+            <a href="/" class="home-btn">← Command Center</a>
+            <div style="color: #00ff88; font-size: 0.9rem;">
+                Operations: <span id="ops-status">MONITORING</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Drone Operations Layout -->
+    <div class="drone-layout">
+        <!-- Left Panel - Drone Fleet Management -->
+        <div class="left-panel">
+            <!-- Data Mode Selection -->
+            <div class="data-mode">
+                <div class="panel-title">DATA SOURCE</div>
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <span id="current-mode-display" style="color: #00d4ff; font-weight: bold;">TEST SCENARIO</span>
+                </div>
+                <button class="mode-toggle-btn" onclick="toggleDataMode()">Switch Mode</button>
+            </div>
+
+            <!-- Fleet Overview -->
+            <div class="panel-section">
+                <div class="panel-title">FLEET STATUS</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1rem; font-size: 0.8rem;">
+                    <div class="info-item">
+                        <span class="info-label">Total Drones:</span>
+                        <span class="info-value" id="fleet-total">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Active:</span>
+                        <span class="info-value" id="fleet-active">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Alerts:</span>
+                        <span class="info-value" id="fleet-alerts">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Safe:</span>
+                        <span class="info-value" id="fleet-safe">-</span>
+                    </div>
+                </div>
+                <div class="control-button" onclick="refreshFleetStatus()">Refresh Fleet</div>
+                <div class="control-button emergency" onclick="emergencyLandAll()">EMERGENCY LAND ALL</div>
+            </div>
+
+            <!-- Safety Zone Controls -->
+            <div class="safety-controls">
+                <div class="panel-title">SAFETY ZONES</div>
+                <div style="margin-bottom: 1rem;">
+                    <button class="zone-button active" onclick="toggleSafetyZone('airport')">Airport Zones</button>
+                    <button class="zone-button" onclick="toggleSafetyZone('restricted')">Restricted Areas</button>
+                    <button class="zone-button" onclick="toggleSafetyZone('emergency')">Emergency Corridors</button>
+                </div>
+            </div>
+
+            <!-- Individual Drone List -->
+            <div class="panel-section">
+                <div class="panel-title">ACTIVE DRONES</div>
+                <div id="drone-list" style="max-height: 300px; overflow-y: auto;">
+                    <div style="text-align: center; color: #666; padding: 1rem;">
+                        Loading drone data...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Panel - Operations Map -->
+        <div class="center-panel">
+            <div id="operations-map"></div>
+            <div class="map-overlay">
+                <div class="control-center">
+                    <div style="font-weight: bold; color: #00ff88; margin-bottom: 0.5rem;">OPERATIONS CONTROL</div>
+                    <div>Monitoring: <span id="monitoring-count">-</span> Drones</div>
+                    <div>Aircraft: <span id="aircraft-count">-</span> Tracked</div>
+                    <div>Coverage: <span id="coverage-area">-</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Alerts & Safety Protocols -->
+        <div class="right-panel">
+            <!-- Active Alerts -->
+            <div class="panel-section">
+                <div class="panel-title" style="color: #ff8800;">⚠️ COLLISION ALERTS</div>
+                <div id="collision-alerts" style="max-height: 250px; overflow-y: auto;">
+                    <div style="text-align: center; color: #666; padding: 1rem;">
+                        Scanning for collision risks...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Protocols -->
+            <div class="panel-section">
+                <div class="panel-title" style="color: #ff0000;">🚨 EMERGENCY PROTOCOLS</div>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <button class="control-button emergency" onclick="activateEmergencyProtocol('landing')">
+                        Emergency Landing
+                    </button>
+                    <button class="control-button emergency" onclick="activateEmergencyProtocol('rth')">
+                        Return to Home
+                    </button>
+                    <button class="control-button emergency" onclick="activateEmergencyProtocol('hover')">
+                        Emergency Hover
+                    </button>
+                    <button class="control-button" onclick="clearAllAlerts()">
+                        Clear All Alerts
+                    </button>
+                </div>
+            </div>
+
+            <!-- System Diagnostics -->
+            <div class="panel-section">
+                <div class="panel-title" style="color: #00d4ff;">🔧 SYSTEM DIAGNOSTICS</div>
+                <div style="font-size: 0.8rem;">
+                    <div class="info-item">
+                        <span class="info-label">System Status:</span>
+                        <span class="info-value" id="system-status">OPERATIONAL</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Data Source:</span>
+                        <span class="info-value" id="data-source">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Last Update:</span>
+                        <span class="info-value" id="last-update">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Uptime:</span>
+                        <span class="info-value" id="system-uptime">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-item">SkyLink Drone Operations Center - Real-time Monitoring</div>
+        <div class="status-item" id="connection-status">● CONNECTED</div>
+        <div class="status-item" id="current-time">--:--:--</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Global variables
+        let operationsMap;
+        let droneData = [];
+        let alertData = [];
+        let updateInterval;
+        let currentMode = 'TEST SCENARIO';
+        let safetyZones = {
+            airport: true,
+            restricted: false,
+            emergency: false
+        };
+
+        // Initialize operations map
+        function initializeOperationsMap() {
+            operationsMap = L.map('operations-map', {
+                center: [40.7128, -74.0060], // Default to NYC for test data
+                zoom: 12,
+                zoomControl: false,
+                attributionControl: false
+            });
+
+            // Satellite-like tiles for operations view
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(operationsMap);
+
+            console.log('Operations map initialized');
+        }
+
+        // Data mode toggle
+        async function toggleDataMode() {
+            try {
+                const response = await fetch('/api/toggle-data-source', { method: 'POST' });
+                if (response.ok) {
+                    const data = await response.json();
+                    currentMode = data.data_source;
+                    document.getElementById('current-mode-display').textContent = currentMode;
+                    document.getElementById('data-source').textContent = currentMode;
+                    
+                    console.log('Switched to:', currentMode);
+                    
+                    // Update map center based on data source
+                    if (currentMode.includes('TEST')) {
+                        operationsMap.setView([40.7128, -74.0060], 12); // NYC
+                    } else {
+                        operationsMap.setView([12.95, 77.55], 12); // Bangalore
+                    }
+                }
+            } catch (error) {
+                console.error('Error toggling data mode:', error);
+            }
+        }
+
+        // Update drone list display
+        function updateDroneList(drones) {
+            const droneList = document.getElementById('drone-list');
+            
+            if (!drones || drones.length === 0) {
+                droneList.innerHTML = '<div style="text-align: center; color: #666; padding: 1rem;">No drones available</div>';
+                return;
+            }
+
+            let html = '';
+            drones.forEach(drone => {
+                const hasAlert = alertData.some(alert => alert.drone_id === drone.drone_id);
+                const cardClass = hasAlert ? 'drone-card alert' : 'drone-card';
+                const statusClass = hasAlert ? 'status-danger' : 'status-safe';
+                const statusText = hasAlert ? 'ALERT' : 'SAFE';
+
+                html += `
+                    <div class="${cardClass}">
+                        <div class="drone-header">
+                            <div class="drone-id">${drone.drone_id}</div>
+                            <div class="drone-status ${statusClass}">${statusText}</div>
+                        </div>
+                        <div class="drone-info">
+                            <div class="info-item">
+                                <span class="info-label">Alt:</span>
+                                <span class="info-value">${Math.round(drone.altitude || 0)}m</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Speed:</span>
+                                <span class="info-value">${Math.round(drone.speed || 0)} m/s</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Lat:</span>
+                                <span class="info-value">${(drone.latitude || 0).toFixed(3)}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Lon:</span>
+                                <span class="info-value">${(drone.longitude || 0).toFixed(3)}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            droneList.innerHTML = html;
+        }
+
+        // Update collision alerts display
+        function updateCollisionAlerts(alerts) {
+            const alertsContainer = document.getElementById('collision-alerts');
+            
+            if (!alerts || alerts.length === 0) {
+                alertsContainer.innerHTML = '<div style="text-align: center; color: #00ff88; padding: 1rem;">✓ NO COLLISION ALERTS</div>';
+                return;
+            }
+
+            let html = '';
+            alerts.forEach((alert, index) => {
+                const distance = alert.distance || 0;
+                let priorityClass = 'priority-medium';
+                let priorityText = 'MEDIUM';
+                
+                if (distance < 0.2) {
+                    priorityClass = 'priority-critical';
+                    priorityText = 'CRITICAL';
+                } else if (distance < 0.5) {
+                    priorityClass = 'priority-high';
+                    priorityText = 'HIGH';
+                }
+
+                html += `
+                    <div class="alert-card">
+                        <div class="alert-header">
+                            <span>🚨 COLLISION RISK #${index + 1}</span>
+                            <span class="alert-priority ${priorityClass}">${priorityText}</span>
+                        </div>
+                        <div style="font-size: 0.8rem;">
+                            <div>Drone: <strong>${alert.drone_id}</strong></div>
+                            <div>Aircraft: <strong>${alert.threat_aircraft}</strong></div>
+                            <div>Distance: <strong>${distance.toFixed(3)} km</strong></div>
+                            <div>Risk Level: <strong>${alert.risk_level}</strong></div>
+                        </div>
+                        <div style="margin-top: 0.5rem;">
+                            <button class="control-button emergency" onclick="handleAlert('${alert.drone_id}')">
+                                Take Action
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            alertsContainer.innerHTML = html;
+        }
+
+        // Update fleet status
+        function updateFleetStatus(drones, alerts) {
+            const total = drones ? drones.length : 0;
+            const alertCount = alerts ? alerts.length : 0;
+            const safe = total - alertCount;
+            const active = total; // Assume all drones are active for now
+
+            document.getElementById('fleet-total').textContent = total;
+            document.getElementById('fleet-active').textContent = active;
+            document.getElementById('fleet-alerts').textContent = alertCount;
+            document.getElementById('fleet-safe').textContent = Math.max(0, safe);
+            
+            // Update operations control
+            document.getElementById('monitoring-count').textContent = total;
+            document.getElementById('coverage-area').textContent = currentMode.includes('TEST') ? 'NYC Metro' : 'Bangalore';
+        }
+
+        // Fetch and update drone operations data
+        async function updateDroneOperations() {
+            try {
+                const response = await fetch('/api/drone-data');
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    droneData = data.drones || [];
+                    alertData = data.alerts || [];
+                    
+                    updateDroneList(droneData);
+                    updateCollisionAlerts(alertData);
+                    updateFleetStatus(droneData, alertData);
+                    
+                    // Update system status
+                    const now = new Date().toLocaleTimeString();
+                    document.getElementById('last-update').textContent = now;
+                    document.getElementById('connection-status').textContent = '● CONNECTED';
+                    document.getElementById('ops-status').textContent = alertData.length > 0 ? 'ALERT' : 'MONITORING';
+                    
+                } else {
+                    console.error('Failed to fetch drone data');
+                    document.getElementById('connection-status').textContent = '● DISCONNECTED';
+                }
+            } catch (error) {
+                console.error('Error fetching drone data:', error);
+                document.getElementById('connection-status').textContent = '● ERROR';
+            }
+        }
+
+        // Update system statistics
+        async function updateSystemStats() {
+            try {
+                const response = await fetch('/api/system-status');
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    document.getElementById('aircraft-count').textContent = data.aircraft_count || 0;
+                    document.getElementById('system-status').textContent = data.system_status || 'UNKNOWN';
+                }
+            } catch (error) {
+                console.error('Error fetching system stats:', error);
+            }
+        }
+
+        // Control functions
+        function refreshFleetStatus() {
+            updateDroneOperations();
+            showNotification('Fleet status refreshed', 'info');
+        }
+
+        function emergencyLandAll() {
+            if (confirm('EMERGENCY: Land all drones immediately?')) {
+                showNotification('Emergency landing protocol activated', 'error');
+                console.log('Emergency landing all drones');
+            }
+        }
+
+        function toggleSafetyZone(zone) {
+            safetyZones[zone] = !safetyZones[zone];
+            
+            // Update button styles
+            document.querySelectorAll('.zone-button').forEach(btn => {
+                const zoneName = btn.textContent.toLowerCase().includes(zone);
+                if (zoneName) {
+                    btn.classList.toggle('active', safetyZones[zone]);
+                }
+            });
+            
+            console.log('Safety zones updated:', safetyZones);
+        }
+
+        function activateEmergencyProtocol(protocol) {
+            const protocols = {
+                'landing': 'Emergency landing protocol',
+                'rth': 'Return to home protocol',
+                'hover': 'Emergency hover protocol'
+            };
+            
+            if (confirm(`Activate ${protocols[protocol]}?`)) {
+                showNotification(`${protocols[protocol]} activated`, 'error');
+                console.log(`Emergency protocol activated: ${protocol}`);
+            }
+        }
+
+        function handleAlert(droneId) {
+            if (confirm(`Take emergency action for drone ${droneId}?`)) {
+                showNotification(`Emergency action initiated for ${droneId}`, 'error');
+                console.log(`Emergency action for drone: ${droneId}`);
+            }
+        }
+
+        function clearAllAlerts() {
+            showNotification('All alerts cleared', 'info');
+            console.log('All alerts cleared');
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: ${type === 'error' ? '#ff4444' : type === 'info' ? '#00d4ff' : '#00ff88'};
+                color: ${type === 'error' ? 'white' : '#000'};
+                padding: 1rem 1.5rem;
+                border-radius: 5px;
+                font-weight: bold;
+                z-index: 2000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Update current time
+        function updateTime() {
+            document.getElementById('current-time').textContent = new Date().toLocaleTimeString();
+            
+            // Update uptime (mock)
+            const startTime = new Date().getTime() - (Math.random() * 86400000); // Random uptime
+            const uptime = Math.floor((new Date().getTime() - startTime) / 1000 / 60 / 60);
+            document.getElementById('system-uptime').textContent = `${uptime}h`;
+        }
+
+        // Initialize drone operations center
+        function initializeDroneOperations() {
+            console.log('Initializing SkyLink Drone Operations Center...');
+            
+            initializeOperationsMap();
+            
+            // Initial data load
+            updateDroneOperations();
+            updateSystemStats();
+            
+            // Set up intervals
+            updateInterval = setInterval(() => {
+                updateDroneOperations();
+                updateSystemStats();
+            }, 3000);
+            
+            setInterval(updateTime, 1000);
+            
+            // Initialize time and data source
+            updateTime();
+            document.getElementById('data-source').textContent = currentMode;
+            
+            console.log('Drone Operations Center initialized successfully');
+        }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', function() {
+            if (updateInterval) {
+                clearInterval(updateInterval);
+            }
+        });
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeDroneOperations);
+    </script>
+</body>
+</html>
