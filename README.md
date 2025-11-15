@@ -85,9 +85,6 @@ All dependencies are listed in `requirements.txt`:
 - **Visual indicators** for threat levels
 - **Automatic data updates** for situational awareness
 
-## 📖 Detailed Setup
-
-For detailed setup instructions, troubleshooting, and advanced configuration, see [SETUP.md](SETUP.md).
 
 ## 🤝 Contributing
 
@@ -97,9 +94,6 @@ For detailed setup instructions, troubleshooting, and advanced configuration, se
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🆘 Support
 
